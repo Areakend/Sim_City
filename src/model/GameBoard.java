@@ -42,6 +42,7 @@ import model.tiles.Evolvable;
 import model.tiles.GrassTile;
 import model.tiles.Tile;
 import model.tools.BulldozerTool;
+import model.tools.FarmerConstructionTool;
 // Add when implemented
 //import model.tools.CommercialZoneDelimiterTool;
 //import model.tools.IndustrialZoneDelimiterTool;
@@ -138,6 +139,7 @@ public class GameBoard extends Observable {
         this.tools.add(new BulldozerTool());
         this.tools.add(new PowerPlantConstructionTool());
         this.tools.add(new ResidentialZoneDelimiterTool());
+        this.tools.add(new FarmerConstructionTool());
 // Add when implemented
 //        this.tools.add(new IndustrialZoneDelimiterTool());
 //        this.tools.add(new CommercialZoneDelimiterTool());
@@ -252,6 +254,25 @@ public class GameBoard extends Observable {
     public int getEnergy() {
         return this.resources.getUnconsumedEnergy();
     }
+
+    public int getWood() {
+        return this.resources.getUnconsumedWood();
+    }
+
+    public int getFood() {
+        return this.resources.getUnconsumedFood();
+    }
+
+    public int getSteel() {
+        return this.resources.getUnconsumedSteel();
+    }
+
+    public int getRock() {
+        return this.resources.getUnconsumedRock();
+    }
+ 
+    
+
 
     public int getProducts() {
         return this.resources.getProductsCount();

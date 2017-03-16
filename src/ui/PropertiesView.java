@@ -43,6 +43,10 @@ public class PropertiesView extends JPanel implements Observer {
     private JLabel energy;
     private JLabel unworkingPop;
     private JLabel products;
+    private JLabel wood;
+    private JLabel food;
+    private JLabel steel;
+    private JLabel rock;
 
     public PropertiesView(GameBoard w, LocalizedTexts texts) {
         super();
@@ -55,6 +59,22 @@ public class PropertiesView extends JPanel implements Observer {
         this.add(new JLabel(texts.getUnconsumedEnergyLabel()));
         this.energy = new JLabel(Integer.toString(w.getEnergy()));
         this.add(this.energy);
+        
+        this.add(new JLabel(texts.getUnconsumedWoodLabel()));
+        this.wood = new JLabel(Integer.toString(w.getWood()));
+        this.add(this.wood);
+        
+        this.add(new JLabel(texts.getUnconsumedFoodLabel()));
+        this.wood = new JLabel(Integer.toString(w.getFood()));
+        this.add(this.wood);
+        
+        this.add(new JLabel(texts.getUnconsumedSteelLabel()));
+        this.wood = new JLabel(Integer.toString(w.getSteel()));
+        this.add(this.wood);
+        
+        this.add(new JLabel(texts.getUnconsumedRockLabel()));
+        this.wood = new JLabel(Integer.toString(w.getRock()));
+        this.add(this.wood);
 
         this.add(new JLabel(texts.getUnworkingPopulationLabel()));
         this.unworkingPop = new JLabel(Integer.toString(w.getUnworkingPopulation()));

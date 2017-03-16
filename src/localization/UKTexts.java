@@ -67,6 +67,26 @@ public class UKTexts extends LocalizedTexts {
     }
 
     @Override
+    public String getUnconsumedWoodLabel() {
+        return "Unconsumed wood";
+    }
+
+    @Override
+    public String getUnconsumedFoodLabel() {
+        return "Unconsumed food";
+    }
+
+    @Override
+    public String getUnconsumedSteelLabel() {
+        return "Unconsumed steel";
+    }
+
+    @Override
+    public String getUnconsumedRockLabel() {
+        return "Unconsumed rock";
+    }
+
+    @Override
     public String getStoredProductsLabel() {
         return "Stored products";
     }

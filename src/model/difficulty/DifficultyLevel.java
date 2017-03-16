@@ -51,6 +51,10 @@ public class DifficultyLevel {
      * {@link #getInitialCurrency()}
      */
     private final int initialCurrency;
+    private final int initialWood;
+    private final int initialFood;
+    private final int initialSteel;
+    private final int initialRock;
 
     // Creation
     /**
@@ -64,6 +68,10 @@ public class DifficultyLevel {
      */
     public DifficultyLevel(int aCurrency) {
         this.initialCurrency = aCurrency;
+        this.initialWood =aCurrency/2;
+        this.initialFood =aCurrency/2;
+        this.initialSteel =aCurrency/2;
+        this.initialRock =aCurrency/2;
     }
 
     // Access
@@ -72,6 +80,18 @@ public class DifficultyLevel {
      */
     public int getInitialCurrency() {
         return this.initialCurrency;
+    }
+    public int getInitialWood() {
+        return this.initialWood;
+    }
+    public int getInitialFood() {
+        return this.initialFood;
+    }
+    public int getInitialSteel() {
+        return this.initialSteel;
+    }
+    public int getInitialRock() {
+        return this.initialRock;
     }
 
     @Override

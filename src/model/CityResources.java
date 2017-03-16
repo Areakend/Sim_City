@@ -29,6 +29,20 @@ package model;
  * resource is reset at each step thanks to {@link CityResources#getVat()}.
  */
 public class CityResources {
+	
+	private int Wood;
+	private int Steel;
+	private int Rock;
+	private int Food;
+	
+	private int unconsumedWood = 250;
+	private int Woodproduction;
+	private int unconsumedSteel = 250;
+	private int Steelproduction;
+	private int unconsumedRock = 250;
+	private int Rockproduction;
+	private int unconsumedFood = 250;
+	private int Foodproduction;
 
     // Constant
     /**
@@ -171,20 +185,69 @@ public class CityResources {
     public int getConsumedEnergy() {
         return this.energyProduction - this.unconsumedEnergy;
     }
-
     /**
      * @return Number of available energy units.
      */
+ 
+    public int getConsumedWood() {
+        return this.Woodproduction - this.unconsumedWood;
+    }
+    
+    public int getConsumedRock() {
+        return this.Rockproduction - this.unconsumedRock;
+    }
+    
+    public int getConsumedFood() {
+        return this.Foodproduction - this.unconsumedFood;
+    }
+    
+    public int getConsumedSteel() {
+        return this.Steelproduction - this.unconsumedSteel;
+    }
+ 
     public int getUnconsumedEnergy() {
         return this.unconsumedEnergy;
     }
-
+    
+    public int getUnconsumedWood() {
+        return this.unconsumedWood;
+    }
+    
+    public int getUnconsumedFood() {
+        return this.unconsumedFood;
+    }
+    
+    public int getUnconsumedSteel() {
+        return this.unconsumedSteel;
+    }
+    
+    public int getUnconsumedRock() {
+        return this.unconsumedRock;
+    }
+    
     /**
-     *
-     * @return Monthly production of energy units.
-     */
+    *
+    * @return Monthly production of energy units.
+    */
+    
     public int getEnergyProduction() {
         return this.energyProduction;
+    }
+    
+    public int getFoodProduction() {
+        return this.Foodproduction;
+    }
+    
+    public int getSteelProduction() {
+        return this.Steelproduction;
+    }
+    
+    public int getWoodProduction() {
+        return this.Woodproduction;
+    }
+    
+    public int getRockProduction() {
+        return this.Rockproduction;
     }
 
     // Access (Population)
@@ -417,5 +480,9 @@ public class CityResources {
         this.unworkingPopulation = this.population;
         this.unconsumedEnergy = this.energyProduction;
     }
+
+	public int getWood() {
+		return this.Wood;
+	}
 
 }

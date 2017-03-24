@@ -99,7 +99,7 @@ public final class SimCityUI extends JFrame {
 
     // Creation
     public SimCityUI(int hauteur, int largeur) {
-        super("SimCityTÃ©lÃ©com");
+        super("SimCityTélécom");
         // Choix de la langue
         final LocalizedTexts texts = new UKTexts();
 

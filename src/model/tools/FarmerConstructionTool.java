@@ -5,7 +5,7 @@ import model.tiles.GrassTile;
 import model.tiles.PowerPlantTile;
 import model.tiles.Tile;
 
-public class FarmerConstructionTool extends Tool {
+public final class FarmerConstructionTool extends Tool {
 	
     private final static int Wood_COST = 40;
 
@@ -13,6 +13,12 @@ public class FarmerConstructionTool extends Tool {
 	public boolean canEffect(Tile aTarget) {
 		return aTarget instanceof GrassTile;
 		}
+	
+	@Override
+	public boolean equals(Object o) {
+	    return this == o || o instanceof PowerPlantConstructionTool;
+
+	}
 
 	@Override
 	public boolean isAfordable(Tile aTarget, CityResources r) {
@@ -23,6 +29,11 @@ public class FarmerConstructionTool extends Tool {
 	public int getCost(Tile aTarget) {
         return FarmerConstructionTool.Wood_COST;
 	}
+	
+    @Override
+    public int hashCode() {
+        return this.getClass().hashCode();
+    }
 
 	@Override
 	protected Tile innerEffect(Tile aTarget, CityResources r) {
@@ -32,6 +43,10 @@ public class FarmerConstructionTool extends Tool {
         r.spendW(FarmerConstructionTool.Wood_COST);
 
         return new PowerPlantTile();
+    }
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName();
     }
 	}
 

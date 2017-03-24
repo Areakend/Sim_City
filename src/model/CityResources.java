@@ -35,13 +35,7 @@ public class CityResources {
 	private int Rock;
 	private int Food;
 	
-	private int unconsumedWood = 250;
-	private int Woodproduction;
-	private int unconsumedSteel = 250;
-	private int Steelproduction;
-	private int unconsumedRock = 250;
-	private int Rockproduction;
-	private int unconsumedFood = 250;
+	private int unconsumedFood;
 	private int Foodproduction;
 
     // Constant
@@ -107,7 +101,9 @@ public class CityResources {
      */
     public CityResources(int aCurrency) {
         assert aCurrency >= 0;
-
+        this.Wood = 250;
+        this.Steel = 250;
+        this.Rock = 250;
         this.currency = aCurrency;
         this.vat = CityResources.DEFAULT_VAT;
     }
@@ -189,42 +185,31 @@ public class CityResources {
      * @return Number of available energy units.
      */
  
-    public int getConsumedWood() {
-        return this.Woodproduction - this.unconsumedWood;
+    public int getWood() {
+        return this.Wood;
     }
     
-    public int getConsumedRock() {
-        return this.Rockproduction - this.unconsumedRock;
+    public int getRock() {
+        return this.Rock;
     }
     
     public int getConsumedFood() {
         return this.Foodproduction - this.unconsumedFood;
     }
     
-    public int getConsumedSteel() {
-        return this.Steelproduction - this.unconsumedSteel;
+    public int getSteel() {
+        return this.Steel;
     }
  
     public int getUnconsumedEnergy() {
         return this.unconsumedEnergy;
     }
     
-    public int getUnconsumedWood() {
-        return this.unconsumedWood;
-    }
-    
+ 
     public int getUnconsumedFood() {
         return this.unconsumedFood;
     }
-    
-    public int getUnconsumedSteel() {
-        return this.unconsumedSteel;
-    }
-    
-    public int getUnconsumedRock() {
-        return this.unconsumedRock;
-    }
-    
+ 
     /**
     *
     * @return Monthly production of energy units.
@@ -236,18 +221,6 @@ public class CityResources {
     
     public int getFoodProduction() {
         return this.Foodproduction;
-    }
-    
-    public int getSteelProduction() {
-        return this.Steelproduction;
-    }
-    
-    public int getWoodProduction() {
-        return this.Woodproduction;
-    }
-    
-    public int getRockProduction() {
-        return this.Rockproduction;
     }
 
     // Access (Population)
@@ -306,6 +279,21 @@ public class CityResources {
 
         this.currency = this.currency + amount;
     }
+    public void creditW(int amount) {
+        assert amount >= 0;
+
+        this.Wood = this.Wood + amount;
+    }
+    public void creditR(int amount) {
+        assert amount >= 0;
+
+        this.Rock = this.Rock + amount;
+    }
+    public void creditS(int amount) {
+        assert amount >= 0;
+
+        this.Steel = this.Steel + amount;
+    }
 
     /**
      * Get VAT on {@value currencyAmount} and {@link #credit(int)} with the
@@ -328,6 +316,21 @@ public class CityResources {
         assert amount >= 0;
 
         this.currency = this.currency - amount;
+    }
+    public void spendW(int amount) {
+        assert amount >= 0;
+
+        this.Wood = this.Wood - amount;
+    }
+    public void spendR(int amount) {
+        assert amount >= 0;
+
+        this.Rock = this.Rock - amount;
+    }
+    public void spendS(int amount) {
+        assert amount >= 0;
+
+        this.Steel = this.Steel - amount;
     }
 
     // Change (Energy)
@@ -480,9 +483,4 @@ public class CityResources {
         this.unworkingPopulation = this.population;
         this.unconsumedEnergy = this.energyProduction;
     }
-
-	public int getWood() {
-		return this.Wood;
-	}
-
 }

@@ -29,7 +29,7 @@ public class FarmerConstructionTool extends Tool {
         assert this.canEffect(aTarget);
         assert this.isAfordable(aTarget, r);
 
-        r.spend(FarmerConstructionTool.Wood_COST);
+        r.spendW(FarmerConstructionTool.Wood_COST);
 
         return new PowerPlantTile();
     }

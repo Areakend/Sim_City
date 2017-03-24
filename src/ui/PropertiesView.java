@@ -56,25 +56,26 @@ public class PropertiesView extends JPanel implements Observer {
         this.currency = new JLabel(Integer.toString(w.getCurrency()));
         this.add(this.currency);
 
+        this.add(new JLabel(texts.getWoodLabel()));
+        this.wood = new JLabel(Integer.toString(w.getWood()));
+        this.add(this.wood);
+        
+        this.add(new JLabel(texts.getRockLabel()));
+        this.rock = new JLabel(Integer.toString(w.getRock()));
+        this.add(this.rock);
+        
+        this.add(new JLabel(texts.getSteelLabel()));
+        this.steel = new JLabel(Integer.toString(w.getSteel()));
+        this.add(this.steel);
+
         this.add(new JLabel(texts.getUnconsumedEnergyLabel()));
         this.energy = new JLabel(Integer.toString(w.getEnergy()));
         this.add(this.energy);
         
-        this.add(new JLabel(texts.getUnconsumedWoodLabel()));
-        this.wood = new JLabel(Integer.toString(w.getWood()));
-        this.add(this.wood);
-        
+ 
         this.add(new JLabel(texts.getUnconsumedFoodLabel()));
-        this.wood = new JLabel(Integer.toString(w.getFood()));
-        this.add(this.wood);
-        
-        this.add(new JLabel(texts.getUnconsumedSteelLabel()));
-        this.wood = new JLabel(Integer.toString(w.getSteel()));
-        this.add(this.wood);
-        
-        this.add(new JLabel(texts.getUnconsumedRockLabel()));
-        this.wood = new JLabel(Integer.toString(w.getRock()));
-        this.add(this.wood);
+        this.food = new JLabel(Integer.toString(w.getFood()));
+        this.add(this.food);
 
         this.add(new JLabel(texts.getUnworkingPopulationLabel()));
         this.unworkingPop = new JLabel(Integer.toString(w.getUnworkingPopulation()));
@@ -91,7 +92,11 @@ public class PropertiesView extends JPanel implements Observer {
         GameBoard world = (GameBoard) o;
 
         this.currency.setText(MessageFormat.format(world.getTexts().getCurrencyMsg(), world.getCurrency()));
+        this.wood.setText(MessageFormat.format(world.getTexts().getWoodMsg(), world.getWood()));
+        this.rock.setText(MessageFormat.format(world.getTexts().getRockMsg(), world.getRock()));
+        this.steel.setText(MessageFormat.format(world.getTexts().getSteelMsg(), world.getSteel()));
         this.energy.setText("" + world.getEnergy());
+        this.food.setText("" + world.getFood());
         this.unworkingPop.setText("" + world.getUnworkingPopulation());
         this.products.setText("" + world.getProducts());
     }

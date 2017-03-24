@@ -32,22 +32,31 @@ public class UKTexts extends LocalizedTexts {
     // Messages
     @Override
     public String getToolCannotAffectMsg() {
-        return "Cannot effect this tile";
+        return "Vous ne pouvez pas affecter cette case";
     }
 
     @Override
     public String getCurrencyMsg() {
         return "{0} Ecus";
     }
+    public String getWoodMsg() {
+        return "{0} Bois";
+    }
+    public String getSteelMsg() {
+        return "{0} Fer";
+    }
+    public String getRockMsg() {
+        return "{0} Pierre";
+    }
 
     @Override
     public String getEarthQuakeMsg() {
-        return "An earthquake occured at coordinates [ {0} ]";
+        return "Il y à eu un tremblemment de terre à la position [ {0} ]";
     }
 
     @Override
     public String getMissingResourcesMsg() {
-        return "Missing resources";
+        return "Manque de ressources";
     }
 
     @Override
@@ -58,42 +67,42 @@ public class UKTexts extends LocalizedTexts {
     // Labels
     @Override
     public String getCurrencyLabel() {
-        return "Currency";
+        return "Ecus";
     }
 
     @Override
     public String getUnconsumedEnergyLabel() {
-        return "Unconsumed energy";
+        return "Energie non consommé";
     }
 
     @Override
-    public String getUnconsumedWoodLabel() {
-        return "Unconsumed wood";
+    public String getWoodLabel() {
+        return "Bois";
     }
 
     @Override
     public String getUnconsumedFoodLabel() {
-        return "Unconsumed food";
+        return "Nourriture restante";
     }
 
     @Override
-    public String getUnconsumedSteelLabel() {
-        return "Unconsumed steel";
+    public String getSteelLabel() {
+        return "Fer";
     }
 
     @Override
-    public String getUnconsumedRockLabel() {
-        return "Unconsumed rock";
+    public String getRockLabel() {
+        return "Pierre";
     }
 
     @Override
     public String getStoredProductsLabel() {
-        return "Stored products";
+        return "Produits stockés";
     }
 
     @Override
     public String getUnworkingPopulationLabel() {
-        return "Unworking population";
+        return "Population au chomage";
     }
 
 }

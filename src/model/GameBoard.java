@@ -246,6 +246,16 @@ public class GameBoard extends Observable {
     public int getCurrency() {
         return this.resources.getCurrency();
     }
+    
+    public int getWood() {
+        return this.resources.getWood();
+    }
+    public int getRock() {
+        return this.resources.getRock();
+    }
+    public int getSteel() {
+        return this.resources.getSteel();
+    }
 
     public int getUnworkingPopulation() {
         return this.resources.getUnworkingPopulation();
@@ -255,24 +265,9 @@ public class GameBoard extends Observable {
         return this.resources.getUnconsumedEnergy();
     }
 
-    public int getWood() {
-        return this.resources.getUnconsumedWood();
-    }
-
     public int getFood() {
         return this.resources.getUnconsumedFood();
     }
-
-    public int getSteel() {
-        return this.resources.getUnconsumedSteel();
-    }
-
-    public int getRock() {
-        return this.resources.getUnconsumedRock();
-    }
- 
-    
-
 
     public int getProducts() {
         return this.resources.getProductsCount();

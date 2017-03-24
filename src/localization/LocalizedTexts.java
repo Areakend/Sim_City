@@ -41,6 +41,9 @@ public abstract class LocalizedTexts {
      * @return Currency message (including currency symbol).
      */
     public abstract String getCurrencyMsg();
+    public abstract String getWoodMsg();
+    public abstract String getRockMsg();
+    public abstract String getSteelMsg();
 
     /**
      * {0}: locations
@@ -72,10 +75,10 @@ public abstract class LocalizedTexts {
      * @return No-consumed energy label.
      */
     public abstract String getUnconsumedEnergyLabel();
-    public abstract String getUnconsumedWoodLabel();
+    public abstract String getWoodLabel();
     public abstract String getUnconsumedFoodLabel();
-    public abstract String getUnconsumedSteelLabel();
-    public abstract String getUnconsumedRockLabel();
+    public abstract String getSteelLabel();
+    public abstract String getRockLabel();
 
     /**
      * @return Stored products label.

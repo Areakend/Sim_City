@@ -37,7 +37,7 @@ import model.tiles.Tile;
 public final class ResidentialZoneDelimiterTool extends Tool {
 
 // Constant
-	private final static int CURRENCY_COST = 20;
+	private final static int Wood_COST = 20;
 
 // Status
 	// Status
@@ -61,13 +61,13 @@ public final class ResidentialZoneDelimiterTool extends Tool {
      */
 	@Override
 	public boolean isAfordable (Tile aTarget, CityResources r) {
-		return ResidentialZoneDelimiterTool.CURRENCY_COST <= r.getCurrency();
+		return ResidentialZoneDelimiterTool.Wood_COST <= r.getCurrency();
 	}
 
 // Access
 	@Override
 	public int getCost (Tile aTarget) {
-		return ResidentialZoneDelimiterTool.CURRENCY_COST;
+		return ResidentialZoneDelimiterTool.Wood_COST;
 	}
 
 	@Override
@@ -84,7 +84,7 @@ public final class ResidentialZoneDelimiterTool extends Tool {
 		assert canEffect(aTarget);
 		assert isAfordable(aTarget, r);
 
-		r.spend(ResidentialZoneDelimiterTool.CURRENCY_COST);
+		r.spend(ResidentialZoneDelimiterTool.Wood_COST);
 
 		return new ResidentialTile();
 	}

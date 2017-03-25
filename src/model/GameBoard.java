@@ -43,6 +43,8 @@ import model.tiles.GrassTile;
 import model.tiles.Tile;
 import model.tools.BulldozerTool;
 import model.tools.FarmerConstructionTool;
+import model.tools.LumberjackConstructionTool;
+import model.tools.MineConstructionTool;
 // Add when implemented
 //import model.tools.CommercialZoneDelimiterTool;
 //import model.tools.IndustrialZoneDelimiterTool;
@@ -140,7 +142,10 @@ public class GameBoard extends Observable {
         this.tools.add(new PowerPlantConstructionTool());
         this.tools.add(new ResidentialZoneDelimiterTool());
         this.tools.add(new FarmerConstructionTool());
-// Add when implemented
+        this.tools.add(new MineConstructionTool());
+        this.tools.add(new LumberjackConstructionTool());
+
+        // Add when implemented
 //        this.tools.add(new IndustrialZoneDelimiterTool());
 //        this.tools.add(new CommercialZoneDelimiterTool());
 

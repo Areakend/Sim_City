@@ -5,10 +5,11 @@ import model.tiles.GrassTile;
 import model.tiles.PowerPlantTile;
 import model.tiles.Tile;
 
-public final class FarmerConstructionTool extends Tool {
+public final class MineConstructionTool extends Tool {
 	
-    private final static int Wood_COST = 40;
+    private final static int Rock_COST = 40;
 
+	
 	@Override
 	public boolean canEffect(Tile aTarget) {
 		return aTarget instanceof GrassTile;
@@ -16,18 +17,18 @@ public final class FarmerConstructionTool extends Tool {
 	
 	@Override
 	public boolean equals(Object o) {
-	    return this == o || o instanceof FarmerConstructionTool;
+	    return this == o || o instanceof MineConstructionTool;
 
 	}
 
 	@Override
 	public boolean isAfordable(Tile aTarget, CityResources r) {
-        return FarmerConstructionTool.Wood_COST <= r.getWood();
+        return MineConstructionTool.Rock_COST <= r.getRock();
 	}
 
 	@Override
 	public int getCost(Tile aTarget) {
-        return FarmerConstructionTool.Wood_COST;
+        return MineConstructionTool.Rock_COST;
 	}
 	
     @Override
@@ -40,7 +41,7 @@ public final class FarmerConstructionTool extends Tool {
         assert this.canEffect(aTarget);
         assert this.isAfordable(aTarget, r);
 
-        r.spendW(FarmerConstructionTool.Wood_COST);
+        r.spendR(MineConstructionTool.Rock_COST);
 
         return new PowerPlantTile();
     }

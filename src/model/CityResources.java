@@ -220,7 +220,7 @@ public class CityResources {
     }
     
     public int getFoodProduction() {
-        return this.Foodproduction;
+        return this.foodProduction;
     }
 
     // Access (Population)

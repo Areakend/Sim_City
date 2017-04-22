@@ -25,6 +25,8 @@
 package launcher;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.Scanner;
 
 import javax.swing.Box;
@@ -37,6 +39,7 @@ import localization.LocalizedTexts;
 import localization.UKTexts;
 import model.GameBoard;
 import ui.ToolsView;
+import ui.ZoomView;
 import ui.MessagesView;
 import ui.PropertiesView;
 import ui.RefreshView;
@@ -47,9 +50,9 @@ public final class SimCityUI extends JFrame {
     // Constants
     private final static long serialVersionUID = 1L;
 
-    private final static int DEFAULT_HEIGHT = 10;
-
-    private final static int DEFAULT_WIDTH = 20;
+    private final static int DEFAULT_HEIGHT = 40;
+    
+    private final static int DEFAULT_WIDTH = 40;
 
     // Entry point
     /**
@@ -91,25 +94,44 @@ public final class SimCityUI extends JFrame {
                 System.err.println("pasing: Wrong number of arguments");
             }
         }
+        
+        Dimension dimension = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        int tmp = (int)dimension.getHeight();
+        tmp /= 48;
+        tmp -=6;
+        final int case_screenH = tmp;
+        tmp  = (int)dimension.getWidth();
+        tmp /= 48;
+        tmp -=7;
+        final int case_screenW = tmp;
+        
+        
 
+        
         // Pour que ce soit le thread graphique qui construise les composants
         // graphiques
-        SwingUtilities.invokeLater(() -> new SimCityUI(height, width));
+        SwingUtilities.invokeLater(() -> new SimCityUI(height, width, case_screenH, case_screenW));
     }
 
     // Creation
-    public SimCityUI(int hauteur, int largeur) {
-        super("SimCityT�l�com");
+    public SimCityUI(int hauteur, int largeur, int vhauteur, int vlargeur) {
+        super("SimCityTélécom");
+
+        //this.setPreferredSize(new Dimension(DEFAULT_WIDTH*49+100+200,DEFAULT_HEIGHT*49+200));
+        
         // Choix de la langue
         final LocalizedTexts texts = new UKTexts();
 
         // Création du monde
         GameBoard monde = new GameBoard(hauteur, largeur, texts);
-
+        
         // Création de la vue du monde, placée au centre de la fenêtre
-        GameBoardView vm = new GameBoardView(monde);
+        GameBoardView vm = new GameBoardView(monde, vhauteur, vlargeur);
+        vm.setPreferredSize(new Dimension(48*vlargeur,48*vhauteur));
         monde.addObserver(vm);
-        this.add(vm, BorderLayout.CENTER);
+        
+        ZoomView zv = new ZoomView(vm);
+        this.add(zv, BorderLayout.CENTER);
 
         // Création de la palette des éléments de jeu, placée à gauche
         ToolsView ve = new ToolsView(monde);
@@ -127,16 +149,19 @@ public final class SimCityUI extends JFrame {
         right.add(vi);
         right.add(Box.createVerticalGlue());
         right.add(rv);
+        
         this.add(right, BorderLayout.EAST);
 
         // Création du panneau de message
         MessagesView mv = new MessagesView();
         monde.addObserver(mv);
         this.add(mv, BorderLayout.SOUTH);
-
+        
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.pack();
-
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
+        
         this.setResizable(false);
         this.setVisible(true);
     }

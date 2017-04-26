@@ -55,6 +55,7 @@ import model.tools.MineConstructionTool;
 //import model.tools.IndustrialZoneDelimiterTool;
 import model.tools.PowerPlantConstructionTool;
 import model.tools.ResidentialZoneDelimiterTool;
+import model.tools.RoadConstructionTool;
 import model.tools.Tool;
 
 public class GameBoard extends Observable {
@@ -150,6 +151,7 @@ public class GameBoard extends Observable {
 
         this.tools = new ArrayList<>();
         this.tools.add(new BulldozerTool());
+        this.tools.add(new RoadConstructionTool());
         this.tools.add(new PowerPlantConstructionTool());
         this.tools.add(new ResidentialZoneDelimiterTool());
         this.tools.add(new FarmerConstructionTool());

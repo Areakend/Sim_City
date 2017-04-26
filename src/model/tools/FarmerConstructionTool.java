@@ -1,8 +1,8 @@
 package model.tools;
 
 import model.CityResources;
+import model.tiles.FarmTile;
 import model.tiles.GrassTile;
-import model.tiles.PowerPlantTile;
 import model.tiles.Tile;
 
 public final class FarmerConstructionTool extends Tool {
@@ -42,7 +42,7 @@ public final class FarmerConstructionTool extends Tool {
 
         r.spendW(FarmerConstructionTool.Wood_COST);
 
-        return new PowerPlantTile();
+        return new FarmTile();
     }
     @Override
     public String toString() {

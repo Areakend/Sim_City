@@ -27,7 +27,6 @@ package ui;
 import java.awt.GridLayout;
 import java.util.Observable;
 import java.util.Observer;
-
 import javax.swing.JPanel;
 
 import model.GameBoard;
@@ -37,21 +36,28 @@ public class GameBoardView extends JPanel implements Observer {
     private static final long serialVersionUID = 1L;
 
     private TileUI[][] tiles;
+    
+    private int hzoom, wzoom, xzoom, yzoom, worldH, worldW;
 
     /**
      * Constructor.
      */
-    public GameBoardView(GameBoard w) {
+    public GameBoardView(GameBoard w, int vheigth, int vwidth) {
         super();
-        GridLayout gl = new GridLayout(w.getHeight(), w.getWidth());
-        gl.setHgap(-8);
-        gl.setVgap(0);
+        this.hzoom=vheigth;
+        this.wzoom=vwidth;
+        this.xzoom=0;
+        this.yzoom=0;
+        this.worldH=w.getHeight();
+        this.worldW=w.getWidth();
+        GridLayout gl = new GridLayout(hzoom, wzoom);
         this.setLayout(gl);
         this.tiles = new TileUI[w.getHeight()][w.getWidth()];
         for (int i = 0; i < w.getHeight(); i++) {
             for (int j = 0; j < w.getWidth(); j++) {
                 TileUI cc = new TileUI(w, i, j);
                 this.tiles[i][j] = cc;
+                if(i < hzoom && j < wzoom)
                 this.add(cc);
             }
         }
@@ -64,12 +70,55 @@ public class GameBoardView extends JPanel implements Observer {
     public void update(Observable o, Object arg) {
         assert o instanceof GameBoard;
         GameBoard world = (GameBoard) o;
-        for (int i = 0; i < world.getHeight(); i++) {
-            for (int j = 0; j < world.getWidth(); j++) {
+        for (int i = xzoom; i < hzoom+xzoom; i++) {
+            for (int j = yzoom; j < wzoom+yzoom; j++) {
                 this.tiles[i][j].update();
             }
         }
-
     }
 
+    public boolean moveZoomUp() {
+    	//True si je peux encore avancer
+    	assert(xzoom>0);
+    	xzoom--;
+    	resetLayout();
+    	return xzoom>0;
+    }
+    
+    public boolean moveZoomLeft() {
+    	//True si je peux encore avancer
+    	assert(yzoom>0);
+    	yzoom--;
+    	resetLayout();
+    	return yzoom>0;
+    }
+    
+    public boolean moveZoomDown() {
+    	//True si je peux encore avancer
+    	assert(xzoom+hzoom<worldH);
+    	xzoom++;
+    	resetLayout();
+    	return xzoom+hzoom<worldH;
+    }
+    
+    public boolean moveZoomRight() {
+    	//True si je peux encore avancer
+    	assert(yzoom+wzoom<worldW);
+    	yzoom++;
+    	resetLayout();
+    	return yzoom+wzoom<worldW;
+    }
+    
+    public void resetLayout() {
+    	this.removeAll();
+    	GridLayout gl = new GridLayout(hzoom, wzoom);
+        this.setLayout(gl);
+        for (int i = xzoom; i < hzoom+xzoom; i++) {
+            for (int j = yzoom; j < wzoom+yzoom; j++) {
+                this.add(this.tiles[i][j]);
+                this.tiles[i][j].update();
+            }
+        }
+        this.validate();
+    }
 }

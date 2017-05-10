@@ -33,10 +33,10 @@ public class CityResources {
 	private int Wood;
 	private int Steel;
 	private int Rock;
-	private int Food;
+
 	
 	private int unconsumedFood;
-	private int Foodproduction;
+	private int foodProduction;
 
     // Constant
     /**
@@ -194,7 +194,7 @@ public class CityResources {
     }
     
     public int getConsumedFood() {
-        return this.Foodproduction - this.unconsumedFood;
+        return this.foodProduction - this.unconsumedFood;
     }
     
     public int getSteel() {
@@ -220,7 +220,7 @@ public class CityResources {
     }
     
     public int getFoodProduction() {
-        return this.Foodproduction;
+        return this.foodProduction;
     }
 
     // Access (Population)
@@ -345,6 +345,12 @@ public class CityResources {
         this.unconsumedEnergy = this.unconsumedEnergy - amount;
     }
 
+    public void consumeFood(int amount) {
+        assert 0 <= amount && amount <= this.getUnconsumedFood();
+
+        this.unconsumedFood = this.unconsumedFood - amount;
+    }
+
     /**
      * Decrease {@link #getEnergyProduction()} by {@value amount}.
      *
@@ -357,6 +363,13 @@ public class CityResources {
         this.unconsumedEnergy = Math.min(this.unconsumedEnergy, this.energyProduction);
     }
 
+    public void decreaseFoodProduction(int amount) {
+        assert amount >= 0;
+
+        this.foodProduction = Math.max(0, this.foodProduction - amount);
+        this.unconsumedFood = Math.min(this.unconsumedFood, this.foodProduction);
+    }
+
     /**
      * Increase {@link #getEnergyProduction()} by {@value amount}.
      *
@@ -366,6 +379,13 @@ public class CityResources {
         assert amount >= 0;
 
         this.energyProduction = this.energyProduction + amount;
+        this.unconsumedEnergy = this.unconsumedEnergy + amount;
+    }
+
+    public void increaseFoodProduction(int amount) {
+        assert amount >= 0;
+
+        this.foodProduction = this.energyProduction + amount;
         this.unconsumedEnergy = this.unconsumedEnergy + amount;
     }
 

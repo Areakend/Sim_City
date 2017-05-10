@@ -2,14 +2,13 @@ package model.tools;
 
 import model.CityResources;
 import model.tiles.GrassTile;
-import model.tiles.MineTile;
+import model.tiles.RoadTile;
 import model.tiles.Tile;
 
-public final class MineConstructionTool extends Tool {
+public final class RoadConstructionTool extends Tool {
 	
-    private final static int Rock_COST = 40;
+    private final static int Wood_COST = 5;
 
-	
 	@Override
 	public boolean canEffect(Tile aTarget) {
 		return aTarget instanceof GrassTile;
@@ -17,18 +16,18 @@ public final class MineConstructionTool extends Tool {
 	
 	@Override
 	public boolean equals(Object o) {
-	    return this == o || o instanceof MineConstructionTool;
+	    return this == o || o instanceof RoadConstructionTool;
 
 	}
 
 	@Override
 	public boolean isAfordable(Tile aTarget, CityResources r) {
-        return MineConstructionTool.Rock_COST <= r.getRock();
+        return RoadConstructionTool.Wood_COST <= r.getWood();
 	}
 
 	@Override
 	public int getCost(Tile aTarget) {
-        return MineConstructionTool.Rock_COST;
+        return RoadConstructionTool.Wood_COST;
 	}
 	
     @Override
@@ -41,9 +40,9 @@ public final class MineConstructionTool extends Tool {
         assert this.canEffect(aTarget);
         assert this.isAfordable(aTarget, r);
 
-        r.spendR(MineConstructionTool.Rock_COST);
+        r.spendW(RoadConstructionTool.Wood_COST);
 
-        return new MineTile();
+        return new RoadTile();
     }
     @Override
     public String toString() {

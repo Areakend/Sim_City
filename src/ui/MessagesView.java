@@ -24,6 +24,7 @@
 
 package ui;
 
+import java.awt.BorderLayout;
 import java.text.MessageFormat;
 import java.util.Observable;
 import java.util.Observer;
@@ -43,13 +44,14 @@ public class MessagesView extends JPanel implements Observer {
     public MessagesView() {
         super();
         this.setBorder(BorderFactory.createTitledBorder("Something special ?"));
-        this.message = new JTextArea(10, 110);
+        this.message = new JTextArea(5,5);
         this.message.setWrapStyleWord(true);
         this.message.setLineWrap(true);
         this.message.setOpaque(false);
         this.message.setEditable(false);
         this.message.setFocusable(false);
-        this.add(new JScrollPane(this.message));
+        this.setLayout(new BorderLayout());
+        this.add(new JScrollPane(this.message),BorderLayout.CENTER);
     }
 
     @Override

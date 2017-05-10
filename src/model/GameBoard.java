@@ -38,8 +38,13 @@ import localization.LocalizedTexts;
 import model.difficulty.DifficultyLevel;
 import model.event.Event;
 import model.event.EventFactory;
+import model.tiles.CastleaTile;
+import model.tiles.CastlebTile;
+import model.tiles.CastlecTile;
+import model.tiles.CastledTile;
 import model.tiles.Evolvable;
 import model.tiles.GrassTile;
+import model.tiles.RiverTile;
 import model.tiles.Tile;
 import model.tools.BulldozerTool;
 import model.tools.FarmerConstructionTool;
@@ -50,6 +55,7 @@ import model.tools.MineConstructionTool;
 //import model.tools.IndustrialZoneDelimiterTool;
 import model.tools.PowerPlantConstructionTool;
 import model.tools.ResidentialZoneDelimiterTool;
+import model.tools.RoadConstructionTool;
 import model.tools.Tool;
 
 public class GameBoard extends Observable {
@@ -132,6 +138,12 @@ public class GameBoard extends Observable {
         this.tiles = new Tile[height][width];
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
+            	if(i==14 & j==14) this.tiles[i][j] = CastleaTile.getDefault();
+            	else if(i==14 & j==15) this.tiles[i][j] = CastlebTile.getDefault();
+            	else if(i==15 & j==14) this.tiles[i][j] = CastlecTile.getDefault();
+            	else if(i==15 & j==15) this.tiles[i][j] = CastledTile.getDefault();
+            	else if(j>19 && j<22) this.tiles[i][j] = RiverTile.getDefault();
+            	else
                 this.tiles[i][j] = GrassTile.getDefault();
             }
         }
@@ -139,6 +151,7 @@ public class GameBoard extends Observable {
 
         this.tools = new ArrayList<>();
         this.tools.add(new BulldozerTool());
+        this.tools.add(new RoadConstructionTool());
         this.tools.add(new PowerPlantConstructionTool());
         this.tools.add(new ResidentialZoneDelimiterTool());
         this.tools.add(new FarmerConstructionTool());

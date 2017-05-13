@@ -155,12 +155,12 @@ public final class SimCityUI extends JFrame {
         tmp -=7;
         final int case_screenW = tmp;
         
-        System.err.println(case_screenW+" "+case_screenH);
+        /*System.err.println(case_screenW+" "+case_screenH);
         playSound("ost.mp3");
         System.out.println(new java.io.File("").getAbsolutePath());
         System.out.println(SimCityUI.class.getClassLoader().getResource("").getPath());
         System.out.println(SimCityUI.class.getResourceAsStream("ost.mp3"));
-        
+        */
         // Pour que ce soit le thread graphique qui construise les composants
         // graphiques
         SwingUtilities.invokeLater(() -> new SimCityUI(height, width, case_screenH, case_screenW));

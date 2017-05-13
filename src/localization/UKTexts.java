@@ -102,7 +102,12 @@ public class UKTexts extends LocalizedTexts {
 
     @Override
     public String getUnworkingPopulationLabel() {
-        return "Population au chomage";
+        return "Chômeurs";
+    }
+    
+    @Override
+    public String getWorkingPopulationLabel() {
+        return "Travailleurs";
     }
 
 }

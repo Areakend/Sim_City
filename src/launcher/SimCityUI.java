@@ -179,7 +179,7 @@ public final class SimCityUI extends JFrame {
     	}
     
     public SimCityUI(int hauteur, int largeur, int vhauteur, int vlargeur) {
-        super("SimCityTÃ©lÃ©com");
+        super("SimCityTélécom");
 
         //this.setPreferredSize(new Dimension(DEFAULT_WIDTH*49+100+200,DEFAULT_HEIGHT*49+200));
         

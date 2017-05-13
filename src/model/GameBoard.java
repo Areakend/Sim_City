@@ -278,6 +278,10 @@ public class GameBoard extends Observable {
     public int getUnworkingPopulation() {
         return this.resources.getUnworkingPopulation();
     }
+    
+    public int getWorkingPopulation() {
+        return this.resources.getWorkingPopulation();
+    }
 
     public int getEnergy() {
         return this.resources.getUnconsumedEnergy();

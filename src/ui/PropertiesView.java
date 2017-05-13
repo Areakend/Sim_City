@@ -42,6 +42,7 @@ public class PropertiesView extends JPanel implements Observer {
     private JLabel currency;
     private JLabel energy;
     private JLabel unworkingPop;
+    private JLabel workingPop;
     private JLabel products;
     private JLabel wood;
     private JLabel food;
@@ -81,9 +82,9 @@ public class PropertiesView extends JPanel implements Observer {
         this.unworkingPop = new JLabel(Integer.toString(w.getUnworkingPopulation()));
         this.add(this.unworkingPop);
 
-        this.add(new JLabel(texts.getStoredProductsLabel()));
-        this.products = new JLabel(Integer.toString(w.getProducts()));
-        this.add(this.products);
+        this.add(new JLabel(texts.getWorkingPopulationLabel()));
+        this.workingPop = new JLabel(Integer.toString(w.getWorkingPopulation()));
+        this.add(this.workingPop);
     }
 
     @Override
@@ -98,7 +99,7 @@ public class PropertiesView extends JPanel implements Observer {
         this.energy.setText("" + world.getEnergy());
         this.food.setText("" + world.getFood());
         this.unworkingPop.setText("" + world.getUnworkingPopulation());
-        this.products.setText("" + world.getProducts());
+        this.workingPop.setText("" + world.getWorkingPopulation());        
     }
 
 }

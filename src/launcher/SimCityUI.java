@@ -26,11 +26,15 @@ package launcher;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Scanner;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -54,8 +58,6 @@ public final class SimCityUI extends JFrame {
     
     private final static int DEFAULT_WIDTH = 40;
     
-    public static int State = 0;
-
     // Entry point
     /**
      * Run without arguments or with two arguments:
@@ -66,22 +68,47 @@ public final class SimCityUI extends JFrame {
      */
     public static void main(String[] args) {
     	
-    	if (State==0) {
-    			Menu s = new Menu();
-    			s.initMenu();
-    			s.setSize(300, 300);
-    			s.setTitle("Menu");
-    			s.setVisible(true);
-    			s.setDefaultCloseOperation(EXIT_ON_CLOSE);
-    			while (State==0) {
-    				}
-    	}
     	
-    	if (State==3){
-    		System.exit(0);
-    	}
-    	
-        final int height;
+    	JFrame menu = new JFrame("Menu");
+    	JPanel optionsPane = new JPanel(new GridLayout(3, 1));
+        JButton mp = new JButton("Jouer");
+        mp.addActionListener(new ActionListener() {
+          public void actionPerformed(ActionEvent e) {
+            SimCityUI.startGame(args);
+            menu.setVisible(false);
+            }
+        });
+	    optionsPane.add(mp);
+	    JButton yt = new JButton("Options");
+	    yt.addActionListener(new ActionListener() {
+	          public void actionPerformed(ActionEvent e) {
+	          //TODO  
+	          }
+	    	});
+		optionsPane.add(yt);
+		JButton tw = new JButton("Quitter");
+		tw.addActionListener(new ActionListener() {
+	          public void actionPerformed(ActionEvent e) {
+	            System.exit(0);
+	            }
+	        });
+		optionsPane.add(tw);
+		menu.add(optionsPane);
+	    menu.setSize(new Dimension(300,300));
+	    menu.setPreferredSize(new Dimension(300,300)); 
+    	menu.setTitle("Menu");
+    	menu.setDefaultCloseOperation(EXIT_ON_CLOSE);    
+    	Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        menu.setLocation(dim.width/2-menu.getSize().width/2, dim.height/2-menu.getSize().height/2);
+    	menu.setVisible(true);
+    	menu.pack();
+    }
+    //}
+
+    // Creation
+    
+    public static void startGame(String[] args) {
+    	final int height;
         final int width;
 
         if (args.length == 2) {
@@ -129,10 +156,9 @@ public final class SimCityUI extends JFrame {
         // Pour que ce soit le thread graphique qui construise les composants
         // graphiques
         SwingUtilities.invokeLater(() -> new SimCityUI(height, width, case_screenH, case_screenW));
+    	
     }
-    //}
-
-    // Creation
+    
     public SimCityUI(int hauteur, int largeur, int vhauteur, int vlargeur) {
         super("SimCityTélécom");
 

@@ -32,6 +32,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -151,13 +154,29 @@ public final class SimCityUI extends JFrame {
         final int case_screenW = tmp;
         
         
-
+        playSound("ost.mp3");
         
         // Pour que ce soit le thread graphique qui construise les composants
         // graphiques
         SwingUtilities.invokeLater(() -> new SimCityUI(height, width, case_screenH, case_screenW));
     	
     }
+    
+    public static synchronized void playSound(final String file) {
+    	  new Thread(new Runnable() {
+    	    public void run() {
+    	      try {
+    	        Clip clip = AudioSystem.getClip();
+    	        AudioInputStream inputStream = AudioSystem.getAudioInputStream(
+    	          SimCityUI.class.getResourceAsStream("src/resources/musics" + file));
+    	        clip.open(inputStream);
+    	        clip.start(); 
+    	      } catch (Exception e) {
+    	        System.err.println(e.getMessage());
+    	      }
+    	    }
+    	  }).start();
+    	}
     
     public SimCityUI(int hauteur, int largeur, int vhauteur, int vlargeur) {
         super("SimCityTélécom");

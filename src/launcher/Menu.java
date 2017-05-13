@@ -43,12 +43,12 @@ public class Menu extends JFrame{
 class ActionAdapter implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getActionCommand().equals("jouer")){
-			JOptionPane.showMessageDialog(null, "Lancement");
+			//JOptionPane.showMessageDialog(null, "Lancement");
 			SimCityUI.State = 1;
 		} else if(e.getActionCommand().equals("option")){
-			JOptionPane.showMessageDialog(null, "Ouverture des parametres");
+			//JOptionPane.showMessageDialog(null, "Ouverture des parametres");
 		}else if(e.getActionCommand().equals("quitter")){	
-			JOptionPane.showMessageDialog(null, "Fermeture du jeu");
+			//JOptionPane.showMessageDialog(null, "Fermeture du jeu");
 			SimCityUI.State = 3;
 		}
 	}

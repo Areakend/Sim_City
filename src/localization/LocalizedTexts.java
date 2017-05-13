@@ -70,15 +70,16 @@ public abstract class LocalizedTexts {
      * @return Currency label.
      */
     public abstract String getCurrencyLabel();
+    public abstract String getWoodLabel();
+    public abstract String getSteelLabel();
+    public abstract String getRockLabel();
 
     /**
      * @return No-consumed energy label.
      */
     public abstract String getUnconsumedEnergyLabel();
-    public abstract String getWoodLabel();
     public abstract String getUnconsumedFoodLabel();
-    public abstract String getSteelLabel();
-    public abstract String getRockLabel();
+
 
     /**
      * @return Stored products label.

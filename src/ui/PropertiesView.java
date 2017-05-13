@@ -43,7 +43,7 @@ public class PropertiesView extends JPanel implements Observer {
     private JLabel energy;
     private JLabel unworkingPop;
     private JLabel workingPop;
-    private JLabel products;
+//    private JLabel products;
     private JLabel wood;
     private JLabel food;
     private JLabel steel;

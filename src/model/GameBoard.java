@@ -82,7 +82,7 @@ public class GameBoard extends Observable {
     /**
      * Available tools.
      */
-    private final List<Tool> tools;
+    public static List<Tool> tools;
 
     /**
      * {@link #getSelectedTool()}

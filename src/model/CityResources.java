@@ -400,6 +400,12 @@ public class CityResources {
 
         this.unworkingPopulation = this.unworkingPopulation - amount;
     }
+    
+    public void fireWorkers(int amount) {
+    	assert 0 <= amount && amount <= this.getWorkingPopulation();
+    	
+    	this.unworkingPopulation += amount;
+    }
 
     /**
      * Increase {@link #getPopulation()} by {@value amount}.

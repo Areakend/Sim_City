@@ -5,11 +5,14 @@ import model.CityResources;
 public class FarmTile extends Tile implements Destroyable{
 	protected boolean isDestroyed;
 	
-    public final static int EXTRA_ENERGY_PRODUCTION = 15;
+    public final static int EXTRA_FOOD_PRODUCTION = 5;
 	
     public final static int DEFAULT_PRODUCTION_CAPACITY = 70;
     
     protected int production;
+    
+    protected int farmer;
+    protected int farmerCapacity;
     
     protected final int productionCapacity;
 	
@@ -48,7 +51,8 @@ public class FarmTile extends Tile implements Destroyable{
 	     * @return Is {@value o} equals to this?
 	     */
 	    public boolean equals(FarmTile o) {
-	        return this == o || o.production == this.production && o.productionCapacity == this.productionCapacity && o.isDestroyed == this.isDestroyed;
+	        return this == o || o.production == this.production && o.productionCapacity == this.productionCapacity && 
+	        		o.isDestroyed == this.isDestroyed && o.farmer==this.farmer && o.farmerCapacity==this.farmerCapacity;
 	    }	    
 	    
 
@@ -57,6 +61,7 @@ public class FarmTile extends Tile implements Destroyable{
 	    public void disassemble(CityResources res) {
 	        if (!this.isDestroyed) {
 	            res.decreaseFoodProduction(this.productionCapacity);
+	            res.fireWorkers(this.farmer);
 	            this.isDestroyed = true;
 	        }
 	    }
@@ -65,10 +70,13 @@ public class FarmTile extends Tile implements Destroyable{
 	    public void update(CityResources res) {
 	        if (!this.isDestroyed) {
 	            // Double production
-	            final int extraProduction = Math.min(FarmTile.EXTRA_ENERGY_PRODUCTION, this.productionCapacity - this.production);
+	            final int extraProduction = Math.min(FarmTile.EXTRA_FOOD_PRODUCTION*this.farmer, this.productionCapacity - this.production);
 
 	            this.production = this.production + extraProduction;
 	            res.increaseFoodProduction(extraProduction);
+	            final int extraWorkingPopulation = Math.min(Math.round(res.getUnworkingPopulation()/4), this.farmerCapacity-this.farmer);
+	            this.farmer += extraWorkingPopulation;
+	            res.hireWorkers(extraWorkingPopulation);
 	        }
 	    }
     

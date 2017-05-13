@@ -48,6 +48,10 @@ public class UKTexts extends LocalizedTexts {
     public String getRockMsg() {
         return "{0} Pierre";
     }
+    
+    public String getJourMsg() {
+        return "{0} Pierre";
+    }
 
     @Override
     public String getEarthQuakeMsg() {
@@ -108,6 +112,11 @@ public class UKTexts extends LocalizedTexts {
     @Override
     public String getWorkingPopulationLabel() {
         return "Travailleurs";
+    }
+    
+    @Override
+    public String getJourLabel() {
+        return "Jour";
     }
 
 }

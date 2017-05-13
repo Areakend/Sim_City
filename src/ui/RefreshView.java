@@ -29,6 +29,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
+import launcher.SimCityUI;
 import model.GameBoard;
 
 public class RefreshView extends JPanel {

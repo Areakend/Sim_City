@@ -87,7 +87,7 @@ public class TileUI extends JLabel {
                 this.setToolTipText(MessageFormat.format(this.model.getTexts().getRockMsg(), cost));
             }
             if (selectedTool== GameBoard.tools.get(6)) {
-                this.setToolTipText(MessageFormat.format(this.model.getTexts().getWoodMsg(), cost));
+                this.setToolTipText(MessageFormat.format(this.model.getTexts().getCurrencyMsg(), cost));
             }
             if (selectedTool== GameBoard.tools.get(0)) {
                 this.setToolTipText(MessageFormat.format(this.model.getTexts().getCurrencyMsg(), cost));

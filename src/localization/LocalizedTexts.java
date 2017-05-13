@@ -92,5 +92,7 @@ public abstract class LocalizedTexts {
     public abstract String getUnworkingPopulationLabel();
 
 	public abstract String getWorkingPopulationLabel();
+	
+	public abstract String getJourLabel();
 
 }

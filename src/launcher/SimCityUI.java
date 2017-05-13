@@ -78,7 +78,7 @@ public final class SimCityUI extends JFrame {
     	}
     	
     	if (State==3){
-    		return ;
+    		System.exit(0);
     	}
     	
         final int height;

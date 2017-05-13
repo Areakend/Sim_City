@@ -53,6 +53,8 @@ public final class SimCityUI extends JFrame {
     private final static int DEFAULT_HEIGHT = 40;
     
     private final static int DEFAULT_WIDTH = 40;
+    
+    public static int State = 0;
 
     // Entry point
     /**
@@ -63,6 +65,22 @@ public final class SimCityUI extends JFrame {
      * @param args
      */
     public static void main(String[] args) {
+    	
+    	if (State==0) {
+    			Menu s = new Menu();
+    			s.initMenu();
+    			s.setSize(300, 300);
+    			s.setTitle("Menu");
+    			s.setVisible(true);
+    			s.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    			while (State==0) {
+    				}
+    	}
+    	
+    	if (State==3){
+    		return ;
+    	}
+    	
         final int height;
         final int width;
 
@@ -112,6 +130,7 @@ public final class SimCityUI extends JFrame {
         // graphiques
         SwingUtilities.invokeLater(() -> new SimCityUI(height, width, case_screenH, case_screenW));
     }
+    //}
 
     // Creation
     public SimCityUI(int hauteur, int largeur, int vhauteur, int vlargeur) {

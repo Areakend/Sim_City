@@ -153,8 +153,11 @@ public final class SimCityUI extends JFrame {
         tmp -=7;
         final int case_screenW = tmp;
         
-        
+        System.err.println(case_screenW+" "+case_screenH);
         playSound("ost.mp3");
+        System.out.println(new java.io.File("").getAbsolutePath());
+        System.out.println(SimCityUI.class.getClassLoader().getResource("").getPath());
+        System.out.println(SimCityUI.class.getResourceAsStream("ost.mp3"));
         
         // Pour que ce soit le thread graphique qui construise les composants
         // graphiques
@@ -168,11 +171,11 @@ public final class SimCityUI extends JFrame {
     	      try {
     	        Clip clip = AudioSystem.getClip();
     	        AudioInputStream inputStream = AudioSystem.getAudioInputStream(
-    	          SimCityUI.class.getResourceAsStream("src/resources/musics" + file));
+    	        SimCityUI.class.getResourceAsStream("/src/resources/musics/"+file));
     	        clip.open(inputStream);
     	        clip.start(); 
     	      } catch (Exception e) {
-    	        System.err.println(e.getMessage());
+    	    	  e.printStackTrace();
     	      }
     	    }
     	  }).start();
@@ -215,18 +218,19 @@ public final class SimCityUI extends JFrame {
         right.add(rv);
         
         this.add(right, BorderLayout.EAST);
-
+        
         // Création du panneau de message
         MessagesView mv = new MessagesView();
         monde.addObserver(mv);
         this.add(mv, BorderLayout.SOUTH);
         
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        this.pack();
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         
         this.setResizable(false);
+        this.pack();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        System.out.println(this.getSize());
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         this.setVisible(true);
     }
 

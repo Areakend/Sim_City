@@ -61,6 +61,8 @@ public final class SimCityUI extends JFrame {
     
     private final static int DEFAULT_WIDTH = 40;
     
+    public static int jour = 0;
+    
     // Entry point
     /**
      * Run without arguments or with two arguments:

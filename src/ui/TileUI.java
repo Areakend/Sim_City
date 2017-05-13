@@ -33,6 +33,7 @@ import javax.swing.JLabel;
 
 import model.GameBoard;
 import model.tiles.Tile;
+import model.tools.FarmerConstructionTool;
 import model.tools.Tool;
 
 public class TileUI extends JLabel {
@@ -66,7 +67,6 @@ public class TileUI extends JLabel {
         this.update();
 
     }
-
     // Rafraîchissement du composant
     public void update() {
         final Tile elt = this.model.getTile(this.row, this.column);
@@ -74,7 +74,28 @@ public class TileUI extends JLabel {
 
         if (selectedTool.canEffect(elt)) {
             final int cost = selectedTool.getCost(elt);
-            this.setToolTipText(MessageFormat.format(this.model.getTexts().getCurrencyMsg(), cost));
+            if (selectedTool== GameBoard.tools.get(3)) {
+                this.setToolTipText(MessageFormat.format(this.model.getTexts().getWoodMsg(), cost));
+            }
+            if (selectedTool== GameBoard.tools.get(2)) {
+                this.setToolTipText(MessageFormat.format(this.model.getTexts().getCurrencyMsg(), cost));
+            }
+            if (selectedTool== GameBoard.tools.get(4)) {
+                this.setToolTipText(MessageFormat.format(this.model.getTexts().getWoodMsg(), cost));
+            }
+            if (selectedTool== GameBoard.tools.get(5)) {
+                this.setToolTipText(MessageFormat.format(this.model.getTexts().getRockMsg(), cost));
+            }
+            if (selectedTool== GameBoard.tools.get(6)) {
+                this.setToolTipText(MessageFormat.format(this.model.getTexts().getCurrencyMsg(), cost));
+            }
+            if (selectedTool== GameBoard.tools.get(0)) {
+                this.setToolTipText(MessageFormat.format(this.model.getTexts().getCurrencyMsg(), cost));
+            }
+            if (selectedTool== GameBoard.tools.get(1)) {
+                this.setToolTipText(MessageFormat.format(this.model.getTexts().getCurrencyMsg(), cost));
+            }
+            
         } else {
             this.setToolTipText(this.model.getTexts().getToolCannotAffectMsg());
         }

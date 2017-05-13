@@ -32,6 +32,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import launcher.SimCityUI;
 import localization.LocalizedTexts;
 import model.GameBoard;
 
@@ -43,11 +44,12 @@ public class PropertiesView extends JPanel implements Observer {
     private JLabel energy;
     private JLabel unworkingPop;
     private JLabel workingPop;
-    private JLabel products;
+//    private JLabel products;
     private JLabel wood;
     private JLabel food;
     private JLabel steel;
     private JLabel rock;
+    private JLabel day;
 
     public PropertiesView(GameBoard w, LocalizedTexts texts) {
         super();
@@ -85,6 +87,10 @@ public class PropertiesView extends JPanel implements Observer {
         this.add(new JLabel(texts.getWorkingPopulationLabel()));
         this.workingPop = new JLabel(Integer.toString(w.getWorkingPopulation()));
         this.add(this.workingPop);
+        
+        this.add(new JLabel(texts.getJourLabel()));
+        this.day = new JLabel(Integer.toString(w.getJour()));
+        this.add(this.day);
     }
 
     @Override
@@ -100,6 +106,8 @@ public class PropertiesView extends JPanel implements Observer {
         this.food.setText("" + world.getFood());
         this.unworkingPop.setText("" + world.getUnworkingPopulation());
         this.workingPop.setText("" + world.getWorkingPopulation());        
+        this.day.setText("" + world.getJour());        
+
     }
 
 }

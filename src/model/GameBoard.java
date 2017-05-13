@@ -34,6 +34,7 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import launcher.SimCityUI;
 import localization.LocalizedTexts;
 import model.difficulty.DifficultyLevel;
 import model.event.Event;
@@ -82,7 +83,7 @@ public class GameBoard extends Observable {
     /**
      * Available tools.
      */
-    private final List<Tool> tools;
+    public static List<Tool> tools;
 
     /**
      * {@link #getSelectedTool()}
@@ -294,6 +295,10 @@ public class GameBoard extends Observable {
     public int getProducts() {
         return this.resources.getProductsCount();
     }
+    
+    public int getJour() {
+    	return SimCityUI.jour;
+    }
 
     // Access (Status)
     /**
@@ -391,6 +396,7 @@ public class GameBoard extends Observable {
         this.updateTiles();
         this.applyEvolutions();
         this.notifyViews();
+        SimCityUI.jour +=1;
     }
 
     /**

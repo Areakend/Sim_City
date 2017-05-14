@@ -32,6 +32,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -152,14 +155,33 @@ public final class SimCityUI extends JFrame {
         tmp -=7;
         final int case_screenW = tmp;
         
-        
-
-        
+        /*System.err.println(case_screenW+" "+case_screenH);
+        playSound("ost.mp3");
+        System.out.println(new java.io.File("").getAbsolutePath());
+        System.out.println(SimCityUI.class.getClassLoader().getResource("").getPath());
+        System.out.println(SimCityUI.class.getResourceAsStream("ost.mp3"));
+        */
         // Pour que ce soit le thread graphique qui construise les composants
         // graphiques
         SwingUtilities.invokeLater(() -> new SimCityUI(height, width, case_screenH, case_screenW));
     	
     }
+    
+    public static synchronized void playSound(final String file) {
+    	  new Thread(new Runnable() {
+    	    public void run() {
+    	      try {
+    	        Clip clip = AudioSystem.getClip();
+    	        AudioInputStream inputStream = AudioSystem.getAudioInputStream(
+    	        SimCityUI.class.getResourceAsStream("/src/resources/musics/"+file));
+    	        clip.open(inputStream);
+    	        clip.start(); 
+    	      } catch (Exception e) {
+    	    	  e.printStackTrace();
+    	      }
+    	    }
+    	  }).start();
+    	}
     
     public SimCityUI(int hauteur, int largeur, int vhauteur, int vlargeur) {
         super("SimCityTélécom");
@@ -198,18 +220,19 @@ public final class SimCityUI extends JFrame {
         right.add(rv);
         
         this.add(right, BorderLayout.EAST);
-
+        
         // CrÃ©ation du panneau de message
         MessagesView mv = new MessagesView();
         monde.addObserver(mv);
         this.add(mv, BorderLayout.SOUTH);
         
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        this.pack();
-        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         
         this.setResizable(false);
+        this.pack();
+        Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+        System.out.println(this.getSize());
+        this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         this.setVisible(true);
     }
 

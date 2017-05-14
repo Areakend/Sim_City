@@ -9,23 +9,27 @@ public class FarmTile extends Tile implements Destroyable{
 	
     public final static int DEFAULT_PRODUCTION_CAPACITY = 70;
     
+    public final static int DEFAULT_FARMER_CAPACITY = 5;
+    
     protected int production;
     
     protected int farmer;
-    protected int farmerCapacity;
+    protected final int farmerCapacity;
     
     protected final int productionCapacity;
 	
-	public FarmTile(int productionCapacity){
+	public FarmTile(int productionCapacity, int farmerCapacity){
         super();
         this.productionCapacity = productionCapacity;
         this.production = 0;
         this.isDestroyed = false;
+        this.farmer = 0;
+        this.farmerCapacity = farmerCapacity;
 		
 	}
 	
     public FarmTile() {
-        this(FarmTile.DEFAULT_PRODUCTION_CAPACITY);
+        this(FarmTile.DEFAULT_PRODUCTION_CAPACITY, FarmTile.DEFAULT_FARMER_CAPACITY);
     }
 
 	public boolean isDestroyed() {
@@ -74,9 +78,24 @@ public class FarmTile extends Tile implements Destroyable{
 
 	            this.production = this.production + extraProduction;
 	            res.increaseFoodProduction(extraProduction);
-	            final int extraWorkingPopulation = Math.min(Math.round(res.getUnworkingPopulation()/4), this.farmerCapacity-this.farmer);
+	            
+	            /**
+	             * Le x sert à continuer d'augmenter le nombre de travailleurs même si celui ci est en 
+	             * dessous de 4. On augmente au maximum d'un quart du nombre de chômeur le nombre de fermiers parce qu'il y a 4 métiers.
+	             */
+	            
+	            int x;
+	            if (res.getUnworkingPopulation() < 4 && res.getUnworkingPopulation() != 0){
+	            	x = 1;            	
+	            }
+	            else{
+	            	x = Math.round(res.getUnworkingPopulation()/4);
+	            }     
+	            
+	            final int extraWorkingPopulation = Math.min(x, this.farmerCapacity-this.farmer);
 	            this.farmer += extraWorkingPopulation;
 	            res.hireWorkers(extraWorkingPopulation);
+
 	        }
 	    }
     

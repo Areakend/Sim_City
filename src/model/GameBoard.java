@@ -150,20 +150,20 @@ public class GameBoard extends Observable {
         }
         this.selectedTile = this.getTile(GameBoard.DEFAULT_SELECTED_LOCATION.getRow(), GameBoard.DEFAULT_SELECTED_LOCATION.getColumn());
 
-        this.tools = new ArrayList<>();
-        this.tools.add(new BulldozerTool());
-        this.tools.add(new RoadConstructionTool());
-        this.tools.add(new PowerPlantConstructionTool());
-        this.tools.add(new ResidentialZoneDelimiterTool());
-        this.tools.add(new FarmerConstructionTool());
-        this.tools.add(new MineConstructionTool());
-        this.tools.add(new LumberjackConstructionTool());
+        tools = new ArrayList<>();
+        tools.add(new BulldozerTool());
+        tools.add(new RoadConstructionTool());
+        tools.add(new PowerPlantConstructionTool());
+        tools.add(new ResidentialZoneDelimiterTool());
+        tools.add(new FarmerConstructionTool());
+        tools.add(new MineConstructionTool());
+        tools.add(new LumberjackConstructionTool());
 
         // Add when implemented
 //        this.tools.add(new IndustrialZoneDelimiterTool());
 //        this.tools.add(new CommercialZoneDelimiterTool());
 
-        this.selectedTool = this.tools.get(GameBoard.DEFAULT_SELECTED_TOOL);
+        this.selectedTool = tools.get(GameBoard.DEFAULT_SELECTED_TOOL);
 
         this.pendingEvolutions = new LinkedList<>();
         this.pendingEventsList = new LinkedList<>();
@@ -238,14 +238,14 @@ public class GameBoard extends Observable {
      * @return Number of available tools.
      */
     public int getToolCount() {
-        return this.tools.size();
+        return tools.size();
     }
 
     /**
      * @return Tools' iterator of available tools.
      */
     public Iterator<Tool> toolIterator() {
-        return this.tools.iterator();
+        return tools.iterator();
     }
 
     // Access (Selection)
@@ -456,7 +456,7 @@ public class GameBoard extends Observable {
      */
     private void updateTiles() {
         for (final Tile[] rows : this.tiles) {
-            for (final Tile t : rows) {
+            for (final Tile t : rows) {            	
                 t.update(this.resources);
             }
         }

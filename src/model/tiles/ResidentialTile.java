@@ -41,12 +41,12 @@ public class ResidentialTile extends BuildableTile {
     /**
      * Default value of {@link ResidentialTile#maxJoiningInhabitants}
      */
-    private final static int DEFAULT_MAX_JOINING_INHABITANTS = 15;
+    private final static int DEFAULT_MAX_JOINING_INHABITANTS = 2;
 
     /**
      * Default value of {@link ResidentialTile#maxLeavingInhabitants}
      */
-    private final static int DEFAULT_MAX_LEAVING_INHABITANTS = 10;
+    private final static int DEFAULT_MAX_LEAVING_INHABITANTS = 2;
 
     /**
      * Default value of {@link ResidentialTile#getMaxNeededEnergy()}
@@ -56,7 +56,7 @@ public class ResidentialTile extends BuildableTile {
     /**
      * Default value of {@link ResidentialTile#getInhabitantsCapacity()}
      */
-    public final static int DEFAULT_INHABITANTS_CAPACITY = 40;
+    public final static int DEFAULT_INHABITANTS_CAPACITY = 10;
 
     // Implementation
     /**
@@ -215,9 +215,9 @@ public class ResidentialTile extends BuildableTile {
     private int getInhabitants(CityResources res) {
         assert res.getPopulationCapacity() != 0;
 
-        final int caapcityPercentage = this.inhabitantsCapacity * 100 / res.getPopulationCapacity(); // Integer
+        final int capacityPercentage = this.inhabitantsCapacity * 100 / res.getPopulationCapacity(); // Integer
                                                                                                      // division
-        return res.getPopulation() * caapcityPercentage / 100; // Integer
+        return res.getPopulation() * capacityPercentage / 100; // Integer
                                                                // division
     }
 

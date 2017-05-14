@@ -397,7 +397,6 @@ public class CityResources {
      */
     public void hireWorkers(int amount) {
         assert 0 <= amount && amount <= this.getUnworkingPopulation();
-
         this.unworkingPopulation = this.unworkingPopulation - amount;
     }
     
@@ -506,7 +505,7 @@ public class CityResources {
      * Reset ephemeral resources.
      */
     public void resetEphemerals() {
-        this.unworkingPopulation = this.population;
+        //this.unworkingPopulation = this.population;
         this.unconsumedEnergy = this.energyProduction;
     }
 }

@@ -5,24 +5,30 @@ import model.CityResources;
 public class ForestTile extends Tile implements Destroyable{
 	protected boolean isDestroyed;
 	
-    public final static int EXTRA_ENERGY_PRODUCTION = 15;
+    public final static int EXTRA_WOOD_PRODUCTION = 5;
 	
     public final static int DEFAULT_PRODUCTION_CAPACITY = 70;
+    
+    public final static int DEFAULT_LUMBERJACK_CAPACITY = 5;
     
     protected int production;
     
     protected final int productionCapacity;
+    
+    protected int lumberjack;
+    protected final int lumberjackCapacity;
 	
-	public ForestTile(int productionCapacity){
+	public ForestTile(int productionCapacity, int lumberjackCapacity){
         super();
         this.productionCapacity = productionCapacity;
         this.production = 0;
         this.isDestroyed = false;
-		
+		this.lumberjack = 0;
+		this.lumberjackCapacity = lumberjackCapacity;
 	}
 	
     public ForestTile() {
-        this(ForestTile.DEFAULT_PRODUCTION_CAPACITY);
+        this(ForestTile.DEFAULT_PRODUCTION_CAPACITY, ForestTile.DEFAULT_LUMBERJACK_CAPACITY);
     }
 
 	public boolean isDestroyed() {
@@ -48,6 +54,7 @@ public class ForestTile extends Tile implements Destroyable{
     public void disassemble(CityResources res) {
         if (!this.isDestroyed) {
             this.isDestroyed = true;
+            res.fireWorkers(this.lumberjack);
         }
     }
 
@@ -55,10 +62,28 @@ public class ForestTile extends Tile implements Destroyable{
     public void update(CityResources res) {
         if (!this.isDestroyed) {
             // Double production
-            final int extraProduction = Math.min(ForestTile.EXTRA_ENERGY_PRODUCTION, this.productionCapacity - this.production);
+            final int extraProduction = Math.min(ForestTile.EXTRA_WOOD_PRODUCTION*this.lumberjack, this.productionCapacity - this.production);
 
             this.production = this.production + extraProduction;
             res.creditW(extraProduction);
+            
+            /**
+             * Le x sert à continuer d'augmenter le nombre de travailleurs même si celui ci est en 
+             * dessous de 4. On augmente au maximum d'un quart du nombre de chômeur le nombre de bûcherons parce qu'il y a 4 métiers.
+             */
+            
+            int x;
+            if (res.getUnworkingPopulation() < 4 && res.getUnworkingPopulation() != 0){
+            	x = 1;            	
+            }
+            else{
+            	x = Math.round(res.getUnworkingPopulation()/4);
+            }           
+            
+
+            final int extraWorkingPopulation = Math.min(x, this.lumberjackCapacity-this.lumberjack);
+            this.lumberjack += extraWorkingPopulation;
+            res.hireWorkers(extraWorkingPopulation);
         }
     }
 

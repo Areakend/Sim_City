@@ -5,26 +5,34 @@ import model.CityResources;
 public class MineTile extends Tile implements Destroyable{
 	protected boolean isDestroyed;
 	
-    public final static int EXTRA_ENERGY_PRODUCTION = 15;
+    public final static int EXTRA_PRODUCTION = 5;
 	
     public final static int DEFAULT_PRODUCTION_CAPACITY = 70;
+    
+    public final static int DEFAULT_MINER_CAPACITY = 5;
     
     protected int productionR; //Rock production
     protected int productionS; //Steel production
     
     protected final int productionCapacity;
+    
+    protected int miner;
+    protected final int minerCapacity;
 	
-	public MineTile(int productionCapacity){
+	public MineTile(int productionCapacity, int minerCapacity){
         super();
         this.productionCapacity = productionCapacity;
         this.productionR = 0;
         this.productionS = 0;
         this.isDestroyed = false;
+        this.minerCapacity = minerCapacity;
+        this.miner = 0;
+   
 		
 	}
 	
     public MineTile() {
-        this(MineTile.DEFAULT_PRODUCTION_CAPACITY);
+        this(MineTile.DEFAULT_PRODUCTION_CAPACITY, MineTile.DEFAULT_MINER_CAPACITY);
     }
 
 	public boolean isDestroyed() {
@@ -51,6 +59,7 @@ public class MineTile extends Tile implements Destroyable{
 	    public void disassemble(CityResources res) {
 	        if (!this.isDestroyed) {
 	            this.isDestroyed = true;
+	            res.fireWorkers(this.miner);
 	        }
 	    }
 
@@ -58,16 +67,31 @@ public class MineTile extends Tile implements Destroyable{
 	    public void update(CityResources res) {
 	        if (!this.isDestroyed) {
 	            // Double production
-	            final int extraProductionS = Math.min(FarmTile.EXTRA_ENERGY_PRODUCTION, this.productionCapacity - this.productionS);
+	            final int extraProductionS = Math.min(MineTile.EXTRA_PRODUCTION*this.miner, this.productionCapacity - this.productionS);
 
 	            this.productionS = this.productionS + extraProductionS;
 	            
-	            final int extraProductionR = Math.min(FarmTile.EXTRA_ENERGY_PRODUCTION, this.productionCapacity - this.productionR);
+	            final int extraProductionR = Math.min(MineTile.EXTRA_PRODUCTION, this.productionCapacity - this.productionR);
 
 	            this.productionR = this.productionR + extraProductionR;
 	            
 	            res.creditR(extraProductionR);
 	            res.creditS(extraProductionS);
+	            /**
+	             * Le x sert à continuer d'augmenter le nombre de travailleurs même si celui ci est en 
+	             * dessous de 4. On augmente au maximum d'un quart du nombre de chômeur le nombre de mineurs parce qu'il y a 4 métiers.
+	             */
+	            int x;						
+	            if (res.getUnworkingPopulation() < 4 && res.getUnworkingPopulation() != 0){
+	            	x = 1;            	
+	            }
+	            else{
+	            	x = Math.round(res.getUnworkingPopulation()/4);
+	            }     
+	            
+	            final int extraWorkingPopulation = Math.min(x, this.minerCapacity-this.miner);
+	            this.miner += extraWorkingPopulation;
+	            res.hireWorkers(extraWorkingPopulation);
 	        }
 	    }
   

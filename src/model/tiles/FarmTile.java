@@ -64,7 +64,7 @@ public class FarmTile extends Tile implements Destroyable{
 	    @Override
 	    public void disassemble(CityResources res) {
 	        if (!this.isDestroyed) {
-	            res.decreaseFoodProduction(this.productionCapacity);
+	            res.spendF(this.productionCapacity);
 	            res.fireWorkers(this.farmer);
 	            this.isDestroyed = true;
 	        }
@@ -77,7 +77,7 @@ public class FarmTile extends Tile implements Destroyable{
 	            final int extraProduction = Math.min(FarmTile.EXTRA_FOOD_PRODUCTION*this.farmer, this.productionCapacity - this.production);
 
 	            this.production = this.production + extraProduction;
-	            res.increaseFoodProduction(extraProduction);
+	            res.creditF(extraProduction);
 	            
 	            /**
 	             * Le x sert à continuer d'augmenter le nombre de travailleurs même si celui ci est en 

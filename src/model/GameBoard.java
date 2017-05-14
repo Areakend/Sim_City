@@ -289,7 +289,7 @@ public class GameBoard extends Observable {
     }
 
     public int getFood() {
-        return this.resources.getUnconsumedFood();
+        return this.resources.getFood();
     }
 
     public int getProducts() {
@@ -390,7 +390,7 @@ public class GameBoard extends Observable {
      */
     public void nextState() {
         GameBoard.ROUNDCOUNTER.incrementAndGet();
-        this.resources.resetEphemerals();
+        this.resources.dailyConsumed();
         this.applyPendingEvents();
         this.applyNewEvent();
         this.updateTiles();

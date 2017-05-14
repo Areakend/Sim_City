@@ -30,13 +30,13 @@ package model;
  */
 public class CityResources {
 	
-	private int Wood;
-	private int Steel;
-	private int Rock;
+	private int wood;
+	private int steel;
+	private int rock;
 
 	
-	private int unconsumedFood;
-	private int foodProduction;
+	private int food;
+	
 
     // Constant
     /**
@@ -101,9 +101,9 @@ public class CityResources {
      */
     public CityResources(int aCurrency) {
         assert aCurrency >= 0;
-        this.Wood = 250;
-        this.Steel = 250;
-        this.Rock = 250;
+        this.wood = 250;
+        this.steel = 250;
+        this.rock = 250;
         this.currency = aCurrency;
         this.vat = CityResources.DEFAULT_VAT;
     }
@@ -123,7 +123,8 @@ public class CityResources {
         this.population = aPopulation;
         this.populationCapacity = aPopulation;
 
-        this.resetEphemerals();
+        this.unworkingPopulation = this.population;
+        this.unconsumedEnergy = this.energyProduction;
     }
 
     // Status
@@ -186,30 +187,26 @@ public class CityResources {
      */
  
     public int getWood() {
-        return this.Wood;
+        return this.wood;
     }
     
     public int getRock() {
-        return this.Rock;
+        return this.rock;
     }
     
-    public int getConsumedFood() {
-        return this.foodProduction - this.unconsumedFood;
+    public int getFood() {
+        return this.food;
     }
     
     public int getSteel() {
-        return this.Steel;
+        return this.steel;
     }
  
     public int getUnconsumedEnergy() {
         return this.unconsumedEnergy;
     }
     
- 
-    public int getUnconsumedFood() {
-        return this.unconsumedFood;
-    }
- 
+
     /**
     *
     * @return Monthly production of energy units.
@@ -218,10 +215,7 @@ public class CityResources {
     public int getEnergyProduction() {
         return this.energyProduction;
     }
-    
-    public int getFoodProduction() {
-        return this.foodProduction;
-    }
+
 
     // Access (Population)
     /**
@@ -277,24 +271,28 @@ public class CityResources {
     public void credit(int amount) {
         assert amount >= 0;
 
-        this.currency = this.currency + amount;
+        this.currency+= amount;
     }
     public void creditW(int amount) {
         assert amount >= 0;
 
-        this.Wood = this.Wood + amount;
+        this.wood += amount;
     }
     public void creditR(int amount) {
         assert amount >= 0;
 
-        this.Rock = this.Rock + amount;
+        this.rock += amount;
     }
     public void creditS(int amount) {
         assert amount >= 0;
 
-        this.Steel = this.Steel + amount;
+        this.steel += amount;
     }
-
+    public void creditF(int amount){
+    	assert amount >= 0;
+    	
+    	this.food += amount;
+    }
     /**
      * Get VAT on {@value currencyAmount} and {@link #credit(int)} with the
      * obtained result.
@@ -315,22 +313,27 @@ public class CityResources {
     public void spend(int amount) {
         assert amount >= 0;
 
-        this.currency = this.currency - amount;
+        this.currency -= amount;
     }
     public void spendW(int amount) {
         assert amount >= 0;
 
-        this.Wood = this.Wood - amount;
+        this.wood -= amount;
     }
     public void spendR(int amount) {
         assert amount >= 0;
 
-        this.Rock = this.Rock - amount;
+        this.rock -= amount;
     }
     public void spendS(int amount) {
         assert amount >= 0;
 
-        this.Steel = this.Steel - amount;
+        this.steel -= amount;
+    }
+    public void spendF(int amount){
+    	assert amount >= 0;
+    	
+    	this.food -= amount;
     }
 
     // Change (Energy)
@@ -345,11 +348,6 @@ public class CityResources {
         this.unconsumedEnergy = this.unconsumedEnergy - amount;
     }
 
-    public void consumeFood(int amount) {
-        assert 0 <= amount && amount <= this.getUnconsumedFood();
-
-        this.unconsumedFood = this.unconsumedFood - amount;
-    }
 
     /**
      * Decrease {@link #getEnergyProduction()} by {@value amount}.
@@ -363,12 +361,6 @@ public class CityResources {
         this.unconsumedEnergy = Math.min(this.unconsumedEnergy, this.energyProduction);
     }
 
-    public void decreaseFoodProduction(int amount) {
-        assert amount >= 0;
-
-        this.foodProduction = Math.max(0, this.foodProduction - amount);
-        this.unconsumedFood = Math.min(this.unconsumedFood, this.foodProduction);
-    }
 
     /**
      * Increase {@link #getEnergyProduction()} by {@value amount}.
@@ -382,12 +374,7 @@ public class CityResources {
         this.unconsumedEnergy = this.unconsumedEnergy + amount;
     }
 
-    public void increaseFoodProduction(int amount) {
-        assert amount >= 0;
 
-        this.foodProduction = this.energyProduction + amount;
-        this.unconsumedEnergy = this.unconsumedEnergy + amount;
-    }
 
     // Change (Population)
     /**
@@ -500,12 +487,12 @@ public class CityResources {
         this.productsCapacity = this.productsCapacity + amount;
     }
 
-    // Reset
     /**
-     * Reset ephemeral resources.
+     * Consommation journalière
      */
-    public void resetEphemerals() {
+    public void dailyConsumed() {
         //this.unworkingPopulation = this.population;
         this.unconsumedEnergy = this.energyProduction;
+        this.spendF(Math.min(this.population*2, this.food));
     }
 }

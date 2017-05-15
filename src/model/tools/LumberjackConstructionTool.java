@@ -38,7 +38,7 @@ public final class LumberjackConstructionTool extends Tool{
 	protected Tile innerEffect(Tile aTarget, CityResources r) {
         assert this.canEffect(aTarget);
         assert this.isAfordable(aTarget, r);
-
+        r.increaseWoodCapacity(ForestTile.DEFAULT_PRODUCTION_CAPACITY);
         r.spend(LumberjackConstructionTool.CURRENCY_COST);
 
         return new ForestTile();

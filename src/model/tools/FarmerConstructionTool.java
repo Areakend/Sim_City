@@ -41,7 +41,8 @@ public final class FarmerConstructionTool extends Tool {
         assert this.isAfordable(aTarget, r);
 
         r.spendW(FarmerConstructionTool.Wood_COST);
-
+        r.increaseFoodCapacity(FarmTile.DEFAULT_PRODUCTION_CAPACITY);
+               
         return new FarmTile();
     }
     @Override

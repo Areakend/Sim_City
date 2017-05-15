@@ -85,6 +85,7 @@ public final class ResidentialZoneDelimiterTool extends Tool {
 		assert isAfordable(aTarget, r);
 
 		r.spend(ResidentialZoneDelimiterTool.Wood_COST);
+		r.increasePopulationCapacity(ResidentialTile.DEFAULT_INHABITANTS_CAPACITY);
 
 		return new ResidentialTile();
 	}

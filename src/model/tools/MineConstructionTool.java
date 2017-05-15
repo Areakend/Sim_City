@@ -42,6 +42,8 @@ public final class MineConstructionTool extends Tool {
         assert this.isAfordable(aTarget, r);
 
         r.spendR(MineConstructionTool.Rock_COST);
+        r.increaseRockCapacity(MineTile.DEFAULT_PRODUCTION_CAPACITY);
+        r.increaseSteelCapacity(MineTile.DEFAULT_PRODUCTION_CAPACITY);
 
         return new MineTile();
     }

@@ -11,7 +11,6 @@ public class FarmTile extends Tile implements Destroyable{
     
     public final static int DEFAULT_FARMER_CAPACITY = 5;
     
-    protected int production;
     
     protected int farmer;
     protected final int farmerCapacity;
@@ -21,7 +20,6 @@ public class FarmTile extends Tile implements Destroyable{
 	public FarmTile(int productionCapacity, int farmerCapacity){
         super();
         this.productionCapacity = productionCapacity;
-        this.production = 0;
         this.isDestroyed = false;
         this.farmer = 0;
         this.farmerCapacity = farmerCapacity;
@@ -55,8 +53,8 @@ public class FarmTile extends Tile implements Destroyable{
 	     * @return Is {@value o} equals to this?
 	     */
 	    public boolean equals(FarmTile o) {
-	        return this == o || o.production == this.production && o.productionCapacity == this.productionCapacity && 
-	        		o.isDestroyed == this.isDestroyed && o.farmer==this.farmer && o.farmerCapacity==this.farmerCapacity;
+	        return this == o || o.productionCapacity == this.productionCapacity && o.isDestroyed == this.isDestroyed 
+	        		&& o.farmer==this.farmer && o.farmerCapacity==this.farmerCapacity;
 	    }	    
 	    
 
@@ -67,6 +65,7 @@ public class FarmTile extends Tile implements Destroyable{
 	            res.spendF(this.productionCapacity);
 	            res.fireWorkers(this.farmer);
 	            this.isDestroyed = true;
+	            res.increaseFoodCapacity(-this.productionCapacity);
 	        }
 	    }
 
@@ -74,9 +73,7 @@ public class FarmTile extends Tile implements Destroyable{
 	    public void update(CityResources res) {
 	        if (!this.isDestroyed) {
 	            // Double production
-	            final int extraProduction = Math.min(FarmTile.EXTRA_FOOD_PRODUCTION*this.farmer, this.productionCapacity - this.production);
-
-	            this.production = this.production + extraProduction;
+	            final int extraProduction = Math.min(FarmTile.EXTRA_FOOD_PRODUCTION*this.farmer, res.foodCapacity - res.food);
 	            res.creditF(extraProduction);
 	            
 	            /**

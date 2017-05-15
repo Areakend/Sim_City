@@ -30,12 +30,15 @@ package model;
  */
 public class CityResources {
 	
-	private int wood;
-	private int steel;
-	private int rock;
-
+	public int wood;
+	public int steel;
+	public int rock;	
+	public int food;
 	
-	private int food;
+	public int woodCapacity;
+	public int steelCapacity;
+	public int rockCapacity;
+	public int foodCapacity;
 	
 
     // Constant
@@ -106,6 +109,7 @@ public class CityResources {
         this.rock = 250;
         this.currency = aCurrency;
         this.vat = CityResources.DEFAULT_VAT;
+        this.food = 250;
     }
 
     /**
@@ -140,7 +144,8 @@ public class CityResources {
     public boolean equals(CityResources o) {
         return this == o || super.equals(o) && o.currency == this.currency && o.vat == this.vat && o.unconsumedEnergy == this.unconsumedEnergy && o.energyProduction == this.energyProduction
                 && o.unworkingPopulation == this.unworkingPopulation && o.population == this.population && o.populationCapacity == this.populationCapacity && o.productsCount == this.productsCount
-                && o.productsCapacity == this.productsCapacity;
+                && o.productsCapacity == this.productsCapacity && o.wood == this.wood && o.steel == this.steel && this.rock == o.rock && this.food == o.food &&
+                this.woodCapacity == o.woodCapacity && this.steelCapacity == o.steelCapacity && o.rockCapacity == this.rockCapacity && this.foodCapacity == o.foodCapacity;
     }
 
     // Access
@@ -262,7 +267,39 @@ public class CityResources {
         return this.productsCapacity;
     }
 
-    // Change (Currency)
+    public int getWoodCapacity() {
+		return woodCapacity;
+	}
+
+	public void increaseWoodCapacity(int woodCapacity) {
+		this.woodCapacity += woodCapacity;
+	}
+
+	public int getSteelCapacity() {
+		return steelCapacity;
+	}
+
+	public void increaseSteelCapacity(int steelCapacity) {
+		this.steelCapacity += steelCapacity;
+	}
+
+	public int getRockCapacity() {
+		return rockCapacity;
+	}
+
+	public void increaseRockCapacity(int rockCapacity) {
+		this.rockCapacity += rockCapacity;
+	}
+
+	public int getFoodCapacity() {
+		return foodCapacity;
+	}
+
+	public void increaseFoodCapacity(int foodCapacity) {
+		this.foodCapacity += foodCapacity;
+	}
+
+	// Change (Currency)
     /**
      * Decrease {@link #getCurrency()} by {@value amount}.
      *
@@ -316,22 +353,22 @@ public class CityResources {
         this.currency -= amount;
     }
     public void spendW(int amount) {
-        assert amount >= 0;
+        assert amount >= 0 && amount <= this.wood;
 
         this.wood -= amount;
     }
     public void spendR(int amount) {
-        assert amount >= 0;
+        assert amount >= 0 && amount <= this.rock;
 
         this.rock -= amount;
     }
     public void spendS(int amount) {
-        assert amount >= 0;
+        assert amount >= 0 && amount <= this.steel;
 
         this.steel -= amount;
     }
     public void spendF(int amount){
-    	assert amount >= 0;
+    	assert amount >= 0 && amount <= this.food;
     	
     	this.food -= amount;
     }
@@ -492,7 +529,7 @@ public class CityResources {
      */
     public void dailyConsumed() {
         //this.unworkingPopulation = this.population;
-        this.unconsumedEnergy = this.energyProduction;
+    	this.unconsumedEnergy = this.energyProduction;
         this.spendF(Math.min(this.population*2, this.food));
     }
 }

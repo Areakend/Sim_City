@@ -11,9 +11,6 @@ public class MineTile extends Tile implements Destroyable{
     
     public final static int DEFAULT_MINER_CAPACITY = 5;
     
-    protected int productionR; //Rock production
-    protected int productionS; //Steel production
-    
     protected final int productionCapacity;
     
     protected int miner;
@@ -22,8 +19,6 @@ public class MineTile extends Tile implements Destroyable{
 	public MineTile(int productionCapacity, int minerCapacity){
         super();
         this.productionCapacity = productionCapacity;
-        this.productionR = 0;
-        this.productionS = 0;
         this.isDestroyed = false;
         this.minerCapacity = minerCapacity;
         this.miner = 0;
@@ -50,7 +45,7 @@ public class MineTile extends Tile implements Destroyable{
 	     * @return Is {@value o} equals to this?
 	     */
 	    public boolean equals(MineTile o) {
-	        return this == o || o.productionS == this.productionS && o.productionR == this.productionR && o.productionCapacity == this.productionCapacity && o.isDestroyed == this.isDestroyed;
+	        return this == o || o.productionCapacity == this.productionCapacity && o.isDestroyed == this.isDestroyed;
 	    }	    
 	    
 
@@ -59,6 +54,8 @@ public class MineTile extends Tile implements Destroyable{
 	    public void disassemble(CityResources res) {
 	        if (!this.isDestroyed) {
 	            this.isDestroyed = true;
+	            res.increaseSteelCapacity(-this.productionCapacity);
+	            res.increaseRockCapacity(-this.productionCapacity);
 	            res.fireWorkers(this.miner);
 	        }
 	    }
@@ -67,13 +64,10 @@ public class MineTile extends Tile implements Destroyable{
 	    public void update(CityResources res) {
 	        if (!this.isDestroyed) {
 	            // Double production
-	            final int extraProductionS = Math.min(MineTile.EXTRA_PRODUCTION*this.miner, this.productionCapacity - this.productionS);
-
-	            this.productionS = this.productionS + extraProductionS;
+	            final int extraProductionS = Math.min(MineTile.EXTRA_PRODUCTION*this.miner, res.steelCapacity - res.steel);
 	            
-	            final int extraProductionR = Math.min(MineTile.EXTRA_PRODUCTION, this.productionCapacity - this.productionR);
+	            final int extraProductionR = Math.min(MineTile.EXTRA_PRODUCTION*this.miner, res.rockCapacity - res.rock);
 
-	            this.productionR = this.productionR + extraProductionR;
 	            
 	            res.creditR(extraProductionR);
 	            res.creditS(extraProductionS);

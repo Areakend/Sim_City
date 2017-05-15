@@ -11,7 +11,6 @@ public class ForestTile extends Tile implements Destroyable{
     
     public final static int DEFAULT_LUMBERJACK_CAPACITY = 5;
     
-    protected int production;
     
     protected final int productionCapacity;
     
@@ -21,7 +20,6 @@ public class ForestTile extends Tile implements Destroyable{
 	public ForestTile(int productionCapacity, int lumberjackCapacity){
         super();
         this.productionCapacity = productionCapacity;
-        this.production = 0;
         this.isDestroyed = false;
 		this.lumberjack = 0;
 		this.lumberjackCapacity = lumberjackCapacity;
@@ -45,7 +43,7 @@ public class ForestTile extends Tile implements Destroyable{
      * @return Is {@value o} equals to this?
      */
     public boolean equals(ForestTile o) {
-        return this == o || o.production == this.production && o.productionCapacity == this.productionCapacity && o.isDestroyed == this.isDestroyed;
+        return this == o || o.productionCapacity == this.productionCapacity && o.isDestroyed == this.isDestroyed;
     }	    
     
 
@@ -54,6 +52,7 @@ public class ForestTile extends Tile implements Destroyable{
     public void disassemble(CityResources res) {
         if (!this.isDestroyed) {
             this.isDestroyed = true;
+            res.increaseWoodCapacity(-this.productionCapacity);
             res.fireWorkers(this.lumberjack);
         }
     }
@@ -62,9 +61,8 @@ public class ForestTile extends Tile implements Destroyable{
     public void update(CityResources res) {
         if (!this.isDestroyed) {
             // Double production
-            final int extraProduction = Math.min(ForestTile.EXTRA_WOOD_PRODUCTION*this.lumberjack, this.productionCapacity - this.production);
+            final int extraProduction = Math.min(ForestTile.EXTRA_WOOD_PRODUCTION*this.lumberjack, res.woodCapacity - res.wood);
 
-            this.production = this.production + extraProduction;
             res.creditW(extraProduction);
             
             /**

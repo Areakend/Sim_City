@@ -8,8 +8,6 @@ import model.CityResources;
 public final class CastleaTile extends Tile {
 	public final static int DEFAULT_KNIGHT_CAPACITY = 100;
 
-
-	protected int knight;
 	protected final int knightCapacity;
 	// Constant
 	/**
@@ -31,7 +29,6 @@ public final class CastleaTile extends Tile {
 	 * Prefer use {@link CastleaTile#getDefault()} instead.
 	 */
 	private CastleaTile(int knightCapacity) {
-		this.knight = 0;
 		this.knightCapacity = knightCapacity;
 	}
 	
@@ -67,11 +64,20 @@ public final class CastleaTile extends Tile {
         else{
         	x = Math.round(res.getUnworkingPopulation()/4);
         }           
-        
+        /**
+         * Les chevaliers coûtent 50 de fer chacun. On ne peut donc pas avoir de nouveaux chevaliers tant que la réserve de fer est insuffisante.
+         */
 
-        final int extraWorkingPopulation = Math.min(x, this.knightCapacity-this.knight);
-        this.knight += extraWorkingPopulation;
-        res.hireWorkers(extraWorkingPopulation);
+        final int extraWorkingPopulation = Math.min(x, res.getKnightCapacity()-res.getKnight());
+        if (extraWorkingPopulation*50 <= res.steel){
+            res.hireKnight(extraWorkingPopulation);
+            res.spendS(extraWorkingPopulation*50);
+        }
+        else{
+        	int n = Math.round(res.getSteel()/50);
+        	res.hireKnight(n);
+        	res.spendS(n*50);
+        }
 	}
 
 }

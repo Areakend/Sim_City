@@ -95,4 +95,13 @@ public abstract class LocalizedTexts {
 	
 	public abstract String getJourLabel();
 
+	public abstract String getFarmerLabel();
+
+	public abstract String getMinerLabel();
+	
+	public abstract String getLumberjackLabel();
+
+	public abstract String getKnightLabel();
+
+
 }

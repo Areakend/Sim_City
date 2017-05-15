@@ -42,6 +42,7 @@ public final class FarmerConstructionTool extends Tool {
 
         r.spendW(FarmerConstructionTool.Wood_COST);
         r.increaseFoodCapacity(FarmTile.DEFAULT_PRODUCTION_CAPACITY);
+        r.increaseFarmerCapacity(FarmTile.DEFAULT_FARMER_CAPACITY);
                
         return new FarmTile();
     }

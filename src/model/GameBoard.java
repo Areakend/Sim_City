@@ -44,7 +44,10 @@ import model.tiles.CastlebTile;
 import model.tiles.CastlecTile;
 import model.tiles.CastledTile;
 import model.tiles.Evolvable;
+import model.tiles.FarmTile;
+import model.tiles.ForestTile;
 import model.tiles.GrassTile;
+import model.tiles.MineTile;
 import model.tiles.RiverTile;
 import model.tiles.Tile;
 import model.tools.BulldozerTool;
@@ -275,6 +278,22 @@ public class GameBoard extends Observable {
     public int getSteel() {
         return this.resources.getSteel();
     }
+    
+    public int getFarmer() {
+        return this.resources.getFarmer();
+    }
+    
+    public int getMiner() {
+        return this.resources.getMiner();
+    }
+    
+    public int getLumberjack() {
+        return this.resources.getLumberjack();
+    }
+    
+    public int getKnight() {
+        return this.resources.getKnight();
+    }
 
     public int getUnworkingPopulation() {
         return this.resources.getUnworkingPopulation();
@@ -390,6 +409,18 @@ public class GameBoard extends Observable {
      */
     public void nextState() {
         GameBoard.ROUNDCOUNTER.incrementAndGet();
+        final int extraProductionF = Math.min(FarmTile.EXTRA_FOOD_PRODUCTION*resources.getFarmer(), resources.foodCapacity - resources.food);
+        resources.creditF(extraProductionF);  //Met à jour la production de nourriture.
+        
+        final int extraProductionS = Math.min(MineTile.EXTRA_PRODUCTION*resources.getMiner(), resources.steelCapacity - resources.steel);
+        resources.creditS(extraProductionS); //Met à jour la production de fer.
+        
+        final int extraProductionR = Math.min(MineTile.EXTRA_PRODUCTION*resources.getMiner(), resources.rockCapacity - resources.rock);
+        resources.creditR(extraProductionR); //Met à jour la production de pierre.
+       
+        final int extraProductionW = Math.min(ForestTile.EXTRA_WOOD_PRODUCTION*resources.getLumberjack(), resources.woodCapacity - resources.wood);
+        resources.creditW(extraProductionW); //Met à jour la production de bois.
+        
         this.resources.dailyConsumed();
         this.applyPendingEvents();
         this.applyNewEvent();

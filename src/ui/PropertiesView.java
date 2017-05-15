@@ -43,7 +43,11 @@ public class PropertiesView extends JPanel implements Observer {
     private JLabel currency;
     private JLabel energy;
     private JLabel unworkingPop;
-    private JLabel workingPop;
+    //private JLabel workingPop;
+    private JLabel farmer;
+    private JLabel miner;
+    private JLabel lumberjack;
+    private JLabel knight;
 //    private JLabel products;
     private JLabel wood;
     private JLabel food;
@@ -84,9 +88,25 @@ public class PropertiesView extends JPanel implements Observer {
         this.unworkingPop = new JLabel(Integer.toString(w.getUnworkingPopulation()));
         this.add(this.unworkingPop);
 
-        this.add(new JLabel(texts.getWorkingPopulationLabel()));
-        this.workingPop = new JLabel(Integer.toString(w.getWorkingPopulation()));
-        this.add(this.workingPop);
+        //this.add(new JLabel(texts.getWorkingPopulationLabel()));
+        //this.workingPop = new JLabel(Integer.toString(w.getWorkingPopulation()));
+        //this.add(this.workingPop);
+        
+        this.add(new JLabel(texts.getFarmerLabel()));
+        this.farmer = new JLabel(Integer.toString(w.getFarmer()));
+        this.add(this.farmer);
+        
+        this.add(new JLabel(texts.getMinerLabel()));
+        this.miner = new JLabel(Integer.toString(w.getMiner()));
+        this.add(this.miner);
+        
+        this.add(new JLabel(texts.getLumberjackLabel()));
+        this.lumberjack = new JLabel(Integer.toString(w.getLumberjack()));
+        this.add(this.lumberjack);
+        
+        this.add(new JLabel(texts.getKnightLabel()));
+        this.knight = new JLabel(Integer.toString(w.getKnight()));
+        this.add(this.knight);
         
         this.add(new JLabel(texts.getJourLabel()));
         this.day = new JLabel(Integer.toString(w.getJour()));
@@ -105,7 +125,11 @@ public class PropertiesView extends JPanel implements Observer {
         this.energy.setText("" + world.getEnergy());
         this.food.setText("" + world.getFood());
         this.unworkingPop.setText("" + world.getUnworkingPopulation());
-        this.workingPop.setText("" + world.getWorkingPopulation());        
+        this.farmer.setText("" + world.getFarmer());
+        this.miner.setText("" + world.getMiner());
+        this.lumberjack.setText("" + world.getLumberjack());
+        this.knight.setText("" + world.getKnight());
+        //this.workingPop.setText("" + world.getWorkingPopulation());        
         this.day.setText("" + world.getJour());        
 
     }

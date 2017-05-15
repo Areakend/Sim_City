@@ -44,6 +44,7 @@ public final class MineConstructionTool extends Tool {
         r.spendR(MineConstructionTool.Rock_COST);
         r.increaseRockCapacity(MineTile.DEFAULT_PRODUCTION_CAPACITY);
         r.increaseSteelCapacity(MineTile.DEFAULT_PRODUCTION_CAPACITY);
+        r.increaseMinerCapacity(MineTile.DEFAULT_MINER_CAPACITY);
 
         return new MineTile();
     }

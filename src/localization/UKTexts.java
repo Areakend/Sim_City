@@ -115,6 +115,26 @@ public class UKTexts extends LocalizedTexts {
     }
     
     @Override
+    public String getFarmerLabel() {
+        return "Fermiers";
+    }
+    
+    @Override
+    public String getMinerLabel() {
+        return "Mineurs";
+    }
+    
+    @Override
+    public String getLumberjackLabel() {
+        return "Bûcherons";
+    }
+    
+    @Override
+    public String getKnightLabel() {
+        return "Chevaliers";
+    }
+    
+    @Override
     public String getJourLabel() {
         return "Jour";
     }

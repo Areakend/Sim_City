@@ -24,6 +24,11 @@
 
 package model;
 
+import model.tiles.CastleaTile;
+import model.tiles.FarmTile;
+import model.tiles.ForestTile;
+import model.tiles.MineTile;
+
 /**
  * Represents the resources and the parameters of the city. An ephemeral
  * resource is reset at each step thanks to {@link CityResources#getVat()}.
@@ -84,6 +89,18 @@ public class CityResources {
      * {@link #getPopulationCapacity()}
      */
     private int populationCapacity;
+    
+    private int farmer;
+    private int farmerCapacity;
+    
+    private int lumberjack;
+    private int lumberjackCapacity;
+    
+    private int miner;
+    private int minerCapacity;
+    
+    private int knight;
+    private int knightCapacity;
 
     // Implementation (Product)
     /**
@@ -104,12 +121,24 @@ public class CityResources {
      */
     public CityResources(int aCurrency) {
         assert aCurrency >= 0;
-        this.wood = 250;
-        this.steel = 250;
-        this.rock = 250;
+        this.wood = 70;
+        this.steel = 70;
+        this.rock = 70;
         this.currency = aCurrency;
         this.vat = CityResources.DEFAULT_VAT;
-        this.food = 250;
+        this.food = 70;
+        this.foodCapacity = FarmTile.DEFAULT_PRODUCTION_CAPACITY;
+        this.woodCapacity = ForestTile.DEFAULT_PRODUCTION_CAPACITY;
+        this.steelCapacity = MineTile.DEFAULT_PRODUCTION_CAPACITY;
+        this.rockCapacity = MineTile.DEFAULT_PRODUCTION_CAPACITY;
+        this.miner = 0;
+        this.lumberjack = 0;
+        this.farmer = 0;
+        this.knight = 0;
+        this.farmerCapacity = 0;
+        this.minerCapacity = 0;
+        this.lumberjackCapacity = 0;
+        this.knightCapacity = CastleaTile.DEFAULT_KNIGHT_CAPACITY;
     }
 
     /**
@@ -236,8 +265,41 @@ public class CityResources {
     public int getWorkingPopulation() {
         return this.population - this.unworkingPopulation;
     }
+    
 
-    /**
+    public int getFarmer() {
+		return farmer;
+	}
+
+	public int getLumberjack() {
+		return lumberjack;
+	}
+
+	public int getMiner() {
+		return miner;
+	}
+
+	public int getKnight() {
+		return knight;
+	}
+
+	public int getFarmerCapacity() {
+		return farmerCapacity;
+	}
+
+	public int getLumberjackCapacity() {
+		return lumberjackCapacity;
+	}
+
+	public int getMinerCapacity() {
+		return minerCapacity;
+	}
+
+	public int getKnightCapacity() {
+		return knightCapacity;
+	}
+
+	/**
      * @return Total number of citizens.
      */
     public int getPopulation() {
@@ -297,6 +359,23 @@ public class CityResources {
 
 	public void increaseFoodCapacity(int foodCapacity) {
 		this.foodCapacity += foodCapacity;
+	}
+	
+
+	public void increaseFarmerCapacity(int farmerCapacity) {
+		this.farmerCapacity += farmerCapacity;
+	}
+
+	public void increaseLumberjackCapacity(int lumberjackCapacity) {
+		this.lumberjackCapacity += lumberjackCapacity;
+	}
+
+	public void increaseMinerCapacity(int minerCapacity) {
+		this.minerCapacity += minerCapacity;
+	}
+
+	public void increaseKnightCapacity(int knightCapacity) {
+		this.knightCapacity += knightCapacity;
 	}
 
 	// Change (Currency)
@@ -427,6 +506,54 @@ public class CityResources {
     public void fireWorkers(int amount) {
     	assert 0 <= amount && amount <= this.getWorkingPopulation();
     	
+    	this.unworkingPopulation += amount;
+    }
+    
+    public void hireFarmer(int amount) {
+        assert 0 <= amount && amount <= this.getUnworkingPopulation();
+        this.unworkingPopulation -= amount;
+        this.farmer += amount;
+    }
+    
+    public void fireFarmer(int amount) {
+    	assert 0 <= amount && amount <= this.getFarmer();
+    	this.farmer -= amount;    	
+    	this.unworkingPopulation += amount;
+    }
+    
+    public void hireMiner(int amount) {
+        assert 0 <= amount && amount <= this.getUnworkingPopulation();
+        this.unworkingPopulation -= amount;
+        this.miner += amount;
+    }
+    
+    public void fireMiner(int amount) {
+    	assert 0 <= amount && amount <= this.getMiner();
+    	this.miner -= amount;    	
+    	this.unworkingPopulation += amount;
+    }
+    
+    public void hireKnight(int amount) {
+        assert 0 <= amount && amount <= this.getUnworkingPopulation();
+        this.unworkingPopulation -= amount;
+        this.knight += amount;
+    }
+    
+    public void fireKnight(int amount) {
+    	assert 0 <= amount && amount <= this.getKnight();
+    	this.knight -= amount;    	
+    	this.unworkingPopulation += amount;
+    }
+    
+    public void hireLumberjack(int amount) {
+        assert 0 <= amount && amount <= this.getUnworkingPopulation();
+        this.unworkingPopulation -= amount;
+        this.lumberjack += amount;
+    }
+    
+    public void fireLumberjack(int amount) {
+    	assert 0 <= amount && amount <= this.getLumberjack();
+    	this.lumberjack -= amount;    	
     	this.unworkingPopulation += amount;
     }
 

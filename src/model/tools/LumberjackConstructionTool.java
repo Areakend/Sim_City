@@ -40,6 +40,7 @@ public final class LumberjackConstructionTool extends Tool{
         assert this.isAfordable(aTarget, r);
         r.increaseWoodCapacity(ForestTile.DEFAULT_PRODUCTION_CAPACITY);
         r.spend(LumberjackConstructionTool.CURRENCY_COST);
+        r.increaseLumberjackCapacity(ForestTile.DEFAULT_LUMBERJACK_CAPACITY);
 
         return new ForestTile();
     }

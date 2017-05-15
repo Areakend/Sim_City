@@ -12,7 +12,6 @@ public class FarmTile extends Tile implements Destroyable{
     public final static int DEFAULT_FARMER_CAPACITY = 5;
     
     
-    protected int farmer;
     protected final int farmerCapacity;
     
     protected final int productionCapacity;
@@ -21,7 +20,6 @@ public class FarmTile extends Tile implements Destroyable{
         super();
         this.productionCapacity = productionCapacity;
         this.isDestroyed = false;
-        this.farmer = 0;
         this.farmerCapacity = farmerCapacity;
 		
 	}
@@ -54,7 +52,7 @@ public class FarmTile extends Tile implements Destroyable{
 	     */
 	    public boolean equals(FarmTile o) {
 	        return this == o || o.productionCapacity == this.productionCapacity && o.isDestroyed == this.isDestroyed 
-	        		&& o.farmer==this.farmer && o.farmerCapacity==this.farmerCapacity;
+	        		&& o.farmerCapacity==this.farmerCapacity;
 	    }	    
 	    
 
@@ -63,20 +61,19 @@ public class FarmTile extends Tile implements Destroyable{
 	    public void disassemble(CityResources res) {
 	        if (!this.isDestroyed) {
 	            res.spendF(this.productionCapacity);
-	            res.fireWorkers(this.farmer);
 	            this.isDestroyed = true;
 	            res.increaseFoodCapacity(-this.productionCapacity);
+	            res.increaseFarmerCapacity(-this.farmerCapacity);
+	            res.fireFarmer(res.getFarmer()-res.getFarmerCapacity());
 	        }
 	    }
 
 	    @Override
 	    public void update(CityResources res) {
-	        if (!this.isDestroyed) {
-	            // Double production
-	            final int extraProduction = Math.min(FarmTile.EXTRA_FOOD_PRODUCTION*this.farmer, res.foodCapacity - res.food);
-	            res.creditF(extraProduction);
-	            
+	        if (!this.isDestroyed) {	            
 	            /**
+	             * La nourriture est mise à jour dans GameBoard dans nextState().
+	             * 
 	             * Le x sert à continuer d'augmenter le nombre de travailleurs même si celui ci est en 
 	             * dessous de 4. On augmente au maximum d'un quart du nombre de chômeur le nombre de fermiers parce qu'il y a 4 métiers.
 	             */
@@ -89,9 +86,8 @@ public class FarmTile extends Tile implements Destroyable{
 	            	x = Math.round(res.getUnworkingPopulation()/4);
 	            }     
 	            
-	            final int extraWorkingPopulation = Math.min(x, this.farmerCapacity-this.farmer);
-	            this.farmer += extraWorkingPopulation;
-	            res.hireWorkers(extraWorkingPopulation);
+	            final int extraWorkingPopulation = Math.min(x, res.getFarmerCapacity()-res.getFarmer());
+	            res.hireFarmer(extraWorkingPopulation);
 
 	        }
 	    }

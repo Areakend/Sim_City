@@ -579,7 +579,39 @@ public class CityResources {
         assert amount >= 0;
 
         this.population = Math.max(0, this.population - amount);
-        this.unworkingPopulation = Math.min(this.unworkingPopulation, this.population);
+        for (int i=1; i<=amount; i++ ){
+        	double x = Math.random();
+        	if (x<0.2 && this.unworkingPopulation > 0){
+        		this.unworkingPopulation--;
+        	}
+        	if (x<0.4 && this.getKnight()>0){
+        		this.knight--;
+        	}
+        	else if (x<0.6 && this.getLumberjack()>0){
+        		this.lumberjack--;
+        	}
+        	else if (x<0.8 && this.getMiner()>0){
+        		this.miner--;
+        	}
+        	else {
+        		if (this.getFarmer()>0){
+        			this.farmer--;
+        		}
+        		else if (this.getMiner()>0){
+        			this.miner--;
+        		}
+        		else if (this.getLumberjack()>0){
+        			this.lumberjack--;
+        		}
+        		else if (this.getKnight()>0){
+        			this.knight--;
+        		}
+        		else if (this.unworkingPopulation>0){
+        			this.unworkingPopulation--;
+        		}
+        	}
+
+        }
     }
 
     /**
@@ -657,6 +689,10 @@ public class CityResources {
     public void dailyConsumed() {
         //this.unworkingPopulation = this.population;
     	this.unconsumedEnergy = this.energyProduction;
+    	if (this.population*2 > this.food){
+    		int n = this.population*2 - this.food;
+    		this.decreasePopulation(Math.round(n/2));
+    	}
         this.spendF(Math.min(this.population*2, this.food));
     }
 }

@@ -24,6 +24,7 @@
 
 package model;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -73,7 +74,7 @@ public class GameBoard extends Observable {
 
     public final static int MAX_HANDLED_EVOLUTIONS = 5;
 
-    public final static String NOTHING_MESSAGE = "";
+    public static String NOTHING_MESSAGE = "";
 
     public final static AtomicInteger ROUNDCOUNTER = new AtomicInteger(0);
 
@@ -335,7 +336,29 @@ public class GameBoard extends Observable {
      */
     public void setSelectedTool(Tool tool) {
         this.selectedTool = tool;
+        if (selectedTool== GameBoard.tools.get(0)) {
+        	this.message="Buldozer, il permet de détruire une construction pour 10Ecus";
+        }
+        if (selectedTool== GameBoard.tools.get(1)) {
+        	this.message="Route";
+        }
+        if (selectedTool== GameBoard.tools.get(2)) {
+        	this.message="Puit : coûte x pierres permet de produire de l'eau à raison de X unité";
+        }
+        if (selectedTool== GameBoard.tools.get(3)) {
+        	this.message="Maison : coûte 20 bois et permet d'acceuillir 10 habitants, ils mangent 2 rations par jour";
+        }
+        if (selectedTool== GameBoard.tools.get(4)) {
+        	this.message="Ferme : coûte 40 bois et permet de produire 5 unités de nourriture par fermier";
+        }
+        if (selectedTool== GameBoard.tools.get(5)) {
+        	this.message="Mine : coûte 40 pierre et permet de produire 5 fer par mineur";
+        }
+        if (selectedTool== GameBoard.tools.get(6)) {
+        	this.message="Camp de bûcheron : coûte 40 écus et permet de produire 5 bois par bûcheron";
+        }
         this.notifyViews();
+        //
     }
 
     /**

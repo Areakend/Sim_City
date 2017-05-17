@@ -44,7 +44,7 @@ public class TileUI extends JLabel {
 
     private int column;
 
-    private GameBoard model;
+    public static GameBoard model;
 
     public TileUI(GameBoard m, final int row, final int column) {
         super(" ");

@@ -50,6 +50,7 @@ public class ToolUI extends JButton {
         this.setContentAreaFilled(false);
 
         this.setIcon(IconFactory.getInstance().getToolIcon(target));
+
         this.addActionListener(new ActionListener() {
 
             @Override
@@ -57,6 +58,7 @@ public class ToolUI extends JButton {
                 world.setSelectedTool(target);
             }
         });
+
     }
 
 }

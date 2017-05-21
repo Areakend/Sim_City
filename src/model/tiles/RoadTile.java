@@ -4,6 +4,21 @@ import model.CityResources;
 
 public class RoadTile extends Tile implements Destroyable {
 	
+    // Constant
+    /**
+     * Default instance.
+     */
+    public final static RoadTile INSTANCE = new RoadTile();
+
+    // Factory
+    /**
+     * @return Default river tile.
+     */
+    public static RoadTile getDefault() {
+        // Provide always the same instance since River is not changing.
+        return RoadTile.INSTANCE;
+    }
+	
 	protected boolean isDestroyed;
 	
 	public RoadTile(){

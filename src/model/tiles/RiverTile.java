@@ -15,7 +15,7 @@ public final class RiverTile extends Tile {
 
     // Factory
     /**
-     * @return Default castle tile.
+     * @return Default river tile.
      */
     public static RiverTile getDefault() {
         // Provide always the same instance since River is not changing.

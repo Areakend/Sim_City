@@ -2,6 +2,7 @@ package model.tools;
 
 import model.CityResources;
 import model.tiles.GrassTile;
+import model.tiles.RiverTile;
 import model.tiles.RoadTile;
 import model.tiles.Tile;
 
@@ -11,7 +12,7 @@ public final class RoadConstructionTool extends Tool {
 
 	@Override
 	public boolean canEffect(Tile aTarget) {
-		return aTarget instanceof GrassTile;
+		return aTarget instanceof RiverTile;
 		}
 	
 	@Override

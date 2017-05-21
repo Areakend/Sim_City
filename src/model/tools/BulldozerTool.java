@@ -27,6 +27,8 @@ package model.tools;
 import model.CityResources;
 import model.tiles.Destroyable;
 import model.tiles.GrassTile;
+import model.tiles.RiverTile;
+import model.tiles.RoadTile;
 import model.tiles.Tile;
 
 /**
@@ -74,7 +76,7 @@ public final class BulldozerTool extends Tool {
     }
 
     /**
-     * innerEffect apply the buildozer to the given tile and update the given
+     * innerEffect apply the bulldozer to the given tile and update the given
      * CityResources.
      */
     @Override
@@ -84,8 +86,10 @@ public final class BulldozerTool extends Tool {
 
         ((Destroyable) aTarget).disassemble(r);
         r.spend(BulldozerTool.CURRENCY_COST);
-
-        return GrassTile.getDefault();
+        if (aTarget instanceof RoadTile)
+        	return RiverTile.getDefault();
+        else
+        	return GrassTile.getDefault();
     }
 
     // Debugging

@@ -340,7 +340,7 @@ public class GameBoard extends Observable {
         	this.message="Buldozer, il permet de détruire une construction pour 10Ecus";
         }
         if (selectedTool== GameBoard.tools.get(1)) {
-        	this.message="Route";
+        	this.message="Pont coute 5 bois";
         }
         if (selectedTool== GameBoard.tools.get(2)) {
         	this.message="Puit : coûte x pierres permet de produire de l'eau à raison de X unité";

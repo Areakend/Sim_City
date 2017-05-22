@@ -259,63 +259,110 @@ public class GameBoard extends Observable {
     public Tile getSelectedTile() {
         return this.selectedTile;
     }
-
+    
+    /**
+     * @return Selected Tool.
+     */
     public Tool getSelectedTool() {
         return this.selectedTool;
     }
 
     // Access (City Resources)
-
+    
+    /**
+     * @return Currency amount.
+     */
     public int getCurrency() {
         return this.resources.getCurrency();
     }
     
+    /**
+     * @return Wood amount.
+     */
     public int getWood() {
         return this.resources.getWood();
     }
+    
+    /**
+     * @return Rock amount.
+     */
     public int getRock() {
         return this.resources.getRock();
     }
+    
+    /**
+     * @return Steel amount.
+     */
     public int getSteel() {
         return this.resources.getSteel();
     }
     
+    /**
+     * @return Farmer amount.
+     */
     public int getFarmer() {
         return this.resources.getFarmer();
     }
     
+    /**
+     * @return Miner amount.
+     */
     public int getMiner() {
         return this.resources.getMiner();
     }
     
+    /**
+     * @return Lumberjack amount.
+     */
     public int getLumberjack() {
         return this.resources.getLumberjack();
     }
     
+    /**
+     * @return Knight amount.
+     */
     public int getKnight() {
         return this.resources.getKnight();
     }
-
+    
+    /**
+     * @return Unworking population amount.
+     */
     public int getUnworkingPopulation() {
         return this.resources.getUnworkingPopulation();
     }
     
+    /**
+     * @return Working population amount.
+     */
     public int getWorkingPopulation() {
         return this.resources.getWorkingPopulation();
     }
-
+    
+    /**
+     * @return Energy amount.
+     */
     public int getEnergy() {
         return this.resources.getUnconsumedEnergy();
     }
-
+    
+    /**
+     * @return Food amount.
+     */
     public int getFood() {
         return this.resources.getFood();
     }
-
+    
+    /**
+     * @return Products amount.
+     */
     public int getProducts() {
         return this.resources.getProductsCount();
     }
     
+    /**
+     * @return Day number.
+     */
     public int getJour() {
     	return SimCityUI.jour;
     }

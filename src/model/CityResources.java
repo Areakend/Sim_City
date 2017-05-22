@@ -90,6 +90,7 @@ public class CityResources {
      */
     private int populationCapacity;
     
+    
     private int farmer;
     private int farmerCapacity;
     
@@ -217,24 +218,37 @@ public class CityResources {
         return this.energyProduction - this.unconsumedEnergy;
     }
     /**
-     * @return Number of available energy units.
+     * @return Number of Wood units.
      */
  
     public int getWood() {
         return this.wood;
     }
-    
+    /**
+     * @return Number of Rock units.
+     */
+ 
     public int getRock() {
         return this.rock;
     }
-    
+    /**
+     * @return Number of Food units.
+     */
+ 
     public int getFood() {
         return this.food;
     }
-    
+    /**
+     * @return Number of Steel units.
+     */
+  
     public int getSteel() {
         return this.steel;
     }
+ 
+    /**
+     * @return Unconsumed Energy units.
+     */
  
     public int getUnconsumedEnergy() {
         return this.unconsumedEnergy;
@@ -266,35 +280,58 @@ public class CityResources {
         return this.population - this.unworkingPopulation;
     }
     
-
+    /**
+     * @return Number of Farmer.
+     */
     public int getFarmer() {
 		return farmer;
 	}
-
+    
+    /**
+     * @return Number of Lumberjack.
+     */
 	public int getLumberjack() {
 		return lumberjack;
 	}
-
+	
+    /**
+     * @return Number of Miner.
+     */
 	public int getMiner() {
 		return miner;
 	}
-
+	
+    /**
+     * @return Number of Knight.
+     */
 	public int getKnight() {
 		return knight;
 	}
-
+	
+    /**
+     * @return Farmer capacity.
+     */
 	public int getFarmerCapacity() {
 		return farmerCapacity;
 	}
-
+	
+    /**
+     * @return Lumberjack capacity.
+     */
 	public int getLumberjackCapacity() {
 		return lumberjackCapacity;
 	}
-
+	
+    /**
+     * @return Miner capacity.
+     */
 	public int getMinerCapacity() {
 		return minerCapacity;
 	}
-
+	
+    /**
+     * @return Knight capacity.
+     */
 	public int getKnightCapacity() {
 		return knightCapacity;
 	}
@@ -328,52 +365,97 @@ public class CityResources {
     public int getProductsCapacity() {
         return this.productsCapacity;
     }
-
+    
+    /**
+     * @return Maximum number of Wood that can be stored.
+     */
     public int getWoodCapacity() {
 		return woodCapacity;
 	}
-
+	
+    /**
+     * Increase Wood capacity.
+     * @param woodCapacity
+     */
 	public void increaseWoodCapacity(int woodCapacity) {
 		this.woodCapacity += woodCapacity;
 	}
-
+    
+    /**
+     * @return Maximum number of Steel that can be stored.
+     */
 	public int getSteelCapacity() {
 		return steelCapacity;
 	}
-
+	
+    /**
+     * Increase Steel capacity.
+     * @param steelCapacity
+     */
 	public void increaseSteelCapacity(int steelCapacity) {
 		this.steelCapacity += steelCapacity;
 	}
-
+    
+    /**
+     * @return Maximum number of Rock that can be stored.
+     */
 	public int getRockCapacity() {
 		return rockCapacity;
 	}
-
+	
+    /**
+     * Increase Rock capacity.
+     * @param rockCapacity
+     */
 	public void increaseRockCapacity(int rockCapacity) {
 		this.rockCapacity += rockCapacity;
 	}
 
+    
+    /**
+     * @return Maximum number of Food that can be stored.
+     */
 	public int getFoodCapacity() {
 		return foodCapacity;
 	}
-
+	
+    /**
+     * Increase Food capacity.
+     * @param foodCapacity
+     */
 	public void increaseFoodCapacity(int foodCapacity) {
 		this.foodCapacity += foodCapacity;
 	}
-	
-
+    
+    /**
+     * Increase maximum number of Farmer.
+     * @param farmerCapacity
+     */
 	public void increaseFarmerCapacity(int farmerCapacity) {
 		this.farmerCapacity += farmerCapacity;
 	}
-
+    
+    /**
+     * Increase maximum number of Lumberjack.
+     * @param lumberjackCapacity
+     */
 	public void increaseLumberjackCapacity(int lumberjackCapacity) {
 		this.lumberjackCapacity += lumberjackCapacity;
 	}
 
+    
+    /**
+     * Increase maximum number of Miner.
+     * @param minerCapacity
+     */
 	public void increaseMinerCapacity(int minerCapacity) {
 		this.minerCapacity += minerCapacity;
 	}
-
+    
+    /**
+     * Increase maximum number of Knight.
+     * @param knightCapacity
+     */
 	public void increaseKnightCapacity(int knightCapacity) {
 		this.knightCapacity += knightCapacity;
 	}
@@ -389,21 +471,42 @@ public class CityResources {
 
         this.currency+= amount;
     }
+    
+    /**
+     * Decrease {@link #getWood()} by {@value amount}.
+     *
+     * @param amount
+     */
     public void creditW(int amount) {
         assert amount >= 0;
 
         this.wood += amount;
     }
+    /**
+     * Decrease {@link #getRock()} by {@value amount}.
+     *
+     * @param amount
+     */
     public void creditR(int amount) {
         assert amount >= 0;
 
         this.rock += amount;
     }
+    /**
+     * Decrease {@link #getSteel()} by {@value amount}.
+     *
+     * @param amount
+     */
     public void creditS(int amount) {
         assert amount >= 0;
 
         this.steel += amount;
     }
+    /**
+     * Decrease {@link #getFood()} by {@value amount}.
+     *
+     * @param amount
+     */
     public void creditF(int amount){
     	assert amount >= 0;
     	
@@ -422,7 +525,7 @@ public class CityResources {
     }
 
     /**
-     * Increase {@link #getCurrency()} by {@value amount}.
+     * Decrease {@link #getCurrency()} by {@value amount}.
      *
      * @param amount
      */
@@ -431,21 +534,45 @@ public class CityResources {
 
         this.currency -= amount;
     }
+    
+    /**
+     * Decrease {@link #getWood()} by {@value amount}.
+     *
+     * @param amount
+     */
     public void spendW(int amount) {
         assert amount >= 0 && amount <= this.wood;
 
         this.wood -= amount;
     }
+
+    /**
+     * Decrease {@link #getRock()} by {@value amount}.
+     *
+     * @param amount
+     */
     public void spendR(int amount) {
         assert amount >= 0 && amount <= this.rock;
 
         this.rock -= amount;
     }
+
+    /**
+     * Decrease {@link #getSteel()} by {@value amount}.
+     *
+     * @param amount
+     */
     public void spendS(int amount) {
         assert amount >= 0 && amount <= this.steel;
 
         this.steel -= amount;
     }
+
+    /**
+     * Decrease {@link #getFood()} by {@value amount}.
+     *
+     * @param amount
+     */
     public void spendF(int amount){
     	assert amount >= 0 && amount <= this.food;
     	
@@ -503,54 +630,99 @@ public class CityResources {
         this.unworkingPopulation = this.unworkingPopulation - amount;
     }
     
+    /**
+     * Decrease {@link #getWorkingPopulation()} by {@value amount}.
+     *
+     * @param amount
+     */
     public void fireWorkers(int amount) {
     	assert 0 <= amount && amount <= this.getWorkingPopulation();
     	
     	this.unworkingPopulation += amount;
     }
     
+    /**
+     * Increase {@link #getFarmer()} by {@value amount}.
+     *
+     * @param amount
+     */
     public void hireFarmer(int amount) {
         assert 0 <= amount && amount <= this.getUnworkingPopulation();
         this.unworkingPopulation -= amount;
         this.farmer += amount;
     }
     
+    /**
+     * Decrease {@link #getFarmer()} by {@value amount}.
+     *
+     * @param amount
+     */
     public void fireFarmer(int amount) {
     	assert 0 <= amount && amount <= this.getFarmer();
     	this.farmer -= amount;    	
     	this.unworkingPopulation += amount;
     }
     
+    /**
+     * Increase {@link #getMiner()} by {@value amount}.
+     *
+     * @param amount
+     */
     public void hireMiner(int amount) {
         assert 0 <= amount && amount <= this.getUnworkingPopulation();
         this.unworkingPopulation -= amount;
         this.miner += amount;
     }
     
+    /**
+     * Decrease {@link #getMiner()} by {@value amount}.
+     *
+     * @param amount
+     */
     public void fireMiner(int amount) {
     	assert 0 <= amount && amount <= this.getMiner();
     	this.miner -= amount;    	
     	this.unworkingPopulation += amount;
     }
     
+    /**
+     * Increase {@link #getKnight()} by {@value amount}.
+     *
+     * @param amount
+     */
     public void hireKnight(int amount) {
         assert 0 <= amount && amount <= this.getUnworkingPopulation();
         this.unworkingPopulation -= amount;
         this.knight += amount;
     }
     
+    /**
+     * Decrease {@link #getKnight()} by {@value amount}.
+     *
+     * @param amount
+     */
     public void fireKnight(int amount) {
     	assert 0 <= amount && amount <= this.getKnight();
     	this.knight -= amount;    	
     	this.unworkingPopulation += amount;
     }
     
+    /**
+     * Increase {@link #getLumberack()} by {@value amount}.
+     *
+     * @param amount
+     */
     public void hireLumberjack(int amount) {
         assert 0 <= amount && amount <= this.getUnworkingPopulation();
         this.unworkingPopulation -= amount;
         this.lumberjack += amount;
     }
     
+    /**
+     * Decrease {@link #getLumberack()} by {@value amount}.
+     *
+     * @param amount
+     */
     public void fireLumberjack(int amount) {
     	assert 0 <= amount && amount <= this.getLumberjack();
     	this.lumberjack -= amount;    	

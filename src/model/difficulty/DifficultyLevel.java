@@ -51,9 +51,25 @@ public class DifficultyLevel {
      * {@link #getInitialCurrency()}
      */
     private final int initialCurrency;
+    
+    /**
+     * {@link #getInitialWood()}
+     */
     private final int initialWood;
+    
+    /**
+     * {@link #getInitialFood()}
+     */
     private final int initialFood;
+    
+    /**
+     * {@link #getInitialSteel()}
+     */
     private final int initialSteel;
+    
+    /**
+     * {@link #getInitialRock()}
+     */
     private final int initialRock;
 
     // Creation
@@ -81,15 +97,31 @@ public class DifficultyLevel {
     public int getInitialCurrency() {
         return this.initialCurrency;
     }
+    
+    /**
+     * @return Wood at startup time.
+     */
     public int getInitialWood() {
         return this.initialWood;
     }
+    
+    /**
+     * @return Food at startup time.
+     */
     public int getInitialFood() {
         return this.initialFood;
     }
+    
+    /**
+     * @return Steel at startup time.
+     */
     public int getInitialSteel() {
         return this.initialSteel;
     }
+    
+    /**
+     * @return Rock at startup time.
+     */
     public int getInitialRock() {
         return this.initialRock;
     }

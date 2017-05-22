@@ -10,6 +10,9 @@ public final class RoadConstructionTool extends Tool {
 	
     private final static int Wood_COST = 5;
 
+    /**
+     * canEffect returns true if the given Tile is buildable, false otherwise.
+     */
 	@Override
 	public boolean canEffect(Tile aTarget) {
 		return aTarget instanceof RiverTile;
@@ -20,7 +23,11 @@ public final class RoadConstructionTool extends Tool {
 	    return this == o || o instanceof RoadConstructionTool;
 
 	}
-
+	
+    /**
+     * isAfordable returns true if the user can apply the RoadConstruction Tool, false
+     * otherwise.
+     */
 	@Override
 	public boolean isAfordable(Tile aTarget, CityResources r) {
         return RoadConstructionTool.Wood_COST <= r.getWood();
@@ -36,6 +43,10 @@ public final class RoadConstructionTool extends Tool {
         return this.getClass().hashCode();
     }
 
+    /**
+     * innerEffect apply the RoadConstruction tool to the given tile and update the
+     * given CityResources.
+     */
 	@Override
 	protected Tile innerEffect(Tile aTarget, CityResources r) {
         assert this.canEffect(aTarget);

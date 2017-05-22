@@ -77,6 +77,9 @@ public class GameBoardView extends JPanel implements Observer {
         }
     }
 
+    /**
+     * Move the sreen (up).
+     */
     public boolean moveZoomUp() {
     	//True si je peux encore avancer
     	assert(xzoom>0);
@@ -84,7 +87,10 @@ public class GameBoardView extends JPanel implements Observer {
     	resetLayout();
     	return xzoom>0;
     }
-    
+
+    /**
+     * Move the sreen (left).
+     */  
     public boolean moveZoomLeft() {
     	//True si je peux encore avancer
     	assert(yzoom>0);
@@ -92,7 +98,10 @@ public class GameBoardView extends JPanel implements Observer {
     	resetLayout();
     	return yzoom>0;
     }
-    
+
+    /**
+     * Move the sreen (down).
+     */
     public boolean moveZoomDown() {
     	//True si je peux encore avancer
     	assert(xzoom+hzoom<worldH);
@@ -100,7 +109,10 @@ public class GameBoardView extends JPanel implements Observer {
     	resetLayout();
     	return xzoom+hzoom<worldH;
     }
-    
+
+    /**
+     * Move the sreen (right).
+     */
     public boolean moveZoomRight() {
     	//True si je peux encore avancer
     	assert(yzoom+wzoom<worldW);
@@ -108,7 +120,10 @@ public class GameBoardView extends JPanel implements Observer {
     	resetLayout();
     	return yzoom+wzoom<worldW;
     }
-    
+
+    /**
+     * Reset the layout.
+     */
     public void resetLayout() {
     	this.removeAll();
     	GridLayout gl = new GridLayout(hzoom, wzoom);

@@ -7,7 +7,7 @@ import model.tiles.Tile;
 
 public final class MineConstructionTool extends Tool {
 	
-    private final static int Rock_COST = 40;
+    public final static int Rock_COST = 40;
 
 
     /**
@@ -48,7 +48,7 @@ public final class MineConstructionTool extends Tool {
      * given CityResources.
      */
 	@Override
-	protected Tile innerEffect(Tile aTarget, CityResources r) {
+	public Tile innerEffect(Tile aTarget, CityResources r) {
         assert this.canEffect(aTarget);
         assert this.isAfordable(aTarget, r);
 

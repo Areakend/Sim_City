@@ -37,7 +37,7 @@ import model.tiles.Tile;
 public final class BulldozerTool extends Tool {
 
     // Constant
-    private final static int CURRENCY_COST = 10;
+    public final static int CURRENCY_COST = 10;
 
     // Status
     /**
@@ -80,7 +80,7 @@ public final class BulldozerTool extends Tool {
      * CityResources.
      */
     @Override
-    protected Tile innerEffect(Tile aTarget, CityResources r) {
+	public Tile innerEffect(Tile aTarget, CityResources r) {
         assert canEffect(aTarget);
         assert isAfordable(aTarget, r);
 

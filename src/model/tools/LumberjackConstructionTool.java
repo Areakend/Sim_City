@@ -6,7 +6,7 @@ import model.tiles.GrassTile;
 import model.tiles.Tile;
 
 public final class LumberjackConstructionTool extends Tool{
-    private final static int CURRENCY_COST = 40;
+    public final static int CURRENCY_COST = 40;
 
 
     /**
@@ -47,7 +47,7 @@ public final class LumberjackConstructionTool extends Tool{
      * given CityResources.
      */
 	@Override
-	protected Tile innerEffect(Tile aTarget, CityResources r) {
+	public Tile innerEffect(Tile aTarget, CityResources r) {
         assert this.canEffect(aTarget);
         assert this.isAfordable(aTarget, r);
         r.increaseWoodCapacity(ForestTile.DEFAULT_PRODUCTION_CAPACITY);

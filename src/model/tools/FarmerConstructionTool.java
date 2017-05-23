@@ -7,7 +7,7 @@ import model.tiles.Tile;
 
 public final class FarmerConstructionTool extends Tool {
 	
-    private final static int Wood_COST = 40;
+    public final static int Wood_COST = 40;
 
     /**
      * canEffect returns true if the given Tile is buildable, false otherwise.
@@ -47,7 +47,7 @@ public final class FarmerConstructionTool extends Tool {
      * given CityResources.
      */
 	@Override
-	protected Tile innerEffect(Tile aTarget, CityResources r) {
+	public Tile innerEffect(Tile aTarget, CityResources r) {
         assert this.canEffect(aTarget);
         assert this.isAfordable(aTarget, r);
 

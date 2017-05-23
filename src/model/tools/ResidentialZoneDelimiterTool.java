@@ -37,7 +37,7 @@ import model.tiles.Tile;
 public final class ResidentialZoneDelimiterTool extends Tool {
 
 // Constant
-	private final static int Wood_COST = 20;
+	public final static int Wood_COST = 20;
 
 // Status
 	// Status
@@ -61,7 +61,7 @@ public final class ResidentialZoneDelimiterTool extends Tool {
      */
 	@Override
 	public boolean isAfordable (Tile aTarget, CityResources r) {
-		return ResidentialZoneDelimiterTool.Wood_COST <= r.getCurrency();
+		return ResidentialZoneDelimiterTool.Wood_COST <= r.getWood();
 	}
 
 // Access
@@ -80,11 +80,11 @@ public final class ResidentialZoneDelimiterTool extends Tool {
      * given CityResources.
      */
 	@Override
-	protected Tile innerEffect (Tile aTarget, CityResources r) {
+	public Tile innerEffect (Tile aTarget, CityResources r) {
 		assert canEffect(aTarget);
 		assert isAfordable(aTarget, r);
 
-		r.spend(ResidentialZoneDelimiterTool.Wood_COST);
+		r.spendW(ResidentialZoneDelimiterTool.Wood_COST);
 		r.increasePopulationCapacity(ResidentialTile.DEFAULT_INHABITANTS_CAPACITY);
 
 		return new ResidentialTile();

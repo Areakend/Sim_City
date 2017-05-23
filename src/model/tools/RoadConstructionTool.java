@@ -1,14 +1,13 @@
 package model.tools;
 
 import model.CityResources;
-import model.tiles.GrassTile;
 import model.tiles.RiverTile;
 import model.tiles.RoadTile;
 import model.tiles.Tile;
 
 public final class RoadConstructionTool extends Tool {
 	
-    private final static int Wood_COST = 5;
+    public final static int Wood_COST = 5;
 
     /**
      * canEffect returns true if the given Tile is buildable, false otherwise.
@@ -48,7 +47,7 @@ public final class RoadConstructionTool extends Tool {
      * given CityResources.
      */
 	@Override
-	protected Tile innerEffect(Tile aTarget, CityResources r) {
+	public Tile innerEffect(Tile aTarget, CityResources r) {
         assert this.canEffect(aTarget);
         assert this.isAfordable(aTarget, r);
 

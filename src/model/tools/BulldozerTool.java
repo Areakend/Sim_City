@@ -28,7 +28,7 @@ import model.CityResources;
 import model.tiles.Destroyable;
 import model.tiles.GrassTile;
 import model.tiles.RiverTile;
-import model.tiles.RoadTile;
+import model.tiles.BridgeTile;
 import model.tiles.Tile;
 
 /**
@@ -86,7 +86,7 @@ public final class BulldozerTool extends Tool {
 
         ((Destroyable) aTarget).disassemble(r);
         r.spend(BulldozerTool.CURRENCY_COST);
-        if (aTarget instanceof RoadTile)
+        if (aTarget instanceof BridgeTile)
         	return RiverTile.getDefault();
         else
         	return GrassTile.getDefault();

@@ -75,7 +75,7 @@ public class UKTexts extends LocalizedTexts {
     }
 
     @Override
-    public String getUnconsumedEnergyLabel() {
+    public String getUnconsumedWaterLabel() {
         return "Energie non consommé";
     }
 

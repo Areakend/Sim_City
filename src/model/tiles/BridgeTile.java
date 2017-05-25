@@ -2,26 +2,26 @@ package model.tiles;
 
 import model.CityResources;
 
-public class RoadTile extends Tile implements Destroyable {
+public class BridgeTile extends Tile implements Destroyable {
 	
     // Constant
     /**
      * Default instance.
      */
-    public final static RoadTile INSTANCE = new RoadTile();
+    public final static BridgeTile INSTANCE = new BridgeTile();
 
     // Factory
     /**
      * @return Default river tile.
      */
-    public static RoadTile getDefault() {
+    public static BridgeTile getDefault() {
         // Provide always the same instance since River is not changing.
-        return RoadTile.INSTANCE;
+        return BridgeTile.INSTANCE;
     }
 	
 	protected boolean isDestroyed;
 	
-	public RoadTile(){
+	public BridgeTile(){
 		super();
 		this.isDestroyed=false;
 	}

@@ -1,9 +1,8 @@
 package model.tools;
 
 import model.CityResources;
-import model.tiles.GrassTile;
 import model.tiles.RiverTile;
-import model.tiles.RoadTile;
+import model.tiles.BridgeTile;
 import model.tiles.Tile;
 
 public final class RoadConstructionTool extends Tool {
@@ -43,7 +42,7 @@ public final class RoadConstructionTool extends Tool {
 
         r.spendW(RoadConstructionTool.Wood_COST);
 
-        return new RoadTile();
+        return new BridgeTile();
     }
     @Override
     public String toString() {

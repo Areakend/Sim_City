@@ -38,5 +38,6 @@ public abstract class Tile {
      * @param res
      */
     public abstract void update(CityResources res);
+    public abstract void disassemble(CityResources res);
 
 }

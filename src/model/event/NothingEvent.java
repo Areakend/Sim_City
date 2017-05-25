@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import localization.LocalizedTexts;
-import model.CityResources;
+import model.GameBoard;
 
 
 /**
@@ -47,7 +47,7 @@ public class NothingEvent extends Event {
      * Apply no effects.
      */
 	@Override
-    public List<Event> applyEffects(CityResources resources) {
+    public List<Event> applyEffects(GameBoard gameBoard) {
         System.out.println("No disaster occured.");
         return new ArrayList<>(0);
     }

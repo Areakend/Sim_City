@@ -40,6 +40,9 @@ public final class RiverTile extends Tile {
     public boolean equals(Object o) {
         return this == o || o instanceof RiverTile;
     }
+    
+    public void disassemble(CityResources res){
+    }
 
     // Change
     @Override

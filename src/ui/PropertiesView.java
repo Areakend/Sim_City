@@ -32,7 +32,6 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import launcher.SimCityUI;
 import localization.LocalizedTexts;
 import model.GameBoard;
 
@@ -41,7 +40,7 @@ public class PropertiesView extends JPanel implements Observer {
     private static final long serialVersionUID = 1L;
 
     private JLabel currency;
-    private JLabel energy;
+    private JLabel water;
     private JLabel unworkingPop;
     //private JLabel workingPop;
     private JLabel farmer;
@@ -75,9 +74,9 @@ public class PropertiesView extends JPanel implements Observer {
         this.steel = new JLabel(Integer.toString(w.getSteel()));
         this.add(this.steel);
 
-        this.add(new JLabel(texts.getUnconsumedEnergyLabel()));
-        this.energy = new JLabel(Integer.toString(w.getEnergy()));
-        this.add(this.energy);
+        this.add(new JLabel(texts.getUnconsumedWaterLabel()));
+        this.water = new JLabel(Integer.toString(w.getWater()));
+        this.add(this.water);
         
  
         this.add(new JLabel(texts.getUnconsumedFoodLabel()));
@@ -122,7 +121,7 @@ public class PropertiesView extends JPanel implements Observer {
         this.wood.setText(MessageFormat.format(world.getTexts().getWoodMsg(), world.getWood()));
         this.rock.setText(MessageFormat.format(world.getTexts().getRockMsg(), world.getRock()));
         this.steel.setText(MessageFormat.format(world.getTexts().getSteelMsg(), world.getSteel()));
-        this.energy.setText("" + world.getEnergy());
+        this.water.setText("" + world.getWater());
         this.food.setText("" + world.getFood());
         this.unworkingPop.setText("" + world.getUnworkingPopulation());
         this.farmer.setText("" + world.getFarmer());

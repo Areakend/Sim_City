@@ -75,9 +75,9 @@ public abstract class LocalizedTexts {
     public abstract String getRockLabel();
 
     /**
-     * @return No-consumed energy label.
+     * @return No-consumed water label.
      */
-    public abstract String getUnconsumedEnergyLabel();
+    public abstract String getUnconsumedWaterLabel();
     public abstract String getUnconsumedFoodLabel();
 
 

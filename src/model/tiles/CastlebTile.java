@@ -40,7 +40,8 @@ public final class CastlebTile extends Tile {
     public boolean equals(Object o) {
         return this == o || o instanceof CastlebTile;
     }
-
+    
+    public void disassemble(CityResources res){}
     // Change
     @Override
     public void update(CityResources res) {

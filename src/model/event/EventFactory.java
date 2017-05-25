@@ -43,10 +43,10 @@ public class EventFactory {
      * Default Constructor.
      */
     private static enum eventType {
-        NOTHING;
+        NOTHING,EARTHQUAKE;
     }
 
-    @SuppressWarnings("serial")
+    
     /**
      * Probabilities bound to a specific event. The sum of all probabilities
      * must be equal to 100
@@ -58,7 +58,8 @@ public class EventFactory {
         private static final long serialVersionUID = -6805412774816642699L;
 
         {
-            this.put(eventType.NOTHING, 100);
+            this.put(eventType.NOTHING, 80);
+            this.put(eventType.EARTHQUAKE, 20);
         }
     });
 
@@ -86,6 +87,9 @@ public class EventFactory {
         switch (type) {
             case NOTHING:
                 result = new NothingEvent();
+                break;
+            case EARTHQUAKE:
+                result = new EarthquakeEvent();
                 break;
             default:
                 result = new NothingEvent();

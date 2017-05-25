@@ -65,6 +65,8 @@ public final class GrassTile extends Tile {
         return this == o || o instanceof GrassTile;
     }
 
+    public void disassemble(CityResources res){
+    }
     // Change
     @Override
     public void update(CityResources res) {

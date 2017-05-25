@@ -33,7 +33,6 @@ import javax.swing.JLabel;
 
 import model.GameBoard;
 import model.tiles.Tile;
-import model.tools.FarmerConstructionTool;
 import model.tools.Tool;
 
 public class TileUI extends JLabel {
@@ -48,19 +47,19 @@ public class TileUI extends JLabel {
 
     public TileUI(GameBoard m, final int row, final int column) {
         super(" ");
-        this.model = m;
+        TileUI.model = m;
         this.row = row;
         this.column = column;
         this.setBorder(null);
         this.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                TileUI.this.model.effectTile(row, column);
+                TileUI.model.effectTile(row, column);
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                TileUI.this.model.setSelectedTile(row, column);
+                TileUI.model.setSelectedTile(row, column);
             }
         });
 
@@ -69,35 +68,35 @@ public class TileUI extends JLabel {
     }
     // Rafraîchissement du composant
     public void update() {
-        final Tile elt = this.model.getTile(this.row, this.column);
-        final Tool selectedTool = this.model.getSelectedTool();
+        final Tile elt = TileUI.model.getTile(this.row, this.column);
+        final Tool selectedTool = TileUI.model.getSelectedTool();
 
         if (selectedTool.canEffect(elt)) {
             final int cost = selectedTool.getCost(elt);
             if (selectedTool== GameBoard.tools.get(3)) {
-                this.setToolTipText(MessageFormat.format(this.model.getTexts().getWoodMsg(), cost));
+                this.setToolTipText(MessageFormat.format(TileUI.model.getTexts().getWoodMsg(), cost));
             }
             if (selectedTool== GameBoard.tools.get(2)) {
-                this.setToolTipText(MessageFormat.format(this.model.getTexts().getCurrencyMsg(), cost));
+                this.setToolTipText(MessageFormat.format(TileUI.model.getTexts().getCurrencyMsg(), cost));
             }
             if (selectedTool== GameBoard.tools.get(4)) {
-                this.setToolTipText(MessageFormat.format(this.model.getTexts().getWoodMsg(), cost));
+                this.setToolTipText(MessageFormat.format(TileUI.model.getTexts().getWoodMsg(), cost));
             }
             if (selectedTool== GameBoard.tools.get(5)) {
-                this.setToolTipText(MessageFormat.format(this.model.getTexts().getRockMsg(), cost));
+                this.setToolTipText(MessageFormat.format(TileUI.model.getTexts().getRockMsg(), cost));
             }
             if (selectedTool== GameBoard.tools.get(6)) {
-                this.setToolTipText(MessageFormat.format(this.model.getTexts().getCurrencyMsg(), cost));
+                this.setToolTipText(MessageFormat.format(TileUI.model.getTexts().getCurrencyMsg(), cost));
             }
             if (selectedTool== GameBoard.tools.get(0)) {
-                this.setToolTipText(MessageFormat.format(this.model.getTexts().getCurrencyMsg(), cost));
+                this.setToolTipText(MessageFormat.format(TileUI.model.getTexts().getCurrencyMsg(), cost));
             }
             if (selectedTool== GameBoard.tools.get(1)) {
-                this.setToolTipText(MessageFormat.format(this.model.getTexts().getCurrencyMsg(), cost));
+                this.setToolTipText(MessageFormat.format(TileUI.model.getTexts().getCurrencyMsg(), cost));
             }
             
         } else {
-            this.setToolTipText(this.model.getTexts().getToolCannotAffectMsg());
+            this.setToolTipText(TileUI.model.getTexts().getToolCannotAffectMsg());
         }
 
         ImageIcon ii = IconFactory.getInstance().getTileIcon(elt);

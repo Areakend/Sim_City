@@ -27,20 +27,20 @@ package model.tiles;
 import model.CityResources;
 
 /**
- * Tile that can evolve and be destroyed. An evolution has an energy cost.
+ * Tile that can evolve and be destroyed. An evolution has an water cost.
  */
 public abstract class BuildableTile extends Tile implements Evolvable, Destroyable {
 
     // Implementation
     /**
-     * {@link #getEvolutionEnergyConsumption()}
+     * {@link #getEvolutionWaterConsumption()}
      */
-    private final int evolutionEnergyConsumption;
+    private final int evolutionWaterConsumption;
 
     /**
-     * {@link #isEnergyMissing()}
+     * {@link #isWaterMissing()}
      */
-    protected boolean isEnergyMissing;
+    protected boolean isWaterMissing;
 
     /**
      * {@link #getState()}
@@ -51,23 +51,23 @@ public abstract class BuildableTile extends Tile implements Evolvable, Destroyab
     /**
      * Create a tile under construction.
      *
-     * @param evolutionEnergyConsumption
-     *            - {@link #getEvolutionEnergyConsumption()}
+     * @param evolutionWaterConsumption
+     *            - {@link #getEvolutionWaterConsumption()}
      */
-    public BuildableTile(int evolutionEnergyConsumption) {
-        assert evolutionEnergyConsumption >= 0;
+    public BuildableTile(int evolutionWaterConsumption) {
+        assert evolutionWaterConsumption >= 0;
 
-        this.evolutionEnergyConsumption = evolutionEnergyConsumption;
+        this.evolutionWaterConsumption = evolutionWaterConsumption;
         this.state = ConstructionState.UNDER_CONSTRUCTION;
-        this.isEnergyMissing = false;
+        this.isWaterMissing = false;
     }
 
     // Access
     /**
-     * @return Consumed energy during an evolution.
+     * @return Consumed water during an evolution.
      */
-    public final int getEvolutionEnergyConsumption() {
-        return this.evolutionEnergyConsumption;
+    public final int getEvolutionWaterConsumption() {
+        return this.evolutionWaterConsumption;
     }
 
     /**
@@ -80,7 +80,7 @@ public abstract class BuildableTile extends Tile implements Evolvable, Destroyab
     @Override
     public int hashCode() {
         int result = 1;
-        result = result * 17 + evolutionEnergyConsumption;
+        result = result * 17 + evolutionWaterConsumption;
         result = result * 17 + state.hashCode();
         return result;
     }
@@ -91,7 +91,7 @@ public abstract class BuildableTile extends Tile implements Evolvable, Destroyab
      * @return Is {@value o} equals to this?
      */
     public boolean equals(BuildableTile o) {
-        return o.evolutionEnergyConsumption == evolutionEnergyConsumption && o.state == state;
+        return o.evolutionWaterConsumption == evolutionWaterConsumption && o.state == state;
     }
 
     // Status
@@ -101,10 +101,10 @@ public abstract class BuildableTile extends Tile implements Evolvable, Destroyab
     }
 
     /**
-     * @return Is energy missing in order to evolve or to update?
+     * @return Is water missing in order to evolve or to update?
      */
-    public final boolean isEnergyMissing() {
-        return this.isEnergyMissing;
+    public final boolean isWaterMissing() {
+        return this.isWaterMissing;
     }
 
     // Change
@@ -116,13 +116,13 @@ public abstract class BuildableTile extends Tile implements Evolvable, Destroyab
     @Override
     public void evolve(CityResources res) {
         if (canEvolve()) {
-            if (res.getUnconsumedEnergy() >= evolutionEnergyConsumption) {
-                this.isEnergyMissing = false;
+            if (res.getUnconsumedWater() >= evolutionWaterConsumption) {
+                this.isWaterMissing = false;
 
-                res.consumeEnergy(this.evolutionEnergyConsumption);
+                res.consumeWater(this.evolutionWaterConsumption);
                 this.state = ConstructionState.BUILT;
             } else {
-                this.isEnergyMissing = true;
+                this.isWaterMissing = true;
             }
         }
     }

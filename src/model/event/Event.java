@@ -29,7 +29,6 @@ import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 import localization.LocalizedTexts;
-import model.CityResources;
 import model.GameBoard;
 import model.TilePosition;
 
@@ -68,7 +67,7 @@ public abstract class Event {
      *         be null, if no event results from the current one then return an
      *         empty List.
      */
-    public abstract List<Event> applyEffects(CityResources resources);
+    public abstract List<Event> applyEffects(GameBoard gameBoard);
 
     /**
      * @param texts

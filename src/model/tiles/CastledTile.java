@@ -41,6 +41,7 @@ public final class CastledTile extends Tile {
         return this == o || o instanceof CastledTile;
     }
 
+    public void disassemble(CityResources res){}
     // Change
     @Override
     public void update(CityResources res) {

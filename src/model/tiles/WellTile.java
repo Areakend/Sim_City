@@ -26,11 +26,11 @@ package model.tiles;
 
 import model.CityResources;
 
-public class PowerPlantTile extends Tile implements Destroyable {
+public class WellTile extends Tile implements Destroyable {
 
     // Constant
     /**
-     * Extra energy produces for each new update. In the limit of the capacity
+     * Extra water produces for each new update. In the limit of the capacity
      * {@link #getProductionCapacity()}.
      */
     public final static int EXTRA_ENERGY_PRODUCTION = 15;
@@ -61,7 +61,7 @@ public class PowerPlantTile extends Tile implements Destroyable {
      * @param productionCapacity
      *            - {@link #getProductionCapacity()}
      */
-    public PowerPlantTile(int productionCapacity) {
+    public WellTile(int productionCapacity) {
         super();
         this.productionCapacity = productionCapacity;
         this.production = 0;
@@ -71,8 +71,8 @@ public class PowerPlantTile extends Tile implements Destroyable {
     /**
      * Create with default settings.
      */
-    public PowerPlantTile() {
-        this(PowerPlantTile.DEFAULT_PRODUCTION_CAPACITY);
+    public WellTile() {
+        this(WellTile.DEFAULT_PRODUCTION_CAPACITY);
     }
 
     // Access
@@ -102,14 +102,14 @@ public class PowerPlantTile extends Tile implements Destroyable {
     // Status
     @Override
     public boolean equals(Object o) {
-        return o instanceof PowerPlantTile && this.equals((PowerPlantTile) o);
+        return o instanceof WellTile && this.equals((WellTile) o);
     }
 
     /**
      * @param o
      * @return Is {@value o} equals to this?
      */
-    public boolean equals(PowerPlantTile o) {
+    public boolean equals(WellTile o) {
         return this == o || o.production == this.production && o.productionCapacity == this.productionCapacity && o.isDestroyed == this.isDestroyed;
     }
 
@@ -122,7 +122,7 @@ public class PowerPlantTile extends Tile implements Destroyable {
     @Override
     public void disassemble(CityResources res) {
         if (!this.isDestroyed) {
-            res.decreaseEnergyProduction(this.productionCapacity);
+            res.decreaseWaterProduction(this.productionCapacity);
             this.isDestroyed = true;
         }
     }
@@ -131,10 +131,10 @@ public class PowerPlantTile extends Tile implements Destroyable {
     public void update(CityResources res) {
         if (!this.isDestroyed) {
             // Double production
-            final int extraProduction = Math.min(PowerPlantTile.EXTRA_ENERGY_PRODUCTION, this.productionCapacity - this.production);
+            final int extraProduction = Math.min(WellTile.EXTRA_ENERGY_PRODUCTION, this.productionCapacity - this.production);
 
             this.production = this.production + extraProduction;
-            res.increaseEnergyProduction(extraProduction);
+            res.increaseWaterProduction(extraProduction);
         }
     }
 

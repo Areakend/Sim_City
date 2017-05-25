@@ -63,16 +63,16 @@ public class CityResources {
      */
     private int vat;
 
-    // Implementation (Energy)
+    // Implementation (Water)
     /**
-     * {@link #getUnconsumedEnergy()}
+     * {@link #getUnconsumedWater()}
      */
-    private int unconsumedEnergy;
+    int unconsumedWater;
 
     /**
-     * {@link #getEnergyProduction()}
+     * {@link #getWaterProduction()}
      */
-    private int energyProduction;
+    int waterProduction;
 
     // Implementation (Population)
     /**
@@ -157,7 +157,7 @@ public class CityResources {
         this.populationCapacity = aPopulation;
 
         this.unworkingPopulation = this.population;
-        this.unconsumedEnergy = this.energyProduction;
+        this.unconsumedWater = this.waterProduction;
     }
 
     // Status
@@ -171,7 +171,7 @@ public class CityResources {
      * @return Is {@value o} equals to this?
      */
     public boolean equals(CityResources o) {
-        return this == o || super.equals(o) && o.currency == this.currency && o.vat == this.vat && o.unconsumedEnergy == this.unconsumedEnergy && o.energyProduction == this.energyProduction
+        return this == o || super.equals(o) && o.currency == this.currency && o.vat == this.vat && o.unconsumedWater == this.unconsumedWater && o.waterProduction == this.waterProduction
                 && o.unworkingPopulation == this.unworkingPopulation && o.population == this.population && o.populationCapacity == this.populationCapacity && o.productsCount == this.productsCount
                 && o.productsCapacity == this.productsCapacity && o.wood == this.wood && o.steel == this.steel && this.rock == o.rock && this.food == o.food &&
                 this.woodCapacity == o.woodCapacity && this.steelCapacity == o.steelCapacity && o.rockCapacity == this.rockCapacity && this.foodCapacity == o.foodCapacity;
@@ -183,8 +183,8 @@ public class CityResources {
         int result = 1;
         result = result * 17 + this.currency;
         result = result * 17 + this.vat;
-        result = result * 17 + this.unconsumedEnergy;
-        result = result * 17 + this.energyProduction;
+        result = result * 17 + this.unconsumedWater;
+        result = result * 17 + this.waterProduction;
         result = result * 17 + this.unworkingPopulation;
         result = result * 17 + this.population;
         result = result * 17 + this.populationCapacity;
@@ -209,15 +209,15 @@ public class CityResources {
         return this.vat;
     }
 
-    // Access (Energy)
+    // Access (Water)
     /**
-     * @return Number of consumed energy units.
+     * @return Number of consumed water units.
      */
-    public int getConsumedEnergy() {
-        return this.energyProduction - this.unconsumedEnergy;
+    public int getConsumedWater() {
+        return this.waterProduction - this.unconsumedWater;
     }
     /**
-     * @return Number of available energy units.
+     * @return Number of available water units.
      */
  
     public int getWood() {
@@ -236,18 +236,18 @@ public class CityResources {
         return this.steel;
     }
  
-    public int getUnconsumedEnergy() {
-        return this.unconsumedEnergy;
+    public int getUnconsumedWater() {
+        return this.unconsumedWater;
     }
     
 
     /**
     *
-    * @return Monthly production of energy units.
+    * @return Monthly production of water units.
     */
     
-    public int getEnergyProduction() {
-        return this.energyProduction;
+    public int getWaterProduction() {
+        return this.waterProduction;
     }
 
 
@@ -452,42 +452,42 @@ public class CityResources {
     	this.food -= amount;
     }
 
-    // Change (Energy)
+    // Change (Water)
     /***
-     * Increase {@link #getConsumedEnergy()} by {@value amount}.
+     * Increase {@link #getConsumedWater()} by {@value amount}.
      *
      * @param amount
      */
-    public void consumeEnergy(int amount) {
-        assert 0 <= amount && amount <= this.getUnconsumedEnergy();
+    public void consumeWater(int amount) {
+        assert 0 <= amount && amount <= this.getUnconsumedWater();
 
-        this.unconsumedEnergy = this.unconsumedEnergy - amount;
+        this.unconsumedWater = this.unconsumedWater - amount;
     }
 
 
     /**
-     * Decrease {@link #getEnergyProduction()} by {@value amount}.
+     * Decrease {@link #getWaterProduction()} by {@value amount}.
      *
      * @param amount
      */
-    public void decreaseEnergyProduction(int amount) {
+    public void decreaseWaterProduction(int amount) {
         assert amount >= 0;
 
-        this.energyProduction = Math.max(0, this.energyProduction - amount);
-        this.unconsumedEnergy = Math.min(this.unconsumedEnergy, this.energyProduction);
+        this.waterProduction = Math.max(0, this.waterProduction - amount);
+        this.unconsumedWater = Math.min(this.unconsumedWater, this.waterProduction);
     }
 
 
     /**
-     * Increase {@link #getEnergyProduction()} by {@value amount}.
+     * Increase {@link #getWaterProduction()} by {@value amount}.
      *
      * @param amount
      */
-    public void increaseEnergyProduction(int amount) {
+    public void increaseWaterProduction(int amount) {
         assert amount >= 0;
 
-        this.energyProduction = this.energyProduction + amount;
-        this.unconsumedEnergy = this.unconsumedEnergy + amount;
+        this.waterProduction = this.waterProduction + amount;
+        this.unconsumedWater = this.unconsumedWater + amount;
     }
 
 
@@ -683,16 +683,5 @@ public class CityResources {
         this.productsCapacity = this.productsCapacity + amount;
     }
 
-    /**
-     * Consommation journalière
-     */
-    public void dailyConsumed() {
-        //this.unworkingPopulation = this.population;
-    	this.unconsumedEnergy = this.energyProduction;
-    	if (this.population*2 > this.food){
-    		int n = this.population*2 - this.food;
-    		this.decreasePopulation(Math.round(n/2));
-    	}
-        this.spendF(Math.min(this.population*2, this.food));
-    }
+
 }

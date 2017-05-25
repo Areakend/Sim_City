@@ -62,6 +62,10 @@ public class MessagesView extends JPanel implements Observer {
             String msg = MessageFormat.format(world.getTexts().getRoundMsg() + "\n", GameBoard.ROUNDCOUNTER.get(), world.getMessage());
             this.message.append(msg);
         }
+        if(world.getMessageFamine() != null){
+            String msg2 = MessageFormat.format(world.getTexts().getRoundMsg() + "\n", GameBoard.ROUNDCOUNTER.get(), world.getMessageFamine());
+        	this.message.append(msg2);
+        }
     }
 
 }

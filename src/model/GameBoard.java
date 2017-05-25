@@ -24,7 +24,6 @@
 
 package model;
 
-import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -123,6 +122,8 @@ public class GameBoard extends Observable {
      * {@link #getTexts()}
      */
     private final LocalizedTexts texts;
+
+	private String messageFamine;
 
     // Creation
     /**
@@ -245,7 +246,11 @@ public class GameBoard extends Observable {
         return tools.size();
     }
 
-    /**
+    public CityResources getResources() {
+		return resources;
+	}
+
+	/**
      * @return Tools' iterator of available tools.
      */
     public Iterator<Tool> toolIterator() {
@@ -304,8 +309,8 @@ public class GameBoard extends Observable {
         return this.resources.getWorkingPopulation();
     }
 
-    public int getEnergy() {
-        return this.resources.getUnconsumedEnergy();
+    public int getWater() {
+        return this.resources.getUnconsumedWater();
     }
 
     public int getFood() {
@@ -327,6 +332,10 @@ public class GameBoard extends Observable {
     public String getMessage() {
         return this.message;
     }
+    
+	public String getMessageFamine() {
+		return this.messageFamine;
+	}
 
     // Change (Selection)
     /**
@@ -444,13 +453,30 @@ public class GameBoard extends Observable {
         final int extraProductionW = Math.min(ForestTile.EXTRA_WOOD_PRODUCTION*resources.getLumberjack(), resources.woodCapacity - resources.wood);
         resources.creditW(extraProductionW); //Met à jour la production de bois.
         
-        this.resources.dailyConsumed();
+        this.dailyConsumed();
         this.applyPendingEvents();
         this.applyNewEvent();
         this.updateTiles();
         this.applyEvolutions();
         this.notifyViews();
         SimCityUI.jour +=1;
+    }
+    
+    /**
+     * Consommation journalière
+     */
+    public void dailyConsumed() {
+        //this.unworkingPopulation = this.population;
+    	this.resources.unconsumedWater=this.resources.waterProduction;
+    	if (this.resources.getPopulation()*2 > this.resources.getFood()){
+    		int n = this.resources.getPopulation()*2 - this.resources.getFood();
+    		this.resources.decreasePopulation(Math.round(n/2));
+            this.messageFamine = "Nourriture insuffisante. Votre population meurt de faim";
+            
+    	}else{
+    		this.message = null;
+    	}
+        this.resources.spendF(Math.min(this.resources.getPopulation()*2, this.resources.getFood()));
     }
 
     /**
@@ -460,7 +486,7 @@ public class GameBoard extends Observable {
     private void applyPendingEvents() {
         List<Event> entry;
         for (Event event : this.pendingEventsList) {
-            entry = event.applyEffects(this.resources);
+            entry = event.applyEffects(this);
             this.pendingEventsList.addAll(entry);
         }
     }
@@ -470,7 +496,7 @@ public class GameBoard extends Observable {
      */
     private void applyNewEvent() {
         Event event = EventFactory.generateEvent(this);
-        List<Event> resultingEvents = event.applyEffects(this.resources);
+        List<Event> resultingEvents = event.applyEffects(this);
         assert resultingEvents != null;
         String eventMessage = event.getMessage(this.texts);
         assert eventMessage != null : "The event message must not be null.";
@@ -515,5 +541,7 @@ public class GameBoard extends Observable {
             }
         }
     }
+
+
 
 }

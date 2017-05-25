@@ -27,14 +27,14 @@ package model.tiles;
 import model.CityResources;
 
 /**
- * Enable to welcome new inhabitants and consume energy units according to the
+ * Enable to welcome new inhabitants and consume water units according to the
  * number of inhabitants.
  */
 public class ResidentialTile extends BuildableTile {
 
     // Constants
     /**
-     * Default value of {@link ResidentialTile#getEvolutionEnergyConsumption()}
+     * Default value of {@link ResidentialTile#getEvolutionWaterConsumption()}
      */
     public final static int DEFAULT_EVOLUTION_ENERGY_CONSUMPTION = 5;
 
@@ -49,7 +49,7 @@ public class ResidentialTile extends BuildableTile {
     private final static int DEFAULT_MAX_LEAVING_INHABITANTS = 2;
 
     /**
-     * Default value of {@link ResidentialTile#getMaxNeededEnergy()}
+     * Default value of {@link ResidentialTile#getMaxNeededWater()}
      */
     public final static int DEFAULT_MAX_NEEDED_ENERGY = 30;
 
@@ -75,9 +75,9 @@ public class ResidentialTile extends BuildableTile {
     private final int maxLeavingInhabitants;
 
     /**
-     * {@link #getMaxNeededEnergy()}
+     * {@link #getMaxNeededWater()}
      */
-    private final int maxNeededEnergy;
+    private final int maxNeededWater;
 
     // Creation
     /**
@@ -88,7 +88,7 @@ public class ResidentialTile extends BuildableTile {
         super(ResidentialTile.DEFAULT_EVOLUTION_ENERGY_CONSUMPTION);
 
         this.inhabitantsCapacity = capacity;
-        this.maxNeededEnergy = ResidentialTile.DEFAULT_MAX_NEEDED_ENERGY;
+        this.maxNeededWater = ResidentialTile.DEFAULT_MAX_NEEDED_ENERGY;
         this.maxJoiningInhabitants = ResidentialTile.DEFAULT_MAX_JOINING_INHABITANTS;
         this.maxLeavingInhabitants = ResidentialTile.DEFAULT_MAX_LEAVING_INHABITANTS;
     }
@@ -109,11 +109,11 @@ public class ResidentialTile extends BuildableTile {
     }
 
     /**
-     * @return Maximum number of energy units to consume. This maximum is
+     * @return Maximum number of water units to consume. This maximum is
      *         consumed if the residence is full.
      */
-    public final int getMaxNeededEnergy() {
-        return this.maxNeededEnergy;
+    public final int getMaxNeededWater() {
+        return this.maxNeededWater;
     }
 
     @Override
@@ -122,7 +122,7 @@ public class ResidentialTile extends BuildableTile {
         result = result * 17 + this.inhabitantsCapacity;
         result = result * 17 + this.maxJoiningInhabitants;
         result = result * 17 + this.maxLeavingInhabitants;
-        result = result * 17 + this.maxNeededEnergy;
+        result = result * 17 + this.maxNeededWater;
         return result;
     }
 
@@ -138,7 +138,7 @@ public class ResidentialTile extends BuildableTile {
      */
     public boolean equals(ResidentialTile o) {
         return this == o || super.equals(o) && o.inhabitantsCapacity == this.inhabitantsCapacity && o.maxJoiningInhabitants == this.maxJoiningInhabitants
-                && o.maxLeavingInhabitants == this.maxLeavingInhabitants && o.maxNeededEnergy == this.maxNeededEnergy;
+                && o.maxLeavingInhabitants == this.maxLeavingInhabitants && o.maxNeededWater == this.maxNeededWater;
     }
 
     @Override
@@ -174,12 +174,12 @@ public class ResidentialTile extends BuildableTile {
 
             final int busyPercentage = inhabitants * 100 / this.inhabitantsCapacity; // Integer
                                                                                      // division
-            final int neededEnergy = Math.max(1, busyPercentage * this.maxNeededEnergy / 100); // Integer
+            final int neededWater = Math.max(1, busyPercentage * this.maxNeededWater / 100); // Integer
                                                                                                // division
 
-            if (res.getUnconsumedEnergy() >= neededEnergy) {
-                res.consumeEnergy(neededEnergy);
-                this.isEnergyMissing = false;
+            if (res.getUnconsumedWater() >= neededWater) {
+                res.consumeWater(neededWater);
+                this.isWaterMissing = false;
 
                 // Less space is available, less newcomers join
                 final int vacantPercentage = 100 - busyPercentage;
@@ -187,14 +187,14 @@ public class ResidentialTile extends BuildableTile {
 
                 res.increasePopulation(newcomers);
             } else {
-                final int consumedEnergy = res.getUnconsumedEnergy();
-                res.consumeEnergy(consumedEnergy);
-                this.isEnergyMissing = true;
+                final int consumedWater = res.getUnconsumedWater();
+                res.consumeWater(consumedWater);
+                this.isWaterMissing = true;
 
-                // More energy units are missing, more inhabitants leave
-                final int missingEnergyPercentage = 100 - consumedEnergy * 100 / neededEnergy; // Integer
+                // More water units are missing, more inhabitants leave
+                final int missingWaterPercentage = 100 - consumedWater * 100 / neededWater; // Integer
                                                                                                // division
-                final int leavingInhabitants = Math.min(this.maxLeavingInhabitants, missingEnergyPercentage * inhabitants / 100); // Integer
+                final int leavingInhabitants = Math.min(this.maxLeavingInhabitants, missingWaterPercentage * inhabitants / 100); // Integer
                                                                                                                                   // division
 
                 res.decreasePopulation(leavingInhabitants);

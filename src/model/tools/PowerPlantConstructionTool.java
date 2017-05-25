@@ -26,7 +26,7 @@ package model.tools;
 
 import model.CityResources;
 import model.tiles.GrassTile;
-import model.tiles.PowerPlantTile;
+import model.tiles.WellTile;
 import model.tiles.Tile;
 
 public final class PowerPlantConstructionTool extends Tool {
@@ -80,7 +80,7 @@ public final class PowerPlantConstructionTool extends Tool {
 
         r.spend(PowerPlantConstructionTool.CURRENCY_COST);
 
-        return new PowerPlantTile();
+        return new WellTile();
     }
 
     // Debugging

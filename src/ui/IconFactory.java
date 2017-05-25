@@ -178,7 +178,7 @@ public class IconFactory {
                 // lower-case
 
                 final String energyPostId;
-                if (t.isEnergyMissing()) {
+                if (t.isWaterMissing()) {
                     energyPostId = '-' + IconFactory.MISSING_ENERGY_POSTID;
                 } else {
                     energyPostId = "";

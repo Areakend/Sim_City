@@ -7,9 +7,12 @@ import model.tiles.Tile;
 
 public final class MineConstructionTool extends Tool {
 	
-    private final static int Rock_COST = 40;
+    public final static int Rock_COST = 40;
 
-	
+
+    /**
+     * canEffect returns true if the given Tile is buildable, false otherwise.
+     */
 	@Override
 	public boolean canEffect(Tile aTarget) {
 		return aTarget instanceof GrassTile;
@@ -20,7 +23,11 @@ public final class MineConstructionTool extends Tool {
 	    return this == o || o instanceof MineConstructionTool;
 
 	}
-
+	
+    /**
+     * isAfordable returns true if the user can apply the MineConstruction Tool, false
+     * otherwise.
+     */
 	@Override
 	public boolean isAfordable(Tile aTarget, CityResources r) {
         return MineConstructionTool.Rock_COST <= r.getRock();
@@ -36,8 +43,12 @@ public final class MineConstructionTool extends Tool {
         return this.getClass().hashCode();
     }
 
+    /**
+     * innerEffect apply the LumberjackConstruction tool to the given tile and update the
+     * given CityResources.
+     */
 	@Override
-	protected Tile innerEffect(Tile aTarget, CityResources r) {
+	public Tile innerEffect(Tile aTarget, CityResources r) {
         assert this.canEffect(aTarget);
         assert this.isAfordable(aTarget, r);
 

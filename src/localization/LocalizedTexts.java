@@ -70,14 +70,28 @@ public abstract class LocalizedTexts {
      * @return Currency label.
      */
     public abstract String getCurrencyLabel();
+    /**
+     * @return Wood label.
+     */
     public abstract String getWoodLabel();
+    /**
+     * @return Steel label.
+     */
     public abstract String getSteelLabel();
+    /**
+     * @return Rock label.
+     */
     public abstract String getRockLabel();
 
     /**
      * @return No-consumed water label.
      */
+
     public abstract String getUnconsumedWaterLabel();
+
+    /**
+     * @return Consumed water label.
+     */
     public abstract String getUnconsumedFoodLabel();
 
 
@@ -90,16 +104,33 @@ public abstract class LocalizedTexts {
      * @return No-working population label.
      */
     public abstract String getUnworkingPopulationLabel();
+    /**
+     * @return Working population label.
+     */
 
 	public abstract String getWorkingPopulationLabel();
+    /**
+     * @return Day label.
+     */
 	
 	public abstract String getJourLabel();
+    /**
+     * @return Farmer label.
+     */
 
 	public abstract String getFarmerLabel();
+    /**
+     * @return No-working population label.
+     */
 
 	public abstract String getMinerLabel();
-	
+    /**
+     * @return Lumberjack label.
+     */
 	public abstract String getLumberjackLabel();
+    /**
+     * @return Knight label.
+     */
 
 	public abstract String getKnightLabel();
 

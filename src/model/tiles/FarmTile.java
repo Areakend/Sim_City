@@ -92,8 +92,13 @@ public class FarmTile extends Tile implements Destroyable{
 	        }
 	    }
     
-    
+	    private final static FarmTile INSTANCE = new FarmTile();
 
+    
+	    public static FarmTile getDefault() {
+	        // Provide always the same instance since Farm is not changing. Usefull for tests
+	        return FarmTile.INSTANCE;
+	    }
 
 
 }

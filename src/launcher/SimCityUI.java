@@ -167,6 +167,13 @@ public final class SimCityUI extends JFrame {
     	
     }
     
+    /**
+     * Play a sound given
+     *
+     * 
+     * @param file
+     */
+    
     public static synchronized void playSound(final String file) {
     	  new Thread(new Runnable() {
     	    public void run() {

@@ -64,6 +64,7 @@ public class EarthquakeEvent extends Event {
 						|| tmp instanceof WellTile){
 					if (Math.random()<0.1){
 						tmp.disassemble(gameBoard.getResources());
+						gameBoard.resetTile(i,j);
 					}
 				}
 			}

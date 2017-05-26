@@ -7,7 +7,7 @@ public class ForestTile extends Tile implements Destroyable{
 	
     public final static int EXTRA_WOOD_PRODUCTION = 5;
 	
-    public final static int DEFAULT_PRODUCTION_CAPACITY = 70;
+    public final static int DEFAULT_PRODUCTION_CAPACITY = 100;
     
     public final static int DEFAULT_LUMBERJACK_CAPACITY = 5;
     
@@ -53,10 +53,13 @@ public class ForestTile extends Tile implements Destroyable{
     public void disassemble(CityResources res) {
         if (!this.isDestroyed) {
             this.isDestroyed = true;
-            res.increaseWoodCapacity(-this.productionCapacity);            
             res.increaseLumberjackCapacity(-this.lumberjackCapacity);
-            res.fireLumberjack(res.getLumberjack()-res.getLumberjackCapacity());
+            res.increaseWoodCapacity(-this.productionCapacity);
+            int n = res.wood - Math.min(res.woodCapacity,res.wood);
+            res.spendW(n);
+            res.fireLumberjack(res.getLumberjack()-Math.min(res.getLumberjackCapacity(),res.getLumberjack()));
         }
+        
     }
 
     @Override

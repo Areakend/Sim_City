@@ -57,9 +57,9 @@ import model.tools.MineConstructionTool;
 // Add when implemented
 //import model.tools.CommercialZoneDelimiterTool;
 //import model.tools.IndustrialZoneDelimiterTool;
-import model.tools.PowerPlantConstructionTool;
+import model.tools.WellConstructionTool;
 import model.tools.ResidentialZoneDelimiterTool;
-import model.tools.RoadConstructionTool;
+import model.tools.BridgeConstructionTool;
 import model.tools.Tool;
 
 public class GameBoard extends Observable {
@@ -157,8 +157,8 @@ public class GameBoard extends Observable {
 
         tools = new ArrayList<>();
         tools.add(new BulldozerTool());
-        tools.add(new RoadConstructionTool());
-        tools.add(new PowerPlantConstructionTool());
+        tools.add(new BridgeConstructionTool());
+        tools.add(new WellConstructionTool());
         tools.add(new ResidentialZoneDelimiterTool());
         tools.add(new FarmerConstructionTool());
         tools.add(new MineConstructionTool());
@@ -581,7 +581,10 @@ public class GameBoard extends Observable {
             }
         }
     }
-
+    public void resetTile(int i, int j){
+    	final Tile t = GrassTile.getDefault();
+    	this.tiles[i][j] = t;
+    }
     /**
      * Update all tiles via {@link Tile#update(CityResources)}.
      */

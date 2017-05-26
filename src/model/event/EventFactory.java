@@ -58,8 +58,8 @@ public class EventFactory {
         private static final long serialVersionUID = -6805412774816642699L;
 
         {
-            this.put(eventType.NOTHING, 80);
-            this.put(eventType.EARTHQUAKE, 20);
+            this.put(eventType.NOTHING, 90);
+            this.put(eventType.EARTHQUAKE, 10);
         }
     });
 

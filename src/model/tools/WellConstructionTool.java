@@ -29,7 +29,7 @@ import model.tiles.GrassTile;
 import model.tiles.WellTile;
 import model.tiles.Tile;
 
-public final class PowerPlantConstructionTool extends Tool {
+public final class WellConstructionTool extends Tool {
 
     // Constant
     private final static int CURRENCY_COST = 40;
@@ -45,7 +45,7 @@ public final class PowerPlantConstructionTool extends Tool {
 
     @Override
     public boolean equals(Object o) {
-        return this == o || o instanceof PowerPlantConstructionTool;
+        return this == o || o instanceof WellConstructionTool;
 
     }
 
@@ -55,13 +55,13 @@ public final class PowerPlantConstructionTool extends Tool {
      */
     @Override
     public boolean isAfordable(Tile aTarget, CityResources r) {
-        return PowerPlantConstructionTool.CURRENCY_COST <= r.getCurrency();
+        return WellConstructionTool.CURRENCY_COST <= r.getCurrency();
     }
 
     // Access
     @Override
     public int getCost(Tile aTarget) {
-        return PowerPlantConstructionTool.CURRENCY_COST;
+        return WellConstructionTool.CURRENCY_COST;
     }
 
     @Override
@@ -78,7 +78,7 @@ public final class PowerPlantConstructionTool extends Tool {
         assert this.canEffect(aTarget);
         assert this.isAfordable(aTarget, r);
 
-        r.spend(PowerPlantConstructionTool.CURRENCY_COST);
+        r.spend(WellConstructionTool.CURRENCY_COST);
 
         return new WellTile();
     }

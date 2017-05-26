@@ -7,7 +7,7 @@ public class FarmTile extends Tile implements Destroyable{
 	
     public final static int EXTRA_FOOD_PRODUCTION = 5;
 	
-    public final static int DEFAULT_PRODUCTION_CAPACITY = 70;
+    public final static int DEFAULT_PRODUCTION_CAPACITY = 100;
     
     public final static int DEFAULT_FARMER_CAPACITY = 5;
     
@@ -60,12 +60,15 @@ public class FarmTile extends Tile implements Destroyable{
 	    @Override
 	    public void disassemble(CityResources res) {
 	        if (!this.isDestroyed) {
-	            res.spendF(this.productionCapacity);
+	        	res.increaseFoodCapacity(-this.productionCapacity);
+	        	int n = res.food - Math.min(res.foodCapacity,res.food);
+	            res.spendF(n);
 	            this.isDestroyed = true;
-	            res.increaseFoodCapacity(-this.productionCapacity);
+
 	            res.increaseFarmerCapacity(-this.farmerCapacity);
-	            res.fireFarmer(res.getFarmer()-res.getFarmerCapacity());
+	            res.fireFarmer(res.getFarmer()-Math.min(res.getFarmerCapacity(),res.getFarmer()));
 	        }
+	        
 	    }
 
 	    @Override

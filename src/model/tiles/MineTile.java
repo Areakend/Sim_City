@@ -7,7 +7,7 @@ public class MineTile extends Tile implements Destroyable{
 	
     public final static int EXTRA_PRODUCTION = 5;
 	
-    public final static int DEFAULT_PRODUCTION_CAPACITY = 70;
+    public final static int DEFAULT_PRODUCTION_CAPACITY = 100;
     
     public final static int DEFAULT_MINER_CAPACITY = 5;
     
@@ -55,7 +55,11 @@ public class MineTile extends Tile implements Destroyable{
 	            res.increaseSteelCapacity(-this.productionCapacity);
 	            res.increaseRockCapacity(-this.productionCapacity);
 	            res.increaseMinerCapacity(-this.minerCapacity);
-	            res.fireMiner(res.getMiner()-res.getMinerCapacity());
+	            res.fireMiner(res.getMiner()-Math.min(res.getMinerCapacity(),res.getMiner()));
+	            int s = res.steel - Math.min(res.steelCapacity, res.steel);
+	            int r = res.rock - Math.min(res.rockCapacity, res.rock);
+	            res.spendS(s);
+	            res.spendR(r);
 	        }
 	    }
 

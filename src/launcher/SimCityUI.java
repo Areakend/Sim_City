@@ -43,7 +43,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import localization.LocalizedTexts;
-import localization.UKTexts;
+import localization.FRTexts;
 import model.GameBoard;
 import ui.ToolsView;
 import ui.ZoomView;
@@ -196,7 +196,7 @@ public final class SimCityUI extends JFrame {
         //this.setPreferredSize(new Dimension(DEFAULT_WIDTH*49+100+200,DEFAULT_HEIGHT*49+200));
         
         // Choix de la langue
-        final LocalizedTexts texts = new UKTexts();
+        final LocalizedTexts texts = new FRTexts();
 
         // Création du monde
         GameBoard monde = new GameBoard(hauteur, largeur, texts);

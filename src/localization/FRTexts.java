@@ -27,7 +27,7 @@ package localization;
 /**
  * United Kingdom localized texts.
  */
-public class UKTexts extends LocalizedTexts {
+public class FRTexts extends LocalizedTexts {
 
     // Messages
     @Override
@@ -76,7 +76,7 @@ public class UKTexts extends LocalizedTexts {
 
     @Override
     public String getUnconsumedWaterLabel() {
-        return "Energie non consommé";
+        return "Eau non consommé";
     }
 
     @Override

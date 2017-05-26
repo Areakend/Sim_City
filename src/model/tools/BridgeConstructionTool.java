@@ -5,7 +5,7 @@ import model.tiles.RiverTile;
 import model.tiles.BridgeTile;
 import model.tiles.Tile;
 
-public final class RoadConstructionTool extends Tool {
+public final class BridgeConstructionTool extends Tool {
 	
     public final static int Wood_COST = 5;
 
@@ -19,7 +19,7 @@ public final class RoadConstructionTool extends Tool {
 	
 	@Override
 	public boolean equals(Object o) {
-	    return this == o || o instanceof RoadConstructionTool;
+	    return this == o || o instanceof BridgeConstructionTool;
 
 	}
 	
@@ -29,12 +29,12 @@ public final class RoadConstructionTool extends Tool {
      */
 	@Override
 	public boolean isAfordable(Tile aTarget, CityResources r) {
-        return RoadConstructionTool.Wood_COST <= r.getWood();
+        return BridgeConstructionTool.Wood_COST <= r.getWood();
 	}
 
 	@Override
 	public int getCost(Tile aTarget) {
-        return RoadConstructionTool.Wood_COST;
+        return BridgeConstructionTool.Wood_COST;
 	}
 	
     @Override
@@ -51,7 +51,7 @@ public final class RoadConstructionTool extends Tool {
         assert this.canEffect(aTarget);
         assert this.isAfordable(aTarget, r);
 
-        r.spendW(RoadConstructionTool.Wood_COST);
+        r.spendW(BridgeConstructionTool.Wood_COST);
 
         return new BridgeTile();
     }

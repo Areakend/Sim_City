@@ -26,8 +26,10 @@ public class BridgeConstructionToolTest {
         BridgeConstructionTool ppt = new BridgeConstructionTool();
         CityResources resources = new CityResources(100);
         int initialValue = resources.getWood();
+        int initialValue2 = resources.getCurrency();
         int cost = BridgeConstructionTool.Wood_COST;
-        Assert.assertEquals( ppt.isAfordable(RiverTile.getDefault(), resources), cost<initialValue);
+        int cost2 = BridgeConstructionTool.cout;
+        Assert.assertEquals( ppt.isAfordable(RiverTile.getDefault(), resources), (cost<initialValue && cost2<initialValue2));
     }
     
     @Test
@@ -47,9 +49,13 @@ public class BridgeConstructionToolTest {
         BridgeConstructionTool ppt = new BridgeConstructionTool();
         CityResources resources = new CityResources(100);
         int initialValue = resources.getWood();
+        int initialValue2 = resources.getCurrency();
         int cost = BridgeConstructionTool.Wood_COST;
+        int cost2 = BridgeConstructionTool.cout;
         Tile tile = ppt.innerEffect(RiverTile.getDefault(), resources);
         Assert.assertEquals(resources.getWood(), initialValue - cost);
+        Assert.assertEquals(resources.getCurrency(), initialValue2 - cost2);
+
     }
     
     

@@ -8,6 +8,7 @@ import model.tiles.Tile;
 public final class MineConstructionTool extends Tool {
 	
     public final static int Rock_COST = 40;
+    public static int cout =20;
 
 
     /**
@@ -30,7 +31,7 @@ public final class MineConstructionTool extends Tool {
      */
 	@Override
 	public boolean isAfordable(Tile aTarget, CityResources r) {
-        return MineConstructionTool.Rock_COST <= r.getRock();
+        return (MineConstructionTool.Rock_COST <= r.getRock() && cout<r.getCurrency());
 	}
 
 	@Override
@@ -53,6 +54,7 @@ public final class MineConstructionTool extends Tool {
         assert this.isAfordable(aTarget, r);
 
         r.spendR(MineConstructionTool.Rock_COST);
+        r.spend(MineConstructionTool.cout);
         r.increaseRockCapacity(MineTile.DEFAULT_PRODUCTION_CAPACITY);
         r.increaseSteelCapacity(MineTile.DEFAULT_PRODUCTION_CAPACITY);
         r.increaseMinerCapacity(MineTile.DEFAULT_MINER_CAPACITY);

@@ -8,6 +8,7 @@ import model.tiles.Tile;
 public final class FarmerConstructionTool extends Tool {
 	
     public final static int Wood_COST = 40;
+    public static int cout =20;
 
     /**
      * canEffect returns true if the given Tile is buildable, false otherwise.
@@ -29,7 +30,7 @@ public final class FarmerConstructionTool extends Tool {
      */
 	@Override
 	public boolean isAfordable(Tile aTarget, CityResources r) {
-        return FarmerConstructionTool.Wood_COST <= r.getWood();
+        return (FarmerConstructionTool.Wood_COST <= r.getWood() && cout<r.getCurrency());
 	}
 
 	@Override
@@ -52,6 +53,7 @@ public final class FarmerConstructionTool extends Tool {
         assert this.isAfordable(aTarget, r);
 
         r.spendW(FarmerConstructionTool.Wood_COST);
+        r.spend(FarmerConstructionTool.cout);
         r.increaseFoodCapacity(FarmTile.DEFAULT_PRODUCTION_CAPACITY);
         r.increaseFarmerCapacity(FarmTile.DEFAULT_FARMER_CAPACITY);
                

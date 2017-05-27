@@ -8,6 +8,7 @@ import model.tiles.ResidentialTile;
 import model.tiles.GrassTile;
 import model.tiles.RiverTile;
 import model.tiles.Tile;
+import model.tools.BridgeConstructionTool;
 import model.tools.ResidentialZoneDelimiterTool;
 
 public class ResidentialZoneDelimiterToolTest {
@@ -27,8 +28,10 @@ public class ResidentialZoneDelimiterToolTest {
     	ResidentialZoneDelimiterTool ppt = new ResidentialZoneDelimiterTool();
         CityResources resources = new CityResources(100);
         int initialValue = resources.getWood();
+        int initialValue2 = resources.getCurrency();
         int cost = ResidentialZoneDelimiterTool.Wood_COST;
-        Assert.assertEquals( ppt.isAfordable(GrassTile.getDefault(), resources), cost<initialValue);
+        int cost2 = ResidentialZoneDelimiterTool.cout;
+        Assert.assertEquals( ppt.isAfordable(GrassTile.getDefault(), resources), (cost<initialValue && cost2<initialValue2));
     }
     
     @Test
@@ -48,12 +51,15 @@ public class ResidentialZoneDelimiterToolTest {
     	ResidentialZoneDelimiterTool ppt = new ResidentialZoneDelimiterTool();
         CityResources resources = new CityResources(100);
         int initialValue = resources.getWood();
+        int initialValue2 = resources.getCurrency();
         int cost = ResidentialZoneDelimiterTool.Wood_COST;
+        int cost2 = ResidentialZoneDelimiterTool.cout;
         int FarmerCap = ResidentialTile.DEFAULT_INHABITANTS_CAPACITY;
         int initFarm = resources.getPopulationCapacity();
         Tile tile = ppt.innerEffect(GrassTile.getDefault(), resources);
         Assert.assertEquals(resources.getWood(), initialValue - cost);
-        Assert.assertEquals(resources.getPopulationCapacity(), initFarm + FarmerCap);
+        //Assert.assertEquals(resources.getPopulationCapacity(), initFarm + FarmerCap);
+        Assert.assertEquals(resources.getCurrency(), initialValue2 - cost2);
     }
     
     

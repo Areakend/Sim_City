@@ -413,22 +413,22 @@ public class GameBoard extends Observable {
     public void setSelectedTool(Tool tool) {
         this.selectedTool = tool;
         if (selectedTool== GameBoard.tools.get(0)) {
-        	this.message="Buldozer, il permet de détruire une construction pour 10Ecus";
+        	this.message="Buldozer, il permet de détruire une construction pour 10 Ecus";
         }
         if (selectedTool== GameBoard.tools.get(1)) {
-        	this.message="Pont coute 5 bois";
+        	this.message="Pont coute 5 bois, 20 Ecus";
         }
         if (selectedTool== GameBoard.tools.get(2)) {
-        	this.message="Puit : coûte x pierres permet de produire de l'eau à raison de X unité";
+        	this.message="Puits : coûte 40 Ecus";
         }
         if (selectedTool== GameBoard.tools.get(3)) {
-        	this.message="Maison : coûte 20 bois et permet d'acceuillir 10 habitants, ils mangent 2 rations par jour";
+        	this.message="Maison : coûte 20 bois, 20 Ecus et permet d'acceuillir 10 habitants, ils mangent 2 rations par jour";
         }
         if (selectedTool== GameBoard.tools.get(4)) {
-        	this.message="Ferme : coûte 40 bois et permet de produire 5 unités de nourriture par fermier";
+        	this.message="Ferme : coûte 40 bois, 20 Ecus et permet de produire 5 unités de nourriture par fermier";
         }
         if (selectedTool== GameBoard.tools.get(5)) {
-        	this.message="Mine : coûte 40 pierre et permet de produire 5 fer par mineur";
+        	this.message="Mine : coûte 40 pierre, 20 Ecus et permet de produire 5 fer par mineur";
         }
         if (selectedTool== GameBoard.tools.get(6)) {
         	this.message="Camp de bûcheron : coûte 40 écus et permet de produire 5 bois par bûcheron";

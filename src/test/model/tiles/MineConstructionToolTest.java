@@ -8,6 +8,7 @@ import model.tiles.GrassTile;
 import model.tiles.MineTile;
 import model.tiles.RiverTile;
 import model.tiles.Tile;
+import model.tools.BridgeConstructionTool;
 import model.tools.MineConstructionTool;
 
 public class MineConstructionToolTest {
@@ -27,8 +28,10 @@ public class MineConstructionToolTest {
         MineConstructionTool ppt = new MineConstructionTool();
         CityResources resources = new CityResources(100);
         int initialValue = resources.getRock();
+        int initialValue2 = resources.getCurrency();
         int cost = MineConstructionTool.Rock_COST;
-        Assert.assertEquals( ppt.isAfordable(GrassTile.getDefault(), resources), cost<initialValue);
+        int cost2 = MineConstructionTool.cout;
+        Assert.assertEquals( ppt.isAfordable(GrassTile.getDefault(), resources), (cost<initialValue && cost2<initialValue2));
     }
     
     @Test
@@ -48,7 +51,9 @@ public class MineConstructionToolTest {
         MineConstructionTool ppt = new MineConstructionTool();
         CityResources resources = new CityResources(100);
         int initialValue = resources.getRock();
+        int initialValue2 = resources.getCurrency();
         int cost = MineConstructionTool.Rock_COST;
+        int cost2 = MineConstructionTool.cout;
         int FarmerCap = MineTile.DEFAULT_MINER_CAPACITY;
         int initFarm = resources.getFarmerCapacity();
         int FoodCap = MineTile.DEFAULT_PRODUCTION_CAPACITY;
@@ -57,6 +62,7 @@ public class MineConstructionToolTest {
         Assert.assertEquals(resources.getRock(), initialValue - cost);
         Assert.assertEquals(resources.getRockCapacity(), initFood + FoodCap);
         Assert.assertEquals(resources.getMinerCapacity(), initFarm + FarmerCap);
+        Assert.assertEquals(resources.getCurrency(), initialValue2 - cost2);
     }
     
     

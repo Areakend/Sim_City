@@ -47,9 +47,7 @@ public class EarthquakeEvent extends Event {
         return new ArrayList<>(0);
     }
 
-    /**
-     * Return an empty message.
-     */
+
 	@Override
     public String getMessage(LocalizedTexts texts) {
         return "Tremblement de terre ! Votre ville a reçu des dommages.";

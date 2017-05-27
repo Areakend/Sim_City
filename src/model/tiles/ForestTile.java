@@ -11,17 +11,26 @@ public class ForestTile extends Tile implements Destroyable{
     
     public final static int DEFAULT_LUMBERJACK_CAPACITY = 5;
     
-    
+	/**
+	 * Maximum amount of wood a forest can produce.
+	 */
     protected final int productionCapacity;
-    
-    protected int lumberjack;
+	/**
+	 * Maximum number of lumberjack per forest.
+	 */
     protected final int lumberjackCapacity;
+    
+	/**
+	 * @param productionCapacity
+	 *           
+	 * @param lumberjackCapacity
+	 *            
+	 */
 	
 	public ForestTile(int productionCapacity, int lumberjackCapacity){
         super();
         this.productionCapacity = productionCapacity;
         this.isDestroyed = false;
-		this.lumberjack = 0;
 		this.lumberjackCapacity = lumberjackCapacity;
 	}
 	
@@ -65,9 +74,6 @@ public class ForestTile extends Tile implements Destroyable{
     @Override
     public void update(CityResources res) {
         if (!this.isDestroyed) {
-            final int extraProduction = Math.min(ForestTile.EXTRA_WOOD_PRODUCTION*this.lumberjack, res.woodCapacity - res.wood);
-
-            res.creditW(extraProduction);
             
             /**
              * Le x sert à continuer d'augmenter le nombre de travailleurs même si celui ci est en 

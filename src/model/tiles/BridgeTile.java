@@ -21,10 +21,15 @@ public class BridgeTile extends Tile implements Destroyable {
 	
 	protected boolean isDestroyed;
 	
+    /**
+     * Create with default settings.
+     */
 	public BridgeTile(){
 		super();
 		this.isDestroyed=false;
 	}
+	
+	@Override
     public boolean isDestroyed() {
         return this.isDestroyed;
     }

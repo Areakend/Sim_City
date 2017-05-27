@@ -32,6 +32,9 @@ public final class CastleaTile extends Tile {
 		this.knightCapacity = knightCapacity;
 	}
 	
+    /**
+     * Create with default settings.
+     */
 	private CastleaTile(){
 		this(CastleaTile.DEFAULT_KNIGHT_CAPACITY);
 	}

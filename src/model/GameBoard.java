@@ -122,6 +122,10 @@ public class GameBoard extends Observable {
      * {@link #getTexts()}
      */
     private final LocalizedTexts texts;
+    
+    /**
+     * Status famine message.
+     */
 
 	private String messageFamine;
 
@@ -205,6 +209,10 @@ public class GameBoard extends Observable {
     }
 
     // Access
+    /**
+     * 
+     * @return texts.
+     */
     public LocalizedTexts getTexts() {
         return this.texts;
     }
@@ -246,6 +254,10 @@ public class GameBoard extends Observable {
         return tools.size();
     }
 
+    /**
+     * 
+     * @return resources.
+     */
     public CityResources getResources() {
 		return resources;
 	}
@@ -384,6 +396,10 @@ public class GameBoard extends Observable {
         return this.message;
     }
     
+    /**
+     * @return Status messageFamine.
+     */
+    
 	public String getMessageFamine() {
 		return this.messageFamine;
 	}
@@ -514,7 +530,7 @@ public class GameBoard extends Observable {
     }
     
     /**
-     * Consommation journalière
+     * Update resources.
      */
     public void dailyConsumed() {
         //this.unworkingPopulation = this.population;

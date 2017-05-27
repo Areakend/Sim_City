@@ -69,9 +69,16 @@ public class TilePosition implements Serializable {
     }
 
     // Access
+	/**
+	 * Number of row.
+	 */
     public int getRow() {
         return this.row;
     }
+    
+	/**
+	 * Number of column.
+	 */
 
     public int getColumn() {
         return this.column;

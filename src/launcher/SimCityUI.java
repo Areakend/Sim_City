@@ -75,7 +75,7 @@ public final class SimCityUI extends JFrame {
     	
     	
     	JFrame menu = new JFrame("Menu");
-    	JPanel optionsPane = new JPanel(new GridLayout(3, 1));
+    	JPanel optionsPane = new JPanel(new GridLayout(2, 1));
         JButton mp = new JButton("Jouer");
         mp.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent e) {
@@ -84,13 +84,13 @@ public final class SimCityUI extends JFrame {
             }
         });
 	    optionsPane.add(mp);
-	    JButton yt = new JButton("Options");
-	    yt.addActionListener(new ActionListener() {
-	          public void actionPerformed(ActionEvent e) {
-	          //TODO  
-	          }
-	    	});
-		optionsPane.add(yt);
+	    //JButton yt = new JButton("Options");
+	    //yt.addActionListener(new ActionListener() {
+	      //    public void actionPerformed(ActionEvent e) {
+	        //  //TODO  
+	          //}
+	    	//});
+		//optionsPane.add(yt);
 		JButton tw = new JButton("Quitter");
 		tw.addActionListener(new ActionListener() {
 	          public void actionPerformed(ActionEvent e) {
@@ -99,8 +99,8 @@ public final class SimCityUI extends JFrame {
 	        });
 		optionsPane.add(tw);
 		menu.add(optionsPane);
-	    menu.setSize(new Dimension(300,300));
-	    menu.setPreferredSize(new Dimension(300,300)); 
+	    menu.setSize(new Dimension(200,200));
+	    menu.setPreferredSize(new Dimension(300,200)); 
     	menu.setTitle("Menu");
     	menu.setDefaultCloseOperation(EXIT_ON_CLOSE);    
     	Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -191,17 +191,17 @@ public final class SimCityUI extends JFrame {
     	}
     
     public SimCityUI(int hauteur, int largeur, int vhauteur, int vlargeur) {
-        super("SimCityTélécom");
+        super("TNCity");
 
         //this.setPreferredSize(new Dimension(DEFAULT_WIDTH*49+100+200,DEFAULT_HEIGHT*49+200));
         
         // Choix de la langue
         final LocalizedTexts texts = new FRTexts();
 
-        // CrÃ©ation du monde
+        // Création du monde
         GameBoard monde = new GameBoard(hauteur, largeur, texts);
         
-        // CrÃ©ation de la vue du monde, placÃ©e au centre de la fenÃªtre
+        // Création de la vue du monde, placée au centre de la fenêtre
         GameBoardView vm = new GameBoardView(monde, vhauteur, vlargeur);
         vm.setPreferredSize(new Dimension(48*vlargeur,48*vhauteur));
         monde.addObserver(vm);
@@ -209,16 +209,16 @@ public final class SimCityUI extends JFrame {
         ZoomView zv = new ZoomView(vm);
         this.add(zv, BorderLayout.CENTER);
 
-        // CrÃ©ation de la palette des Ã©lÃ©ments de jeu, placÃ©e Ã  gauche
+        // Création de la palette des éléments de jeu, placée à  gauche
         ToolsView ve = new ToolsView(monde);
         monde.addObserver(ve);
         this.add(ve, BorderLayout.WEST);
 
-        // CrÃ©ation du panneau d'informations
+        // Création du panneau d'informations
         PropertiesView vi = new PropertiesView(monde, texts);
         monde.addObserver(vi);
 
-        // CrÃ©ation du panneau de rafraichissement
+        // Création du panneau de rafraichissement
         RefreshView rv = new RefreshView(monde);
         JPanel right = new JPanel();
         right.setLayout(new BoxLayout(right, BoxLayout.Y_AXIS));
@@ -228,7 +228,7 @@ public final class SimCityUI extends JFrame {
         
         this.add(right, BorderLayout.EAST);
         
-        // CrÃ©ation du panneau de message
+        // Création du panneau de message
         MessagesView mv = new MessagesView();
         monde.addObserver(mv);
         this.add(mv, BorderLayout.SOUTH);

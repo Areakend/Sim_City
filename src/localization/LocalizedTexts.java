@@ -38,19 +38,33 @@ public abstract class LocalizedTexts {
     /**
      * {0}: currency
      *
-     * @return Currency message (including currency symbol).
+     * @return Currency message
      */
     public abstract String getCurrencyMsg();
+    
+    /**
+     * {0}: wood
+     *
+     * @return Wood message
+     */
     public abstract String getWoodMsg();
+    
+    /**
+     * {0}: rock
+     *
+     * @return Rock message
+     */
     public abstract String getRockMsg();
+    
+    /**
+     * {0}: steel
+     *
+     * @return Steel message
+     */
     public abstract String getSteelMsg();
 
-    /**
-     * {0}: locations
-     *
-     * @return EarthQuake event message.
-     */
-    public abstract String getEarthQuakeMsg();
+
+    //public abstract String getEarthQuakeMsg();
 
     /**
      * @return Message that indicates that some resources are missing to

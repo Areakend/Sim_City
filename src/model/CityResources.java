@@ -34,15 +34,38 @@ import model.tiles.MineTile;
  * resource is reset at each step thanks to {@link CityResources#getVat()}.
  */
 public class CityResources {
-
+	/**
+	 * {@link #getWood()}
+	 */
 	public int wood;
+	/**
+	 * {@link #getSteel()}
+	 */
 	public int steel;
-	public int rock;	
+	/**
+	 * {@link #getRock()}
+	 */
+	public int rock;
+	/**
+	 * {@link #getFood()}
+	 */
 	public int food;
-
+	
+	/**
+	 * {@link #getWoodCapacity()}
+	 */
 	public int woodCapacity;
+	/**
+	 * {@link #getSteelCapacity()}
+	 */
 	public int steelCapacity;
+	/**
+	 * {@link #getRockCapacity()}
+	 */
 	public int rockCapacity;
+	/**
+	 * {@link #getFoodCapacity()}
+	 */
 	public int foodCapacity;
 
 
@@ -90,17 +113,46 @@ public class CityResources {
 	 */
 	private int populationCapacity;
 
-
+	/**
+	 * {@link #getFarmer()}
+	 */
 	private int farmer;
+	/**
+	 * {@link #getFarmerCapacity()}
+	 */
 	private int farmerCapacity;
+	
+	/**
+	 * {@link #getLumberjack()}
+	 */
 
 	private int lumberjack;
+	
+	/**
+	 * {@link #getLumberjackCapacity()}
+	 */
 	private int lumberjackCapacity;
+	
+	/**
+	 * {@link #getMiner()}
+	 */
 
 	private int miner;
+	
+	/**
+	 * {@link #getMinerCapacity()}
+	 */
 	private int minerCapacity;
+	
+	/**
+	 * {@link #getKnight()}
+	 */
 
 	public int knight;
+	
+	/**
+	 * {@link #getKnightCapacity()}
+	 */
 	private int knightCapacity;
 
 	// Implementation (Product)

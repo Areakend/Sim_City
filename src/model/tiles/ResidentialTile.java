@@ -150,8 +150,8 @@ public class ResidentialTile extends BuildableTile {
     @Override
     public void disassemble(CityResources res) {
         if (this.state == ConstructionState.BUILT) {
+        	res.decreasePopulation(this.getInhabitants(res));
             res.decreasePopulationCapacity(this.inhabitantsCapacity);
-
             super.disassemble(res);
         }
     }
@@ -212,7 +212,7 @@ public class ResidentialTile extends BuildableTile {
      *         = 100 (including X) and the population is Z = 20, then the
      *         residence has (X / Y) * Z = 10 inhabitants.
      */
-    private int getInhabitants(CityResources res) {
+    public int getInhabitants(CityResources res) {
         assert res.getPopulationCapacity() != 0;
 
         final int capacityPercentage = this.inhabitantsCapacity * 100 / res.getPopulationCapacity(); // Integer

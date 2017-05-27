@@ -83,10 +83,7 @@ public final class ResidentialZoneDelimiterTool extends Tool {
 	public Tile innerEffect (Tile aTarget, CityResources r) {
 		assert canEffect(aTarget);
 		assert isAfordable(aTarget, r);
-
 		r.spendW(ResidentialZoneDelimiterTool.Wood_COST);
-		r.increasePopulationCapacity(ResidentialTile.DEFAULT_INHABITANTS_CAPACITY);
-
 		return new ResidentialTile();
 	}
 

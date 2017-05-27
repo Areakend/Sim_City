@@ -77,9 +77,9 @@ public final class WellConstructionTool extends Tool {
     protected Tile innerEffect(Tile aTarget, CityResources r) {
         assert this.canEffect(aTarget);
         assert this.isAfordable(aTarget, r);
+        
 
         r.spend(WellConstructionTool.CURRENCY_COST);
-
         return new WellTile();
     }
 

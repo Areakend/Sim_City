@@ -1,32 +1,6 @@
-/**
- * TNCity
- * Copyright (c) 2017
- *  Jean-Philippe Eisenbarth,
- *  Victorien Elvinger
- *  Martine Gautier,
- *  Quentin Laporte-Chabasse
- *
- *  This file is part of TNCity.
- *
- *  TNCity is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  TNCity is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
-
- *  You should have received a copy of the GNU General Public License
- *  along with TNCity.  If not, see <http://www.gnu.org/licenses/>.
- */
-
 package model.event;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import localization.LocalizedTexts;
 import model.GameBoard;
 import model.tiles.FarmTile;
@@ -38,7 +12,7 @@ import model.tiles.WellTile;
 
 
 /**
- * The NothingEvent does nothing.
+ * The EarthquakeEvent does damages to the city. Indeed it can destroy tiles.
  */
 public class EarthquakeEvent extends Event {
 
@@ -48,9 +22,10 @@ public class EarthquakeEvent extends Event {
 	public EarthquakeEvent() {
         super();
     }
+	
 
     /**
-     * Apply no effects.
+     * Destroys a tile with a probability of 10%.
      */
 	@Override
     public List<Event> applyEffects(GameBoard gameBoard) {

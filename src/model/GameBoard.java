@@ -528,6 +528,7 @@ public class GameBoard extends Observable {
     		this.message = null;
     	}
         this.resources.spendF(Math.min(this.resources.getPopulation()*2, this.resources.getFood()));
+        this.resources.currency += this.resources.getWorkingPopulation()*this.resources.getVat();
     }
 
     /**

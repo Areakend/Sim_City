@@ -76,8 +76,9 @@ public final class CastleaTile extends Tile {
         }
         else{
         	int n = Math.round(res.getSteel()/50);
-        	res.hireKnight(n);
-        	res.spendS(n*50);
+        	int m = Math.min(res.getUnworkingPopulation(), n);
+        	res.hireKnight(m);
+        	res.spendS(m*50);
         }
 	}
 

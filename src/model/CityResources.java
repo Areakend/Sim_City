@@ -50,13 +50,13 @@ public class CityResources {
 	/**
 	 * Default value for {@link CityResources#getVat()}.
 	 */
-	public final static int DEFAULT_VAT = 20;
+	public final static int DEFAULT_VAT = 2;
 
 	// Implementation (Currency)
 	/**
 	 * {@link #getCurrency()}
 	 */
-	private int currency;
+	public int currency;
 
 	/**
 	 * {@link #getVat()}
@@ -83,7 +83,7 @@ public class CityResources {
 	/**
 	 * {@link #getPopulation()}
 	 */
-	private int population;
+	public int population;
 
 	/**
 	 * {@link #getPopulationCapacity()}
@@ -100,7 +100,7 @@ public class CityResources {
 	private int miner;
 	private int minerCapacity;
 
-	private int knight;
+	public int knight;
 	private int knightCapacity;
 
 	// Implementation (Product)
@@ -132,6 +132,8 @@ public class CityResources {
 		this.woodCapacity = ForestTile.DEFAULT_PRODUCTION_CAPACITY;
 		this.steelCapacity = MineTile.DEFAULT_PRODUCTION_CAPACITY;
 		this.rockCapacity = MineTile.DEFAULT_PRODUCTION_CAPACITY;
+		this.population = 0;
+		this.populationCapacity = 0;
 		this.miner = 0;
 		this.lumberjack = 0;
 		this.farmer = 0;
@@ -751,11 +753,11 @@ public class CityResources {
 	 */
 	public void decreasePopulation(int amount) {
 		assert amount >= 0;
-
 		int a = Math.max(0, this.population - amount);
+		int n = Math.min(amount, this.population);
 		this.population = a;
-		if (a>0){
-			for (int i=1; i<=a; i++ ){
+		if (n>0){
+			for (int i=1; i<=n; i++ ){
 				double x = Math.random();
 				if (x<0.2 && this.unworkingPopulation > 0){
 					this.unworkingPopulation--;
@@ -809,12 +811,14 @@ public class CityResources {
 	 */
 	public void decreasePopulationCapacity(int amount) {
 		assert 0 <= amount && amount <= this.getPopulationCapacity();
-
+		//System.out.println(this.populationCapacity);
 		this.populationCapacity = this.populationCapacity - amount;
-		int n = this.population - Math.min(this.population, this.populationCapacity);
+		//System.out.println(this.populationCapacity);
+		int n = Math.min(this.population, amount);
 		this.decreasePopulation(n);
 	}
 
+	
 	// Change (Product)
 	/**
 	 * Decrease {@link #getProductsCount()} by {@value amount}.

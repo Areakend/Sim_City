@@ -8,6 +8,7 @@ import model.tiles.Tile;
 public final class BridgeConstructionTool extends Tool {
 	
     public final static int Wood_COST = 5;
+    public static int cout =20;
 
     /**
      * canEffect returns true if the given Tile is buildable, false otherwise.
@@ -29,7 +30,7 @@ public final class BridgeConstructionTool extends Tool {
      */
 	@Override
 	public boolean isAfordable(Tile aTarget, CityResources r) {
-        return BridgeConstructionTool.Wood_COST <= r.getWood();
+        return (BridgeConstructionTool.Wood_COST <= r.getWood() && cout<r.getCurrency());
 	}
 
 	@Override
@@ -52,6 +53,7 @@ public final class BridgeConstructionTool extends Tool {
         assert this.isAfordable(aTarget, r);
 
         r.spendW(BridgeConstructionTool.Wood_COST);
+        r.spend(BridgeConstructionTool.cout);
 
         return new BridgeTile();
     }

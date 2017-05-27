@@ -38,6 +38,7 @@ public final class ResidentialZoneDelimiterTool extends Tool {
 
 // Constant
 	public final static int Wood_COST = 20;
+    public static int cout =20;
 
 // Status
 	// Status
@@ -61,7 +62,7 @@ public final class ResidentialZoneDelimiterTool extends Tool {
      */
 	@Override
 	public boolean isAfordable (Tile aTarget, CityResources r) {
-		return ResidentialZoneDelimiterTool.Wood_COST <= r.getWood();
+		return (ResidentialZoneDelimiterTool.Wood_COST <= r.getWood() && cout<r.getCurrency());
 	}
 
 // Access
@@ -84,6 +85,7 @@ public final class ResidentialZoneDelimiterTool extends Tool {
 		assert canEffect(aTarget);
 		assert isAfordable(aTarget, r);
 		r.spendW(ResidentialZoneDelimiterTool.Wood_COST);
+        r.spend(ResidentialZoneDelimiterTool.cout);
 		return new ResidentialTile();
 	}
 

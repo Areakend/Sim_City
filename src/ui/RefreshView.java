@@ -41,7 +41,7 @@ public class RefreshView extends JPanel {
         super();
         // this.setBorder(BorderFactory.createBevelBorder(1, Color.GRAY,
         // Color.BLUE));
-        JButton jb = new JButton("Changement de jour");
+        JButton jb = new JButton("Nouveau jour");
         jb.addActionListener(new ActionListener() {
 
             @Override

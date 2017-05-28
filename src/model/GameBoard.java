@@ -422,7 +422,7 @@ public class GameBoard extends Observable {
         	this.message="Puits : coûte 40 Ecus";
         }
         if (selectedTool== GameBoard.tools.get(3)) {
-        	this.message="Maison : coûte 20 bois, 20 Ecus et permet d'acceuillir 10 habitants, ils mangent 2 rations par jour";
+        	this.message="Maison : coûte 20 bois, 20 Ecus et permet d'acceuillir 6 habitants, ils mangent 2 rations par jour";
         }
         if (selectedTool== GameBoard.tools.get(4)) {
         	this.message="Ferme : coûte 40 bois, 20 Ecus et permet de produire 5 unités de nourriture par fermier";

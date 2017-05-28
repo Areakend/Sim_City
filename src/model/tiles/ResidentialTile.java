@@ -41,7 +41,7 @@ public class ResidentialTile extends BuildableTile {
     /**
      * Default value of {@link ResidentialTile#maxJoiningInhabitants}
      */
-    private final static int DEFAULT_MAX_JOINING_INHABITANTS = 2;
+    public final static int DEFAULT_MAX_JOINING_INHABITANTS = 2;
 
     /**
      * Default value of {@link ResidentialTile#maxLeavingInhabitants}
@@ -62,7 +62,7 @@ public class ResidentialTile extends BuildableTile {
     /**
      * {@link #getInhabitantsCapacity()}
      */
-    private final int inhabitantsCapacity;
+    public final int inhabitantsCapacity;
 
     /**
      * Maximum number of newcomers for each update.

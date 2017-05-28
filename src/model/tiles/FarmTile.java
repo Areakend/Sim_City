@@ -14,12 +14,12 @@ public class FarmTile extends Tile implements Destroyable{
 	/**
 	 * Maximum number of farmer per farm.
 	 */
-	protected final int farmerCapacity;
+	public final int farmerCapacity;
 
 	/**
 	 * Maximum amount of food that a farm can store.
 	 */
-	protected final int productionCapacity;
+	public final int productionCapacity;
 
 	/**
 	 * @param productionCapacity

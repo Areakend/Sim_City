@@ -3,7 +3,7 @@ package model.tiles;
 import model.CityResources;
 
 public class FarmTile extends Tile implements Destroyable{
-	protected boolean isDestroyed;
+	public boolean isDestroyed;
 
 	public final static int EXTRA_FOOD_PRODUCTION = 5;
 

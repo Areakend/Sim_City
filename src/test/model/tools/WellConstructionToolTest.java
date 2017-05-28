@@ -1,21 +1,20 @@
-package test.model.tiles;
+package test.model.tools;
 import org.junit.Test;
 
 import org.junit.Assert;
 
 import model.CityResources;
 import model.tiles.GrassTile;
-import model.tiles.MineTile;
+import model.tiles.WellTile;
 import model.tiles.RiverTile;
 import model.tiles.Tile;
-import model.tools.BridgeConstructionTool;
-import model.tools.MineConstructionTool;
+import model.tools.WellConstructionTool;
 
-public class MineConstructionToolTest {
+public class WellConstructionToolTest {
 	
     @Test
     public void testCanAffect() {
-        MineConstructionTool ppt = new MineConstructionTool();
+        WellConstructionTool ppt = new WellConstructionTool();
         Tile tile = GrassTile.getDefault();
         Tile tile2 = RiverTile.getDefault();
         Assert.assertEquals( ppt.canEffect(tile), tile == GrassTile.getDefault());
@@ -25,19 +24,17 @@ public class MineConstructionToolTest {
     
     @Test
     public void testisAffordable() {
-        MineConstructionTool ppt = new MineConstructionTool();
+        WellConstructionTool ppt = new WellConstructionTool();
         CityResources resources = new CityResources(100);
-        int initialValue = resources.getRock();
         int initialValue2 = resources.getCurrency();
-        int cost = MineConstructionTool.Rock_COST;
-        int cost2 = MineConstructionTool.cout;
-        Assert.assertEquals( ppt.isAfordable(GrassTile.getDefault(), resources), (cost<initialValue && cost2<initialValue2));
+        int cost2 = WellConstructionTool.CURRENCY_COST;
+        Assert.assertEquals( ppt.isAfordable(GrassTile.getDefault(), resources), cost2<initialValue2);
     }
     
     @Test
     public void testgetCost() {
-        MineConstructionTool ppt = new MineConstructionTool();
-        int initialValue = MineConstructionTool.Rock_COST;
+        WellConstructionTool ppt = new WellConstructionTool();
+        int initialValue = WellConstructionTool.CURRENCY_COST;
         Tile tile = GrassTile.getDefault();
         Tile tile2 = RiverTile.getDefault();
         Assert.assertEquals( ppt.getCost(tile), initialValue);
@@ -48,20 +45,12 @@ public class MineConstructionToolTest {
     
     @Test
     public void testinnerEffect() {
-        MineConstructionTool ppt = new MineConstructionTool();
+        WellConstructionTool ppt = new WellConstructionTool();
         CityResources resources = new CityResources(100);
         int initialValue = resources.getRock();
         int initialValue2 = resources.getCurrency();
-        int cost = MineConstructionTool.Rock_COST;
-        int cost2 = MineConstructionTool.cout;
-        int FarmerCap = MineTile.DEFAULT_MINER_CAPACITY;
-        int initFarm = resources.getFarmerCapacity();
-        int FoodCap = MineTile.DEFAULT_PRODUCTION_CAPACITY;
-        int initFood = resources.getFoodCapacity();
+        int cost2 = WellConstructionTool.CURRENCY_COST;
         Tile tile = ppt.innerEffect(GrassTile.getDefault(), resources);
-        Assert.assertEquals(resources.getRock(), initialValue - cost);
-        Assert.assertEquals(resources.getRockCapacity(), initFood + FoodCap);
-        Assert.assertEquals(resources.getMinerCapacity(), initFarm + FarmerCap);
         Assert.assertEquals(resources.getCurrency(), initialValue2 - cost2);
     }
     

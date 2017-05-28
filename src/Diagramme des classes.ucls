@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.0" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="model.event.EventFactory" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/event/EventFactory.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="113" width="243" x="157" y="-17"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="model.event.KingsTaxEvent" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/event/KingsTaxEvent.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="113" width="213" x="157" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="model.tiles.CastlecTile" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tiles/CastlecTile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="167" width="191" x="1909" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="4" language="java" name="model.tiles.Evolvable" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tiles/Evolvable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="95" width="162" x="1629" y="3918"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="5" language="java" name="model.tools.BulldozerTool" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tools/BulldozerTool.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="221" width="222" x="4940" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="launcher.SimCityUI" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/launcher/SimCityUI.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="203" width="205" x="440" y="-17"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="model.event.Event" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/event/Event.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="131" width="213" x="1374" y="1542"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="ui.TileUI" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/ui/TileUI.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="149" width="149" x="1887" y="362"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="model.tools.MineConstructionTool" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tools/MineConstructionTool.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="239" width="222" x="5202" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="model.tools.ResidentialZoneDelimiterTool" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tools/ResidentialZoneDelimiterTool.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="239" width="222" x="5464" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="model.tiles.CastledTile" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tiles/CastledTile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="167" width="191" x="3481" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="model.tiles.Tile" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tiles/Tile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="113" width="191" x="2860" y="1542"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="model.tiles.RiverTile" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tiles/RiverTile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="167" width="191" x="3722" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="model.event.GodsGiftEvent" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/event/GodsGiftEvent.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="113" width="213" x="410" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="model.tools.LumberjackConstructionTool" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tools/LumberjackConstructionTool.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="221" width="222" x="5726" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="model.tiles.ForestTile" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tiles/ForestTile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="293" width="230" x="2150" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="ui.MessagesView" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/ui/MessagesView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="131" width="182" x="685" y="-17"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="ui.ZoomView" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/ui/ZoomView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="167" width="167" x="907" y="-17"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="model.event.PillageEvent" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/event/PillageEvent.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="113" width="213" x="663" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="model.tools.WellConstructionTool" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tools/WellConstructionTool.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="221" width="222" x="5988" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="model.tiles.ResidentialTile" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tiles/ResidentialTile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="455" width="302" x="1831" y="3918"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="localization.LocalizedTexts" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/localization/LocalizedTexts.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="455" width="208" x="3160" y="1542"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="model.tiles.BridgeTile" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tiles/BridgeTile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="167" width="191" x="2420" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="model.tiles.BuildableTile" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tiles/BuildableTile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="257" width="200" x="1669" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="25" language="java" name="model.CityResources" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/CityResources.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="1823" width="210" x="888" y="1542"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="26" language="java" name="model.tools.FarmerConstructionTool" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tools/FarmerConstructionTool.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="239" width="222" x="6250" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="27" language="java" name="ui.RefreshView" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/ui/RefreshView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="95" width="155" x="1114" y="-17"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="28" language="java" name="model.tiles.FarmTile" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tiles/FarmTile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="311" width="230" x="2661" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="29" language="java" name="model.event.NothingEvent" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/event/NothingEvent.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="113" width="213" x="916" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="30" language="java" name="model.event.EventFactory.eventType" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/event/EventFactory.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="167" width="158" x="157" y="362"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="31" language="java" name="model.tiles.MineTile" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tiles/MineTile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="293" width="230" x="2941" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="32" language="java" name="model.difficulty.DifficultyLevel" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/difficulty/DifficultyLevel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="365" width="186" x="1138" y="1542"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="33" language="java" name="model.GameBoard" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/GameBoard.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="923" width="264" x="1629" y="569"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="34" language="java" name="model.TilePosition" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/TilePosition.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="275" width="186" x="1422" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="35" language="java" name="model.tiles.Destroyable" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tiles/Destroyable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="95" width="191" x="2508" y="3918"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <class id="36" language="java" name="model.event.EarthquakeEvent" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/event/EarthquakeEvent.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="113" width="213" x="1169" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="37" language="java" name="model.tiles.ConstructionState" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tiles/ConstructionState.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="131" width="254" x="2173" y="3918"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <class id="38" language="java" name="model.tools.Tool" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tools/Tool.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="167" width="222" x="5464" y="1542"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="39" language="java" name="ui.PropertiesView" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/ui/PropertiesView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="329" width="242" x="1309" y="-17"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="40" language="java" name="model.tiles.CastleaTile" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tiles/CastleaTile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="221" width="197" x="3963" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="41" language="java" name="model.tiles.GrassTile" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tiles/GrassTile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="167" width="191" x="4210" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="42" language="java" name="ui.ToolsView" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/ui/ToolsView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="113" width="182" x="1591" y="-17"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="43" language="java" name="ui.IconFactory" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/ui/IconFactory.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="329" width="282" x="1813" y="-17"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="44" language="java" name="localization.FRTexts" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/localization/FRTexts.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="473" width="208" x="4692" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="45" language="java" name="ui.ToolUI" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/ui/ToolUI.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="95" width="147" x="4487" y="-17"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="46" language="java" name="model.tiles.WellTile" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tiles/WellTile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="329" width="230" x="3211" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="47" language="java" name="model.tools.BridgeConstructionTool" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tools/BridgeConstructionTool.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="239" width="222" x="6512" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="48" language="java" name="model.tiles.CastlebTile" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/model/tiles/CastlebTile.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="167" width="191" x="4451" y="3405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="49" language="java" name="ui.GameBoardView" project="projet-sd-poo-groupe-6" 
+    file="/projet-sd-poo-groupe-6/src/ui/GameBoardView.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="311" width="203" x="2145" y="-17"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="50">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <generalization id="51">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="38"/>  
+  </generalization>  
+  <generalization id="52">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="38"/>  
+  </generalization>  
+  <generalization id="53">    
+    <end type="SOURCE" refId="36"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="54">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="55" name="pendingEventsList"/>      
+      <multiplicity id="56" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="57">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="58" name="instance"/>      
+      <multiplicity id="59" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="60">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <association id="61">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="62" name="INSTANCE"/>      
+      <multiplicity id="63" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="64">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="35"/>  
+  </realization>  
+  <generalization id="65">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <association id="66">    
+    <end type="SOURCE" refId="41" navigable="false">      
+      <attribute id="67" name="INSTANCE"/>      
+      <multiplicity id="68" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="41" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="69">    
+    <end type="SOURCE" refId="31"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <generalization id="70">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="24"/>  
+  </generalization>  
+  <generalization id="71">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="38"/>  
+  </generalization>  
+  <association id="72">    
+    <end type="SOURCE" refId="24" navigable="false">      
+      <attribute id="73" name="state"/>      
+      <multiplicity id="74" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="37" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="75">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="35"/>  
+  </realization>  
+  <generalization id="76">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <association id="77">    
+    <end type="SOURCE" refId="49" navigable="false">      
+      <attribute id="78" name="tiles"/>      
+      <multiplicity id="79" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="80">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <association id="81">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="82" name="world"/>      
+      <multiplicity id="83" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="84">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="85" name="tools"/>      
+      <multiplicity id="86" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="87">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="88" name="appearanceCoordinates"/>      
+      <multiplicity id="89" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="90">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="91">    
+    <end type="SOURCE" refId="28" navigable="false">      
+      <attribute id="92" name="INSTANCE"/>      
+      <multiplicity id="93" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="28" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="94">    
+    <end type="SOURCE" refId="40" navigable="false">      
+      <attribute id="95" name="INSTANCE"/>      
+      <multiplicity id="96" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="40" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="97">    
+    <end type="SOURCE" refId="47"/>    
+    <end type="TARGET" refId="38"/>  
+  </generalization>  
+  <association id="98">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="99" name="INSTANCE"/>      
+      <multiplicity id="100" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="101">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <generalization id="102">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <association id="103">    
+    <bendpoint x="1638" y="1542"/>    
+    <bendpoint x="1638" y="3405"/>    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="104" name="pendingEvolutions"/>      
+      <multiplicity id="105" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="106">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <association id="107">    
+    <end type="SOURCE" refId="48" navigable="false">      
+      <attribute id="108" name="INSTANCE"/>      
+      <multiplicity id="109" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="48" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="110">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="111" name="tiles"/>      
+      <multiplicity id="112" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="113">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <generalization id="114">    
+    <end type="SOURCE" refId="29"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <generalization id="115">    
+    <end type="SOURCE" refId="40"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <generalization id="116">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="7"/>  
+  </generalization>  
+  <realization id="117">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="35"/>  
+  </realization>  
+  <generalization id="118">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="38"/>  
+  </generalization>  
+  <association id="119">    
+    <end type="SOURCE" refId="43" navigable="false">      
+      <attribute id="120" name="INSTANCE"/>      
+      <multiplicity id="121" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="43" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="122">    
+    <end type="SOURCE" refId="48"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <association id="123">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="124" name="probalisticEventsList"/>      
+      <multiplicity id="125" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="30" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="126">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="127" name="resources"/>      
+      <multiplicity id="128" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="25" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="129">    
+    <end type="SOURCE" refId="41"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <association id="130">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="131" name="selectedTile"/>      
+      <multiplicity id="132" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="133">    
+    <end type="SOURCE" refId="26"/>    
+    <end type="TARGET" refId="38"/>  
+  </generalization>  
+  <generalization id="134">    
+    <end type="SOURCE" refId="28"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <association id="135">    
+    <end type="SOURCE" refId="32" navigable="false">      
+      <attribute id="136" name="STANDARD_LEVEL"/>      
+      <multiplicity id="137" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="138">    
+    <end type="SOURCE" refId="44"/>    
+    <end type="TARGET" refId="22"/>  
+  </generalization>  
+  <association id="139">    
+    <end type="SOURCE" refId="23" navigable="false">      
+      <attribute id="140" name="INSTANCE"/>      
+      <multiplicity id="141" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="142">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="143" name="texts"/>      
+      <multiplicity id="144" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="22" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="145">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="146" name="INSTANCE"/>      
+      <multiplicity id="147" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="148">    
+    <end type="SOURCE" refId="46"/>    
+    <end type="TARGET" refId="35"/>  
+  </realization>  
+  <association id="149">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="150" name="DEFAULT_DIFFICULTY"/>      
+      <multiplicity id="151" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="32" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="152">    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="153" name="selectedTool"/>      
+      <multiplicity id="154" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="38" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="155">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="38"/>  
+  </generalization>  
+  <association id="156">    
+    <bendpoint x="1617" y="1542"/>    
+    <end type="SOURCE" refId="33" navigable="false">      
+      <attribute id="157" name="DEFAULT_SELECTED_LOCATION"/>      
+      <multiplicity id="158" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="159">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="30"/>  
+  </nesting>  
+  <association id="160">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="161" name="startingTile"/>      
+      <multiplicity id="162" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="34" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="163">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="35"/>  
+  </realization>  
+  <realization id="164">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="35"/>  
+  </realization>  
+  <association id="165">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="166" name="model"/>      
+      <multiplicity id="167" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="33" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

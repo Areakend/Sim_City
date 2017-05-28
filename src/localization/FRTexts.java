@@ -25,7 +25,7 @@
 package localization;
 
 /**
- * United Kingdom localized texts.
+ * French localized texts.
  */
 public class FRTexts extends LocalizedTexts {
 
@@ -53,10 +53,10 @@ public class FRTexts extends LocalizedTexts {
         return "{0} Pierre";
     }
 
-    @Override
-    public String getEarthQuakeMsg() {
-        return "Il y à eu un tremblemment de terre à la position [ {0} ]";
-    }
+    //@Override
+    //public String getEarthQuakeMsg() {
+       // return "Il y a eu un tremblemment de terre à la position [ {0} ]";
+    //}
 
     @Override
     public String getMissingResourcesMsg() {
@@ -76,7 +76,7 @@ public class FRTexts extends LocalizedTexts {
 
     @Override
     public String getUnconsumedWaterLabel() {
-        return "Eau non consommé";
+        return "Eau non consommée";
     }
 
     @Override

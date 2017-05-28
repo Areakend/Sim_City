@@ -51,17 +51,17 @@ public class EventFactory {
      * Probabilities bound to a specific event. The sum of all probabilities
      * must be equal to 100
      */
-    private static final Map<eventType, Integer> event_probabilities = Collections.unmodifiableMap(new HashMap<eventType, Integer>() {
+    private static final Map<eventType, Double> event_probabilities = Collections.unmodifiableMap(new HashMap<eventType, Double>() {
         /**
          *
          */
         private static final long serialVersionUID = -6805412774816642699L;
 
         {
-            this.put(eventType.NOTHING, 97);
-            this.put(eventType.EARTHQUAKE, 1);
-            this.put(eventType.GODSGIFT, 1);
-            this.put(eventType.PILLAGE, 1);
+            this.put(eventType.NOTHING, 99.1);
+            this.put(eventType.EARTHQUAKE, 0.3);
+            this.put(eventType.GODSGIFT, 0.3);
+            this.put(eventType.PILLAGE, 0.3);
         }
     });
 
@@ -69,7 +69,7 @@ public class EventFactory {
     static {
         int probaSum = EventFactory.event_probabilities.values().stream().mapToInt(Number::intValue).sum();
         assert probaSum == 100 : MessageFormat.format("The sum of events probabilities must be equal to 100 (currently {0})", probaSum);
-        for (Map.Entry<eventType, Integer> event_entry : EventFactory.event_probabilities.entrySet()) {
+        for (Map.Entry<eventType, Double> event_entry : EventFactory.event_probabilities.entrySet()) {
             for (int i = 0; i < event_entry.getValue(); i++) {
                 EventFactory.probalisticEventsList.add(event_entry.getKey());
             }
@@ -98,6 +98,7 @@ public class EventFactory {
                 break;
             case PILLAGE:
             	result = new PillageEvent();
+            	break;
             default:
                 result = new NothingEvent();
                 break;

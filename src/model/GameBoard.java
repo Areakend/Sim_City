@@ -131,6 +131,10 @@ public class GameBoard extends Observable implements Serializable {
      * {@link #getTexts()}
      */
     private final LocalizedTexts texts;
+    
+    /**
+     * Status famine message.
+     */
 
 	private String messageFamine;
 
@@ -264,6 +268,10 @@ public class GameBoard extends Observable implements Serializable {
     }
 
     // Access
+    /**
+     * 
+     * @return texts.
+     */
     public LocalizedTexts getTexts() {
         return this.texts;
     }
@@ -305,6 +313,10 @@ public class GameBoard extends Observable implements Serializable {
         return tools.size();
     }
 
+    /**
+     * 
+     * @return resources.
+     */
     public CityResources getResources() {
 		return resources;
 	}
@@ -443,6 +455,10 @@ public class GameBoard extends Observable implements Serializable {
         return this.message;
     }
     
+    /**
+     * @return Status messageFamine.
+     */
+    
 	public String getMessageFamine() {
 		return this.messageFamine;
 	}
@@ -465,7 +481,7 @@ public class GameBoard extends Observable implements Serializable {
         	this.message="Puits : coûte 40 Ecus";
         }
         if (selectedTool== GameBoard.tools.get(3)) {
-        	this.message="Maison : coûte 20 bois, 20 Ecus et permet d'acceuillir 10 habitants, ils mangent 2 rations par jour";
+        	this.message="Maison : coûte 20 bois, 20 Ecus et permet d'acceuillir 6 habitants, ils mangent 2 rations par jour";
         }
         if (selectedTool== GameBoard.tools.get(4)) {
         	this.message="Ferme : coûte 40 bois, 20 Ecus et permet de produire 5 unités de nourriture par fermier";
@@ -575,7 +591,7 @@ public class GameBoard extends Observable implements Serializable {
     }
     
     /**
-     * Consommation journalière
+     * Update resources.
      */
     public void dailyConsumed() {
         //this.unworkingPopulation = this.population;

@@ -11,10 +11,22 @@ public class MineTile extends Tile implements Destroyable{
     
     public final static int DEFAULT_MINER_CAPACITY = 5;
     
+	/**
+	 * Maximum number of steel/rock a mine can produce.
+	 */    
     protected final int productionCapacity;
     
+	/**
+	 * Maximum number of miner per mine.
+	 */
     protected final int minerCapacity;
 	
+	/**
+	 * @param productionCapacity
+	 *           
+	 * @param minerCapacity
+	 *            
+	 */
 	public MineTile(int productionCapacity, int minerCapacity){
         super();
         this.productionCapacity = productionCapacity;

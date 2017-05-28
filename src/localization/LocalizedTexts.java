@@ -24,10 +24,12 @@
 
 package localization;
 
+import java.io.Serializable;
+
 /***
  * Texts used by the game.
  */
-public abstract class LocalizedTexts {
+public abstract class LocalizedTexts implements Serializable {
 
     // Message
     /**

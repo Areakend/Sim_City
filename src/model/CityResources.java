@@ -24,6 +24,8 @@
 
 package model;
 
+import java.io.Serializable;
+
 import model.tiles.CastleaTile;
 import model.tiles.FarmTile;
 import model.tiles.ForestTile;
@@ -33,7 +35,9 @@ import model.tiles.MineTile;
  * Represents the resources and the parameters of the city. An ephemeral
  * resource is reset at each step thanks to {@link CityResources#getVat()}.
  */
-public class CityResources {
+
+public class CityResources implements Serializable{
+
 	/**
 	 * {@link #getWood()}
 	 */

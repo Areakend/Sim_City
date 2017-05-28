@@ -38,6 +38,7 @@ import model.tiles.MineTile;
 
 public class CityResources implements Serializable{
 
+
 	/**
 	 * {@link #getWood()}
 	 */

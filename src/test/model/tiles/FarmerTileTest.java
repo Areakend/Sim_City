@@ -2,7 +2,10 @@ package test.model.tiles;
 import org.junit.Assert;
 import org.junit.Test;
 
+import localization.FRTexts;
+import localization.LocalizedTexts;
 import model.CityResources;
+import model.GameBoard;
 import model.tiles.FarmTile;
 import model.tiles.ResidentialTile;
 import model.tiles.Tile;
@@ -13,13 +16,15 @@ public class FarmerTileTest {
 
     @Test
     public void testupdate() {
+    	LocalizedTexts text = new FRTexts();
+        GameBoard gb = new GameBoard(10,text);
         CityResources resources = new CityResources(100);
         WellTile WT = new WellTile();
         WT.update(resources);
         ResidentialTile ppt = new ResidentialTile();
         FarmTile FT = new FarmTile();
-        ppt.update(resources);
         ppt.evolve(resources);
+        ppt.update(resources);
         FT.update(resources);
         FT.update(resources);
         int initialValue2 = resources.getFarmer();
@@ -30,7 +35,9 @@ public class FarmerTileTest {
 	
     @Test
     public void testDisassemble() {
-        CityResources resources = new CityResources(100);
+    	LocalizedTexts text = new FRTexts();
+        GameBoard gb = new GameBoard(10,text);
+    	CityResources resources = new CityResources(100);
         WellTile WT = new WellTile();
         WT.update(resources);
         ResidentialTile ppt = new ResidentialTile();

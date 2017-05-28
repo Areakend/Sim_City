@@ -43,7 +43,7 @@ public class EventFactory {
      * Default Constructor.
      */
     private static enum eventType {
-        NOTHING,EARTHQUAKE,GODSGIFT,PILLAGE;
+        NOTHING,EARTHQUAKE,GODSGIFT,PILLAGE,KINGSTAX;
     }
 
     
@@ -58,10 +58,11 @@ public class EventFactory {
         private static final long serialVersionUID = -6805412774816642699L;
 
         {
-            this.put(eventType.NOTHING, 99.1);
-            this.put(eventType.EARTHQUAKE, 0.3);
-            this.put(eventType.GODSGIFT, 0.3);
+            this.put(eventType.NOTHING, 99.0);
+            this.put(eventType.EARTHQUAKE, 0.2);
+            this.put(eventType.GODSGIFT, 0.2);
             this.put(eventType.PILLAGE, 0.3);
+            this.put(eventType.KINGSTAX, 0.3);
         }
     });
 
@@ -98,6 +99,9 @@ public class EventFactory {
                 break;
             case PILLAGE:
             	result = new PillageEvent();
+            	break;
+            case KINGSTAX:
+            	result = new KingsTaxEvent();
             	break;
             default:
                 result = new NothingEvent();

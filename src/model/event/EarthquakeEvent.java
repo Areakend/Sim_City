@@ -50,7 +50,7 @@ public class EarthquakeEvent extends Event {
 
 	@Override
     public String getMessage(LocalizedTexts texts) {
-        return "Tremblement de terre ! Votre ville a reçu des dommages.";
+        return "Tremblement de terre ! Votre ville a recu des dommages.";
     }
 
 }

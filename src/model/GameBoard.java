@@ -472,25 +472,25 @@ public class GameBoard extends Observable implements Serializable {
     public void setSelectedTool(Tool tool) {
         this.selectedTool = tool;
         if (selectedTool== GameBoard.tools.get(0)) {
-        	this.message="Buldozer, il permet de détruire une construction pour 10 Ecus";
+        	this.message="Buldozer, il permet de dï¿½truire une construction pour 10 Ecus";
         }
         if (selectedTool== GameBoard.tools.get(1)) {
         	this.message="Pont coute 5 bois, 20 Ecus";
         }
         if (selectedTool== GameBoard.tools.get(2)) {
-        	this.message="Puits : coûte 40 Ecus";
+        	this.message="Puits : coï¿½te 40 Ecus";
         }
         if (selectedTool== GameBoard.tools.get(3)) {
-        	this.message="Maison : coûte 20 bois, 20 Ecus et permet d'acceuillir 6 habitants, ils mangent 2 rations par jour";
+        	this.message="Maison : coï¿½te 20 bois, 20 Ecus et permet d'acceuillir 6 habitants, ils mangent 2 rations par jour";
         }
         if (selectedTool== GameBoard.tools.get(4)) {
-        	this.message="Ferme : coûte 40 bois, 20 Ecus et permet de produire 5 unités de nourriture par fermier";
+        	this.message="Ferme : coï¿½te 40 bois, 20 Ecus et permet de produire 5 unitï¿½s de nourriture par fermier";
         }
         if (selectedTool== GameBoard.tools.get(5)) {
-        	this.message="Mine : coûte 40 pierre, 20 Ecus et permet de produire 5 fer par mineur";
+        	this.message="Mine : coï¿½te 40 pierre, 20 Ecus et permet de produire 5 fer par mineur";
         }
         if (selectedTool== GameBoard.tools.get(6)) {
-        	this.message="Camp de bûcheron : coûte 40 écus et permet de produire 5 bois par bûcheron";
+        	this.message="Camp de bï¿½cheron : coï¿½te 40 ï¿½cus et permet de produire 5 bois par bï¿½cheron";
         }
         this.notifyViews();
         //
@@ -568,16 +568,16 @@ public class GameBoard extends Observable implements Serializable {
     public void nextState() {
         GameBoard.ROUNDCOUNTER.incrementAndGet();
         final int extraProductionF = Math.min(FarmTile.EXTRA_FOOD_PRODUCTION*resources.getFarmer(), resources.foodCapacity - resources.food);
-        resources.creditF(extraProductionF);  //Met à jour la production de nourriture.
+        resources.creditF(extraProductionF);  //Met a jour la production de nourriture.
         
         final int extraProductionS = Math.min(MineTile.EXTRA_PRODUCTION*resources.getMiner(), resources.steelCapacity - resources.steel);
-        resources.creditS(extraProductionS); //Met à jour la production de fer.
+        resources.creditS(extraProductionS); //Met a jour la production de fer.
         
         final int extraProductionR = Math.min(MineTile.EXTRA_PRODUCTION*resources.getMiner(), resources.rockCapacity - resources.rock);
-        resources.creditR(extraProductionR); //Met à jour la production de pierre.
+        resources.creditR(extraProductionR); //Met a jour la production de pierre.
        
         final int extraProductionW = Math.min(ForestTile.EXTRA_WOOD_PRODUCTION*resources.getLumberjack(), resources.woodCapacity - resources.wood);
-        resources.creditW(extraProductionW); //Met à jour la production de bois.
+        resources.creditW(extraProductionW); //Met a jour la production de bois.
         
         this.dailyConsumed();
         this.applyPendingEvents();

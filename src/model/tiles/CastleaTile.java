@@ -57,8 +57,8 @@ public final class CastleaTile extends Tile {
 	public void update(CityResources res) {
 
         /**
-         * Le x sert à continuer d'augmenter le nombre de travailleurs même si celui ci est en 
-         * dessous de 4. On augmente au maximum d'un quart du nombre de chômeur le nombre de chevaliers parce qu'il y a 4 métiers.
+         * Le x sert a continuer d'augmenter le nombre de travailleurs meme si celui ci est en 
+         * dessous de 4. On augmente au maximum d'un quart du nombre de chomeur le nombre de chevaliers parce qu'il y a 4 metiers.
          */
         
         int x;
@@ -69,7 +69,7 @@ public final class CastleaTile extends Tile {
         	x = Math.round(res.getUnworkingPopulation()/4);
         }           
         /**
-         * Les chevaliers coûtent 50 de fer chacun. On ne peut donc pas avoir de nouveaux chevaliers tant que la réserve de fer est insuffisante.
+         * Les chevaliers coutent 50 de fer chacun. On ne peut donc pas avoir de nouveaux chevaliers tant que la reserve de fer est insuffisante.
          */
 
         final int extraWorkingPopulation = Math.min(x, res.getKnightCapacity()-res.getKnight());

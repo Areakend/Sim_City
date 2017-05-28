@@ -199,14 +199,14 @@ public final class SimCityUI extends JFrame {
         // Choix de la langue
         final LocalizedTexts texts = new FRTexts();
 
-        // CrÃ©ation du monde
+        // Creation du monde
         GameBoard monde;
         if(gb !=null) monde = gb;
         else
         monde = new GameBoard(hauteur, largeur, texts);
 
         
-        // Création de la vue du monde, placée au centre de la fenêtre
+        // Creation de la vue du monde, placee au centre de la fenetre
         GameBoardView vm = new GameBoardView(monde, vhauteur, vlargeur);
         vm.setPreferredSize(new Dimension(48*vlargeur,48*vhauteur));
         monde.addObserver(vm);
@@ -214,16 +214,16 @@ public final class SimCityUI extends JFrame {
         ZoomView zv = new ZoomView(vm);
         this.add(zv, BorderLayout.CENTER);
 
-        // Création de la palette des éléments de jeu, placée à  gauche
+        // Creation de la palette des elements de jeu, placee a gauche
         ToolsView ve = new ToolsView(monde);
         monde.addObserver(ve);
         this.add(ve, BorderLayout.WEST);
 
-        // Création du panneau d'informations
+        // Creation du panneau d'informations
         PropertiesView vi = new PropertiesView(monde, texts);
         monde.addObserver(vi);
 
-        // Création du panneau de rafraichissement
+        // Creation du panneau de rafraichissement
         RefreshView rv = new RefreshView(monde);
         JPanel right = new JPanel();
         right.setLayout(new BoxLayout(right, BoxLayout.Y_AXIS));
@@ -233,7 +233,7 @@ public final class SimCityUI extends JFrame {
         
         this.add(right, BorderLayout.EAST);
         
-        // Création du panneau de message
+        // Creation du panneau de message
         MessagesView mv = new MessagesView();
         monde.addObserver(mv);
         this.add(mv, BorderLayout.SOUTH);

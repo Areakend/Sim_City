@@ -45,7 +45,7 @@ public class PillageEvent extends Event {
      */
 	@Override
     public String getMessage(LocalizedTexts texts) {
-        return "Votre ville se fait piller ! Vos chevaliers sont là (ou pas) pour vous défendre.";
+        return "Votre ville se fait piller ! Vos chevaliers sont la (ou pas) pour vous defendre.";
     }
 
 

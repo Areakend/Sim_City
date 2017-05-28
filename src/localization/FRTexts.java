@@ -55,7 +55,7 @@ public class FRTexts extends LocalizedTexts {
 
     //@Override
     //public String getEarthQuakeMsg() {
-       // return "Il y a eu un tremblemment de terre à la position [ {0} ]";
+       // return "Il y a eu un tremblemment de terre a la position [ {0} ]";
     //}
 
     @Override
@@ -76,7 +76,7 @@ public class FRTexts extends LocalizedTexts {
 
     @Override
     public String getUnconsumedWaterLabel() {
-        return "Eau non consommée";
+        return "Eau non consommee";
     }
 
     @Override
@@ -101,12 +101,12 @@ public class FRTexts extends LocalizedTexts {
 
     @Override
     public String getStoredProductsLabel() {
-        return "Produits stockés";
+        return "Produits stockes";
     }
 
     @Override
     public String getUnworkingPopulationLabel() {
-        return "Chômeurs";
+        return "Chomeurs";
     }
     
     @Override
@@ -126,7 +126,7 @@ public class FRTexts extends LocalizedTexts {
     
     @Override
     public String getLumberjackLabel() {
-        return "Bûcherons";
+        return "Bucherons";
     }
     
     @Override

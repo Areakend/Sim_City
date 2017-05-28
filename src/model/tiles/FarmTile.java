@@ -82,10 +82,10 @@ public class FarmTile extends Tile implements Destroyable{
 	public void update(CityResources res) {
 		if (!this.isDestroyed) {	            
 			/**
-			 * La nourriture est mise à jour dans GameBoard dans nextState().
+			 * La nourriture est mise a jour dans GameBoard dans nextState().
 			 * 
-			 * Le x sert à continuer d'augmenter le nombre de travailleurs même si celui ci est en 
-			 * dessous de 4. On augmente au maximum d'un quart du nombre de chômeur le nombre de fermiers parce qu'il y a 4 métiers.
+			 * Le x sert a continuer d'augmenter le nombre de travailleurs meme si celui ci est en 
+			 * dessous de 4. On augmente au maximum d'un quart du nombre de chomeur le nombre de fermiers parce qu'il y a 4 metiers.
 			 */
 
 			int x;

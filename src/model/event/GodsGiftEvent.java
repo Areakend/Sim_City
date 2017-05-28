@@ -37,7 +37,7 @@ public class GodsGiftEvent extends Event {
      */
 	@Override
     public String getMessage(LocalizedTexts texts) {
-        return "Dieu a été clément avec votre ville ! Vous avez gagné des ressources.";
+        return "Dieu a ete clement avec votre ville ! Vous avez gagne des ressources.";
     }
 
 

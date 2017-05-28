@@ -14,12 +14,12 @@ public class MineTile extends Tile implements Destroyable{
 	/**
 	 * Maximum number of steel/rock a mine can produce.
 	 */    
-    protected final int productionCapacity;
+    public final int productionCapacity;
     
 	/**
 	 * Maximum number of miner per mine.
 	 */
-    protected final int minerCapacity;
+    public final int minerCapacity;
 	
 	/**
 	 * @param productionCapacity

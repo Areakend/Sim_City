@@ -1,4 +1,4 @@
-package test.model.tiles;
+package test.model.tools;
 import org.junit.Assert;
 import org.junit.Test;
 

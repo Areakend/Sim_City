@@ -6,15 +6,15 @@ import localization.FRTexts;
 import localization.LocalizedTexts;
 import model.CityResources;
 import model.GameBoard;
-import model.tiles.FarmTile;
+import model.tiles.ForestTile;
 import model.tiles.GrassTile;
 import model.tiles.ResidentialTile;
 import model.tiles.Tile;
 import model.tiles.WellTile;
-import model.tools.FarmerConstructionTool;
+import model.tools.LumberjackConstructionTool;
 
 
-public class FarmerTileTest {
+public class ForestTileTest {
 
     @Test
     public void testupdate() {
@@ -24,15 +24,15 @@ public class FarmerTileTest {
         WellTile WT = new WellTile();
         WT.update(resources);
         ResidentialTile ppt = new ResidentialTile();
-        FarmerConstructionTool FC = new FarmerConstructionTool();
-        FarmTile FT = new FarmTile();
+        LumberjackConstructionTool FC = new LumberjackConstructionTool();
+        ForestTile FT = new ForestTile();
         FC.innerEffect(GrassTile.getDefault(), resources);
         ppt.evolve(resources);
         ppt.update(resources);
-        int initialValue2 = resources.getFarmer();
+        int initialValue2 = resources.getLumberjack();
         FT.update(resources);;
         int cost2 =1;
-        Assert.assertEquals(resources.getFarmer(), initialValue2 + cost2 );
+        Assert.assertEquals(resources.getLumberjack(), initialValue2 + cost2 );
 
     }
 
@@ -44,26 +44,26 @@ public class FarmerTileTest {
         WellTile WT = new WellTile();
         WT.update(resources);
         ResidentialTile ppt = new ResidentialTile();
-        FarmerConstructionTool FC = new FarmerConstructionTool();
-        FarmTile FT = new FarmTile();
+        LumberjackConstructionTool FC = new LumberjackConstructionTool();
+        ForestTile FT = new ForestTile();
         FC.innerEffect(GrassTile.getDefault(), resources);
         ppt.update(resources);
         ppt.evolve(resources);
         FT.update(resources);
-        int initialValue = resources.getFood();
-        int initialValue2 = resources.getFarmerCapacity();
-        int initialValue3 = resources.getFoodCapacity();  
-        int initialValue4 = resources.getFarmer();
+        int initialValue = resources.getWood();
+        int initialValue2 = resources.getLumberjackCapacity();
+        int initialValue3 = resources.getWoodCapacity();  
+        int initialValue4 = resources.getLumberjack();
         int cost = FT.productionCapacity;
-        int cost2 = FT.farmerCapacity;
-        int cost4 = Math.min(resources.getFarmerCapacity(),resources.getFarmer());
-        int cost3 = Math.min(resources.foodCapacity,resources.food);
-        if (resources.getFood() < 101) { cost3 = 0;};
+        int cost2 = FT.lumberjackCapacity;
+        int cost4 = Math.min(resources.getLumberjackCapacity(),resources.getLumberjack());
+        int cost3 = Math.min(resources.woodCapacity,resources.wood);
+        if (resources.getWood() < 101) { cost3 = 0;};
         FT.disassemble(resources);
-        Assert.assertEquals(resources.getFoodCapacity(), initialValue3 - cost);
-        Assert.assertEquals(resources.getFarmer(),  initialValue4 - cost4);
-        Assert.assertEquals(resources.getFarmerCapacity(),  initialValue2 - cost2);
-        Assert.assertEquals(resources.getFood(),  initialValue - cost3);
+        Assert.assertEquals(resources.getWoodCapacity(), initialValue3 - cost);
+        Assert.assertEquals(resources.getLumberjack(),  initialValue4 - cost4);
+        Assert.assertEquals(resources.getLumberjackCapacity(),  initialValue2 - cost2);
+        Assert.assertEquals(resources.getWood(),  initialValue - cost3);
 
     }
     

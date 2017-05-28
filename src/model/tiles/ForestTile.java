@@ -14,11 +14,11 @@ public class ForestTile extends Tile implements Destroyable{
 	/**
 	 * Maximum amount of wood a forest can produce.
 	 */
-    protected final int productionCapacity;
+    public final int productionCapacity;
 	/**
 	 * Maximum number of lumberjack per forest.
 	 */
-    protected final int lumberjackCapacity;
+    public final int lumberjackCapacity;
     
 	/**
 	 * @param productionCapacity

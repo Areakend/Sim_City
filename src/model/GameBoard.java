@@ -24,6 +24,12 @@
 
 package model;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -62,7 +68,7 @@ import model.tools.ResidentialZoneDelimiterTool;
 import model.tools.BridgeConstructionTool;
 import model.tools.Tool;
 
-public class GameBoard extends Observable {
+public class GameBoard extends Observable implements Serializable {
 
     // Constant
     public final static DifficultyLevel DEFAULT_DIFFICULTY = DifficultyLevel.STANDARD_LEVEL;
@@ -74,6 +80,9 @@ public class GameBoard extends Observable {
     public final static int MAX_HANDLED_EVOLUTIONS = 5;
 
     public static String NOTHING_MESSAGE = "";
+    
+    //Use for distance calcul
+    public static GameBoard instance;
 
     public final static AtomicInteger ROUNDCOUNTER = new AtomicInteger(0);
 
@@ -176,8 +185,58 @@ public class GameBoard extends Observable {
 
         this.message = GameBoard.NOTHING_MESSAGE;
         this.texts = texts;
+        
+        instance = this;
     }
+    
 
+    /**
+     * Create a save of the game
+     * 
+     * @param f : file_name, s : SimCityUI to save
+     * 
+     */
+    public void saveGame(String f) {
+    	try {
+            ObjectOutputStream r = new ObjectOutputStream(new FileOutputStream(f));
+            r.writeObject(this);
+            r.close();
+            }catch(IOException i) {
+            i.printStackTrace();
+         }
+     }
+    
+    /**
+     * Load a game from a save
+     * 
+     * @param f : file_name of save
+     */
+    public static GameBoard loadGame(String f) {
+    	try {
+            ObjectInputStream l = new ObjectInputStream(new FileInputStream(f));
+            GameBoard s = (GameBoard) l.readObject();
+            s.deleteObservers();
+            l.close();
+            tools = new ArrayList<>();
+            tools.add(new BulldozerTool());
+            tools.add(new BridgeConstructionTool());
+            tools.add(new WellConstructionTool());
+            tools.add(new ResidentialZoneDelimiterTool());
+            tools.add(new FarmerConstructionTool());
+            tools.add(new MineConstructionTool());
+            tools.add(new LumberjackConstructionTool());
+            instance = s;
+            return s;
+         }catch(IOException i) {
+            i.printStackTrace();
+            return null;
+         }catch(ClassNotFoundException c) {
+            System.out.println("Employee class not found");
+            c.printStackTrace();
+            return null;
+         }
+    }
+    
     /**
      * Create a rectangle world with {@value height * width} tiles.
      *
@@ -511,6 +570,8 @@ public class GameBoard extends Observable {
         this.applyEvolutions();
         this.notifyViews();
         SimCityUI.jour +=1;
+
+    	this.saveGame("SimCity.save");
     }
     
     /**

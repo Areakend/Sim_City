@@ -76,18 +76,18 @@ public final class SimCityUI extends JFrame {
     	
     	JFrame menu = new JFrame("Menu");
     	JPanel optionsPane = new JPanel(new GridLayout(3, 1));
-        JButton mp = new JButton("Jouer");
+        JButton mp = new JButton("Nouvelle partie");
         mp.addActionListener(new ActionListener() {
           public void actionPerformed(ActionEvent e) {
-            SimCityUI.startGame(args);
+            SimCityUI.startGame(args, null);
             menu.setVisible(false);
             }
         });
 	    optionsPane.add(mp);
-	    JButton yt = new JButton("Options");
+	    JButton yt = new JButton("Continuer");
 	    yt.addActionListener(new ActionListener() {
 	          public void actionPerformed(ActionEvent e) {
-	          //TODO  
+	          SimCityUI.startGame(args,GameBoard.loadGame("SimCity.save"));
 	          }
 	    	});
 		optionsPane.add(yt);
@@ -112,7 +112,7 @@ public final class SimCityUI extends JFrame {
 
     // Creation
     
-    public static void startGame(String[] args) {
+    public static void startGame(String[] args, GameBoard gb) {
     	final int height;
         final int width;
 
@@ -163,7 +163,7 @@ public final class SimCityUI extends JFrame {
         */
         // Pour que ce soit le thread graphique qui construise les composants
         // graphiques
-        SwingUtilities.invokeLater(() -> new SimCityUI(height, width, case_screenH, case_screenW));
+        SwingUtilities.invokeLater(() -> new SimCityUI(height, width, case_screenH, case_screenW,gb));
     	
     }
     
@@ -190,7 +190,7 @@ public final class SimCityUI extends JFrame {
     	  }).start();
     	}
     
-    public SimCityUI(int hauteur, int largeur, int vhauteur, int vlargeur) {
+    public SimCityUI(int hauteur, int largeur, int vhauteur, int vlargeur, GameBoard gb) {
         super("SimCityT�l�com");
 
         //this.setPreferredSize(new Dimension(DEFAULT_WIDTH*49+100+200,DEFAULT_HEIGHT*49+200));
@@ -199,7 +199,10 @@ public final class SimCityUI extends JFrame {
         final LocalizedTexts texts = new FRTexts();
 
         // Création du monde
-        GameBoard monde = new GameBoard(hauteur, largeur, texts);
+        GameBoard monde;
+        if(gb !=null) monde = gb;
+        else
+        monde = new GameBoard(hauteur, largeur, texts);
         
         // Création de la vue du monde, placée au centre de la fenêtre
         GameBoardView vm = new GameBoardView(monde, vhauteur, vlargeur);
@@ -238,7 +241,6 @@ public final class SimCityUI extends JFrame {
         this.setResizable(false);
         this.pack();
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        System.out.println(this.getSize());
         this.setLocation(dim.width/2-this.getSize().width/2, dim.height/2-this.getSize().height/2);
         this.setVisible(true);
     }

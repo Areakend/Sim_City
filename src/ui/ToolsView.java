@@ -41,7 +41,7 @@ public class ToolsView extends JPanel implements Observer {
     public ToolsView(GameBoard w) {
         super();
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-
+        
         final Iterator<Tool> it = w.toolIterator();
         while (it.hasNext()) {
             this.add(new ToolUI(w, it.next()));

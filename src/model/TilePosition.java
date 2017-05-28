@@ -29,7 +29,7 @@ import java.io.Serializable;
 /**
  * Represents a location in the city.
  */
-public class TilePosition implements Serializable {
+public class TilePosition implements Serializable{
 
     // Constant
     private final static long serialVersionUID = 1L;

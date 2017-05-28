@@ -25,6 +25,7 @@
 package model.tiles;
 
 import model.CityResources;
+import model.GameBoard;
 
 /**
  * Enable to welcome new inhabitants and consume water units according to the
@@ -166,17 +167,50 @@ public class ResidentialTile extends BuildableTile {
             this.update(res);
         }
     }
-
+    
+    public int besideWater() {
+    	int i=0;
+    	int j=0;
+    	boolean stop = false;
+    	int x=0;
+    	int y=0;
+    	int res = 0;
+    	while(!stop && i < GameBoard.instance.getHeight()) {
+    		while(!stop && j < GameBoard.instance.getWidth()) {
+    			if(this.hashCode() == GameBoard.instance.getTile(i, j).hashCode()) {
+    				stop = true;
+    				x=i;
+    				y=j;
+    			}
+        		j++;
+        	}
+    		i++;
+    	}
+    	System.err.println(x+" "+y);
+    	for(i = x-4; i < x+5; i++) {
+    		for(j = y-4; j < y+5; j++) {
+    			if(i >= 0 && j >= 0 && i< GameBoard.instance.getHeight() && j< GameBoard.instance.getWidth())
+	        		if(GameBoard.instance.getTile(i, j) instanceof RiverTile) {
+	        			return 2;
+	        		}
+	        		else if(GameBoard.instance.getTile(i, j) instanceof WellTile) {
+	        			res=1;
+	        		}
+        	}
+    	}
+    	return res;
+    }
+    
     @Override
     public void update(CityResources res) {
-        if (this.state == ConstructionState.BUILT) {
+    	if (this.state == ConstructionState.BUILT) {
             final int inhabitants = this.getInhabitants(res);
 
             final int busyPercentage = inhabitants * 100 / this.inhabitantsCapacity; // Integer
                                                                                      // division
             final int neededWater = Math.max(1, busyPercentage * this.maxNeededWater / 100); // Integer
-                                                                                               // division
-
+            int w = besideWater();
+            System.out.println(w);
             if (res.getUnconsumedWater() >= neededWater) {
                 res.consumeWater(neededWater);
                 this.isWaterMissing = false;

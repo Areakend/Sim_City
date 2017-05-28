@@ -70,8 +70,7 @@ public class TileUI extends JLabel {
     public void update() {
         final Tile elt = TileUI.model.getTile(this.row, this.column);
         final Tool selectedTool = TileUI.model.getSelectedTool();
-
-        if (selectedTool.canEffect(elt)) {
+        if (selectedTool !=null && selectedTool.canEffect(elt)) {
             final int cost = selectedTool.getCost(elt);
             if (selectedTool== GameBoard.tools.get(3)) {
                 this.setToolTipText(MessageFormat.format(TileUI.model.getTexts().getWoodMsg(), cost));
